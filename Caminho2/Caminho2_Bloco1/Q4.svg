@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- EX1: Pizza dividida em 8 fatias, 3 em cinza (comidas), 5 em amarelo (restantes) -->
+
+<svg
+   viewBox="0 0 240 210"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="Q4.svg"
+   inkscape:export-filename="Q4.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.525"
+     inkscape:cx="120"
+     inkscape:cy="104.9505"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <rect
+     width="240"
+     height="210"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <text
+     x="120"
+     y="20"
+     text-anchor="middle"
+     font-size="12"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text1">Pizza de 8 fatias</text>
+  <g
+     transform="translate(120,110)"
+     id="g8">
+    <!-- 8 fatias (45° cada). Pontos no círculo r=80 para ângulos múltiplos de 45° -->
+    <!-- cos/sen de 0,45,90,135,180,225,270,315° × 80: -->
+    <!-- 0°: (80,0); 45°: (56.6,56.6); 90°: (0,80); 135°: (-56.6,56.6) -->
+    <!-- 180°: (-80,0); 225°: (-56.6,-56.6); 270°: (0,-80); 315°: (56.6,-56.6) -->
+    <!-- 3 fatias comidas (cinza): de 270° a 360°+45° = 3 setores -->
+    <!-- fatia a: 270°–315° -->
+    <path
+       d="M0,0 L0,-80 A80,80 0 0,1 56.6,-56.6 Z"
+       fill="#D0D0D0"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path1" />
+    <!-- fatia b: 315°–360° -->
+    <path
+       d="M0,0 L56.6,-56.6 A80,80 0 0,1 80,0 Z"
+       fill="#D0D0D0"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path2" />
+    <!-- fatia c: 0°–45° -->
+    <path
+       d="M0,0 L80,0 A80,80 0 0,1 56.6,56.6 Z"
+       fill="#D0D0D0"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path3" />
+    <!-- 5 fatias restantes (amarelo) -->
+    <path
+       d="M0,0 L56.6,56.6 A80,80 0 0,1 0,80 Z"
+       fill="#E8D4A8"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path4" />
+    <path
+       d="M0,0 L0,80 A80,80 0 0,1 -56.6,56.6 Z"
+       fill="#E8D4A8"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path5" />
+    <path
+       d="M0,0 L-56.6,56.6 A80,80 0 0,1 -80,0 Z"
+       fill="#E8D4A8"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path6" />
+    <path
+       d="M0,0 L-80,0 A80,80 0 0,1 -56.6,-56.6 Z"
+       fill="#E8D4A8"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path7" />
+    <path
+       d="M0,0 L-56.6,-56.6 A80,80 0 0,1 0,-80 Z"
+       fill="#E8D4A8"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path8" />
+    <circle
+       r="80"
+       fill="none"
+       stroke="#1A2F4F"
+       stroke-width="2"
+       id="circle8" />
+  </g>
+  <rect
+     x="28"
+     y="188"
+     width="12"
+     height="12"
+     fill="#d0d0d0"
+     rx="2"
+     id="rect8"
+     style="stroke:#1a2f4f;stroke-opacity:1" />
+  <text
+     x="46"
+     y="199"
+     font-size="11px"
+     fill="#1a2f4f"
+     id="text8">comidas</text>
+  <rect
+     x="162"
+     y="188"
+     width="12"
+     height="12"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     rx="2"
+     id="rect9" />
+  <text
+     x="180"
+     y="199"
+     font-size="11px"
+     fill="#1a2f4f"
+     id="text9">restantes</text>
+</svg>

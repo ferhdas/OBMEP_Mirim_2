@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 680 200"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="cal_ex_b_estrutura.svg"
+   inkscape:export-filename="cal_ex_b_estrutura.png"
+   inkscape:export-xdpi="112.94118"
+   inkscape:export-ydpi="112.94118"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.89117647"
+     inkscape:cx="340"
+     inkscape:cy="99.867987"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <rect
+     width="680"
+     height="200"
+     fill="white"
+     id="rect1" />
+  <text
+     x="340"
+     y="34"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="19"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Hoje é dia 5, quarta-feira. Qual é o próximo sábado?</text>
+  <rect
+     x="40"
+     y="75"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="155"
+     y="105"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13px"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text2">Hoje, dia do mês 5</text>
+  <text
+     x="155"
+     y="133"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="18px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text3">Quarta-feira</text>
+  <rect
+     x="410"
+     y="75"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     stroke-dasharray="6, 5"
+     id="rect3" />
+  <text
+     x="525"
+     y="105"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13px"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text4">Próximo sábado, dia</text>
+  <text
+     x="525"
+     y="137"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="26px"
+     font-weight="bold"
+     fill="#e0701b"
+     text-anchor="middle"
+     id="text5">?</text>
+  <line
+     x1="300"
+     y1="115"
+     x2="372"
+     y2="115"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line5" />
+  <polygon
+     points="380,115 372,110 372,120"
+     fill="#E0701B"
+     id="polygon5" />
+  <text
+     x="340"
+     y="103"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="13"
+     font-weight="bold"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text6">quantos passos?</text>
+</svg>

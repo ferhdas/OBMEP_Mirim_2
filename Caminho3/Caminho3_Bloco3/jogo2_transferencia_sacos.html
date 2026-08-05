@@ -1,0 +1,127 @@
+<!--
+ENUNCIADO
+Numa balança, o prato esquerdo tem sacos de 2 kg, 6 kg e 9 kg. O prato
+direito tem sacos de 1 kg e 4 kg. Os pratos não ficam nivelados. Se
+movermos exatamente um saco de um prato para o outro, os pratos ficam
+iguais. Clique no saco que deve mudar de prato.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:520px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .figura{width:100%;text-align:center;margin-bottom:10px;}
+  .figura svg{max-width:100%;height:auto;}
+  .pergunta{text-align:center;font-size:13px;color:#374151;margin-bottom:14px;}
+  .opcoes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  button.opcao{padding:12px 2px;font-size:15px;border-radius:10px;border:2px solid #d1d5db;
+               background:#fff;cursor:pointer;transition:all .2s ease;font-weight:700;
+               font-family:"Courier New",monospace;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{background:var(--verde);color:#fff;border-color:var(--verde);}
+  button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
+  button.opcao:disabled{cursor:default;opacity:.85;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="figura">
+    <svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+      <rect width="460" height="260" fill="white"/>
+      <rect x="190" y="210" width="80" height="14" rx="4" fill="#14365A"/>
+      <rect x="224" y="120" width="12" height="90" fill="#14365A"/>
+      <line x1="120" y1="128" x2="340" y2="92" stroke="#14365A" stroke-width="6"/>
+      <circle cx="230" cy="110" r="7" fill="#14365A"/>
+      <line x1="120" y1="128" x2="90" y2="168" stroke="#8A97A6" stroke-width="1.7"/>
+      <line x1="120" y1="128" x2="150" y2="168" stroke="#8A97A6" stroke-width="1.7"/>
+      <line x1="340" y1="92" x2="310" y2="132" stroke="#8A97A6" stroke-width="1.7"/>
+      <line x1="340" y1="92" x2="370" y2="132" stroke="#8A97A6" stroke-width="1.7"/>
+      <rect x="80" y="168" width="120" height="46" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2"/>
+      <text x="140" y="197" font-family="'Courier New',monospace" font-size="15" font-weight="700" fill="#14365A" text-anchor="middle">2, 6, 9 kg</text>
+      <rect x="300" y="132" width="100" height="46" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2"/>
+      <text x="350" y="161" font-family="'Courier New',monospace" font-size="15" font-weight="700" fill="#14365A" text-anchor="middle">1, 4 kg</text>
+      <text x="140" y="158" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#14365A" text-anchor="middle">Prato esquerdo</text>
+      <text x="350" y="122" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" fill="#14365A" text-anchor="middle">Prato direito</text>
+    </svg>
+  </div>
+  <div class="pergunta">Qual saco deve mudar de prato?</div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var OPCOES = ['1 kg', '2 kg', '4 kg', '6 kg', '9 kg'];
+  var CORRETO = '6 kg';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+
+  OPCOES.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.textContent = o;
+    b.dataset.valor = o;
+    b.onclick = function(){ escolher(b, o); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! 17 − 5 = 12, e 12 ÷ 2 = 6.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Some cada prato e ache a metade da diferença.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'O saco certo era o de ' + CORRETO + '.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!--
+ENUNCIADO
+Esta montagem tem um cubinho escondido atrás de outro igual, que não aparece
+numa foto de frente. Clique no total certo de cubinhos da montagem, contando
+também o cubinho escondido.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:420px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .dado{display:flex;justify-content:center;align-items:center;
+        background:#e6f0fa;border:2px solid #2F80C4;border-radius:10px;
+        padding:12px;margin-bottom:8px;}
+  .rot{text-align:center;font-size:12px;color:#c2410c;font-weight:700;margin-bottom:16px;}
+  .opcoes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  button.opcao{padding:12px 4px;font-size:18px;border-radius:10px;border:2px solid #d1d5db;
+               background:#fff;cursor:pointer;transition:all .2s ease;font-weight:700;
+               font-family:"Courier New",monospace;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{background:var(--verde);color:#fff;border-color:var(--verde);}
+  button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
+  button.opcao:disabled{cursor:default;opacity:.85;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="dado">
+    <svg viewBox="0 0 247 205" width="220" height="182" xmlns="http://www.w3.org/2000/svg"><polygon points="45.6,132.5 71.5,147.5 45.6,162.5 19.6,147.5" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="19.6,87.5 45.6,102.5 45.6,132.5 19.6,117.5" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="71.5,87.5 45.6,102.5 45.6,132.5 71.5,117.5" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="45.6,72.5 71.5,87.5 45.6,102.5 19.6,87.5" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="19.6,57.5 45.6,72.5 45.6,102.5 19.6,87.5" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="71.5,57.5 45.6,72.5 45.6,102.5 71.5,87.5" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="45.6,42.5 71.5,57.5 45.6,72.5 19.6,57.5" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,155.0 149.5,170.0 123.5,185.0 97.5,170.0" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="97.5,110.0 123.5,125.0 123.5,155.0 97.5,140.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,110.0 123.5,125.0 123.5,155.0 149.5,140.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,95.0 149.5,110.0 123.5,125.0 97.5,110.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="97.5,80.0 123.5,95.0 123.5,125.0 97.5,110.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,80.0 123.5,95.0 123.5,125.0 149.5,110.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,65.0 149.5,80.0 123.5,95.0 97.5,80.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,110.0 149.5,125.0 123.5,140.0 97.5,125.0" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="97.5,65.0 123.5,80.0 123.5,110.0 97.5,95.0" fill="#E0701B" stroke="#E0701B" stroke-width="1.6"/><polygon points="149.5,65.0 123.5,80.0 123.5,110.0 149.5,95.0" fill="#F6C445" stroke="#E0701B" stroke-width="1.6"/><polygon points="123.5,50.0 149.5,65.0 123.5,80.0 97.5,65.0" fill="#FCEFC2" stroke="#E0701B" stroke-width="1.6"/><polygon points="97.5,35.0 123.5,50.0 123.5,80.0 97.5,65.0" fill="#E0701B" stroke="#E0701B" stroke-width="1.6"/><polygon points="149.5,35.0 123.5,50.0 123.5,80.0 149.5,65.0" fill="#F6C445" stroke="#E0701B" stroke-width="1.6"/><polygon points="123.5,20.0 149.5,35.0 123.5,50.0 97.5,35.0" fill="#FCEFC2" stroke="#E0701B" stroke-width="1.6"/><polygon points="201.4,132.5 227.4,147.5 201.4,162.5 175.5,147.5" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="175.5,87.5 201.4,102.5 201.4,132.5 175.5,117.5" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="227.4,87.5 201.4,102.5 201.4,132.5 227.4,117.5" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="201.4,72.5 227.4,87.5 201.4,102.5 175.5,87.5" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/></svg>
+  </div>
+  <div class="rot">o cubinho laranja fica atrás de um igual, escondido de frente</div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var OPCOES = ['5', '6', '7', '9'];
+  var CORRETO = '7';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+
+  OPCOES.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.textContent = o;
+    b.dataset.valor = o;
+    b.onclick = function(){ escolher(b, o); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Não esqueceu do cubinho escondido.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Conte cada coluna separada, mesmo a que tem cubinho escondido.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'O total certo era ' + CORRETO + '.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

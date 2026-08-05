@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- EX8: Retângulo 4×3 (12 quadradinhos), 8 coloridos de laranja -->
+
+<svg
+   viewBox="0 0 240 160"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="Q8.svg"
+   inkscape:export-filename="Q8.png"
+   inkscape:export-xdpi="160"
+   inkscape:export-ydpi="160"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.525"
+     inkscape:cx="188.51485"
+     inkscape:cy="80"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17" />
+  <rect
+     width="240"
+     height="160"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <!-- Grade 4 colunas × 3 linhas, cada quadradinho 44×38, deslocado para ficar centralizado -->
+  <!-- Coloridos: 8 dos 12 quadradinhos -->
+  <!-- Linha 1: todos os 4 coloridos -->
+  <rect
+     x="39.977554"
+     y="46.170792"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect2" />
+  <rect
+     x="79.288712"
+     y="46.170792"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect3" />
+  <rect
+     x="118.59988"
+     y="46.170792"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect4" />
+  <rect
+     x="157.91106"
+     y="46.170792"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect5" />
+  <!-- Linha 2: os 4 coloridos -->
+  <rect
+     x="39.977554"
+     y="80.121338"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect6" />
+  <rect
+     x="79.288712"
+     y="80.121338"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect7" />
+  <rect
+     x="118.59988"
+     y="80.121338"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect8" />
+  <rect
+     x="157.91106"
+     y="80.121338"
+     width="39.311165"
+     height="33.95055"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect9" />
+  <!-- Linha 3: nenhum colorido (4 bege) -->
+  <rect
+     x="39.977554"
+     cy="106"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="0.893435"
+     id="rect10"
+     y="12.220238" />
+  <rect
+     x="79.288712"
+     cy="106"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="0.893435"
+     id="rect11"
+     y="12.220238" />
+  <rect
+     x="118.59988"
+     cy="106"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="0.893435"
+     id="rect12"
+     y="12.220238" />
+  <rect
+     x="157.91106"
+     cy="106"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="0.893435"
+     id="rect13"
+     y="12.220238" />
+  <!-- Corrijo: linha 3 precisa de y, não cy -->
+  <rect
+     x="39.977554"
+     y="114.0719"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect14" />
+  <rect
+     x="79.288712"
+     y="114.0719"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect15" />
+  <rect
+     x="118.59988"
+     y="114.0719"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect16" />
+  <rect
+     x="157.91106"
+     y="114.0719"
+     width="39.311165"
+     height="33.95055"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.2269"
+     id="rect17" />
+</svg>

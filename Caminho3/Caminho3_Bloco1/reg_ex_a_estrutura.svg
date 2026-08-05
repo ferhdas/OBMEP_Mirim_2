@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 680 230"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="reg_ex_a_estrutura.svg"
+   inkscape:export-filename="reg_ex_a_estrutura.png"
+   inkscape:export-xdpi="112.94118"
+   inkscape:export-ydpi="112.94118"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs28" />
+  <sodipodi:namedview
+     id="namedview28"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.81366448"
+     inkscape:cx="334.29012"
+     inkscape:cy="130.27483"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg28" />
+  <rect
+     width="680"
+     height="230"
+     fill="white"
+     id="rect1" />
+  <text
+     x="340"
+     y="28"
+     font-family="DejaVu Sans"
+     font-size="17"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">O comprimento é a diferença entre o fim e o começo</text>
+  <rect
+     x="228"
+     y="56"
+     width="308"
+     height="28"
+     rx="8"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.4"
+     id="rect2" />
+  <text
+     x="382"
+     y="75"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text2">borracha</text>
+  <line
+     x1="228"
+     y1="98"
+     x2="228"
+     y2="150"
+     stroke="#8A97A6"
+     stroke-width="1.2"
+     stroke-dasharray="4,3"
+     id="line2" />
+  <line
+     x1="536"
+     y1="98"
+     x2="536"
+     y2="150"
+     stroke="#8A97A6"
+     stroke-width="1.2"
+     stroke-dasharray="4,3"
+     id="line3" />
+  <line
+     x1="228"
+     y1="118"
+     x2="228"
+     y2="130"
+     stroke="#E0701B"
+     stroke-width="2.2"
+     id="line4" />
+  <line
+     x1="536"
+     y1="118"
+     x2="536"
+     y2="130"
+     stroke="#E0701B"
+     stroke-width="2.2"
+     id="line5" />
+  <line
+     x1="228"
+     y1="124"
+     x2="536"
+     y2="124"
+     stroke="#E0701B"
+     stroke-width="2.2"
+     id="line6" />
+  <rect
+     x="350.0"
+     y="92"
+     width="64"
+     height="24"
+     rx="6"
+     fill="white"
+     stroke="#E0701B"
+     stroke-width="1.6"
+     id="rect6" />
+  <text
+     x="382.0"
+     y="109"
+     font-family="DejaVu Sans Mono"
+     font-size="15"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text6">?</text>
+  <rect
+     x="60"
+     y="150"
+     width="560"
+     height="30"
+     rx="4"
+     fill="#E6F0FA"
+     stroke="#14365A"
+     stroke-width="2"
+     id="rect7" />
+  <line
+     x1="60"
+     y1="150"
+     x2="60"
+     y2="180"
+     stroke="#14365A"
+     stroke-width="2"
+     id="line7" />
+  <text
+     x="60"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text7">0</text>
+  <line
+     x1="88"
+     y1="150"
+     x2="88"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line8" />
+  <text
+     x="88"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text8">1</text>
+  <line
+     x1="116"
+     y1="150"
+     x2="116"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line9" />
+  <text
+     x="116"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text9">2</text>
+  <line
+     x1="144"
+     y1="150"
+     x2="144"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line10" />
+  <text
+     x="144"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text10">3</text>
+  <line
+     x1="172"
+     y1="150"
+     x2="172"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line11" />
+  <text
+     x="172"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text11">4</text>
+  <line
+     x1="200"
+     y1="150"
+     x2="200"
+     y2="180"
+     stroke="#14365A"
+     stroke-width="2"
+     id="line12" />
+  <text
+     x="200"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text12">5</text>
+  <line
+     x1="228"
+     y1="150"
+     x2="228"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line13" />
+  <text
+     x="228"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text13">6</text>
+  <line
+     x1="256"
+     y1="150"
+     x2="256"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line14" />
+  <text
+     x="256"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text14">7</text>
+  <line
+     x1="284"
+     y1="150"
+     x2="284"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line15" />
+  <text
+     x="284"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text15">8</text>
+  <line
+     x1="312"
+     y1="150"
+     x2="312"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line16" />
+  <text
+     x="312"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text16">9</text>
+  <line
+     x1="340"
+     y1="150"
+     x2="340"
+     y2="180"
+     stroke="#14365A"
+     stroke-width="2"
+     id="line17" />
+  <text
+     x="340"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text17">10</text>
+  <line
+     x1="368"
+     y1="150"
+     x2="368"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line18" />
+  <text
+     x="368"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text18">11</text>
+  <line
+     x1="396"
+     y1="150"
+     x2="396"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line19" />
+  <text
+     x="396"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text19">12</text>
+  <line
+     x1="424"
+     y1="150"
+     x2="424"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line20" />
+  <text
+     x="424"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text20">13</text>
+  <line
+     x1="452"
+     y1="150"
+     x2="452"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line21" />
+  <text
+     x="452"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text21">14</text>
+  <line
+     x1="480"
+     y1="150"
+     x2="480"
+     y2="180"
+     stroke="#14365A"
+     stroke-width="2"
+     id="line22" />
+  <text
+     x="480"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text22">15</text>
+  <line
+     x1="508"
+     y1="150"
+     x2="508"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line23" />
+  <text
+     x="508"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text23">16</text>
+  <line
+     x1="536"
+     y1="150"
+     x2="536"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line24" />
+  <text
+     x="536"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text24">17</text>
+  <line
+     x1="564"
+     y1="150"
+     x2="564"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line25" />
+  <text
+     x="564"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text25">18</text>
+  <line
+     x1="592"
+     y1="150"
+     x2="592"
+     y2="166.5"
+     stroke="#14365A"
+     stroke-width="1.2"
+     id="line26" />
+  <text
+     x="592"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text26">19</text>
+  <line
+     x1="620"
+     y1="150"
+     x2="620"
+     y2="180"
+     stroke="#14365A"
+     stroke-width="2"
+     id="line27" />
+  <text
+     x="620"
+     y="196"
+     font-family="DejaVu Sans Mono"
+     font-size="9.5"
+     font-weight="normal"
+     fill="#374151"
+     text-anchor="middle"
+     id="text27">20</text>
+  <text
+     x="340"
+     y="214"
+     font-family="DejaVu Sans"
+     font-size="11.5"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text28"
+     style="fill:#000000;fill-opacity:1">marcas da régua, em centímetros</text>
+</svg>

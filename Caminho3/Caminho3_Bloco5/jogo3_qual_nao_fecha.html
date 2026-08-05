@@ -1,0 +1,127 @@
+<!--
+ENUNCIADO
+Cada um dos moldes abaixo tem seis quadrados. Clique no molde que NÃO fecha um cubo,
+sobrando ou faltando face ao dobrar.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:640px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .opcoes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  button.opcao{padding:10px;border-radius:10px;border:2px solid #d1d5db;background:#f8fafc;
+               cursor:pointer;transition:all .2s ease;display:flex;justify-content:center;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{border-color:var(--verde);background:#f0fdf4;}
+  button.opcao.errada{border-color:var(--vermelho);background:#fef2f2;}
+  button.opcao:disabled{cursor:default;opacity:.9;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var NAVY="#14365A", FILL="#EEF3F8";
+
+  function svgTag(w,h,inner){
+    return '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" xmlns="http://www.w3.org/2000/svg">'+
+           '<rect width="'+w+'" height="'+h+'" fill="white"/>'+inner+'</svg>';
+  }
+  function rect(x,y,w,h,fill){
+    return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="5" fill="'+fill+'" stroke="'+NAVY+'" stroke-width="2"/>';
+  }
+  // desenha um molde a partir de uma lista de casas [col,row]
+  function drawNet(cells, cell){
+    cell = cell || 34;
+    var cols = cells.map(function(c){return c[0];});
+    var rows = cells.map(function(c){return c[1];});
+    var minc = Math.min.apply(null, cols), minr = Math.min.apply(null, rows);
+    var maxc = Math.max.apply(null, cols), maxr = Math.max.apply(null, rows);
+    var s = '';
+    for (var i=0;i<cells.length;i++){
+      var c = cells[i][0]-minc, r = cells[i][1]-minr;
+      s += rect(c*cell, r*cell, cell-4, cell-4, FILL);
+    }
+    return svgTag((maxc-minc+1)*cell, (maxr-minr+1)*cell, s);
+  }
+
+  // quatro moldes (validados por simulador de dobradura no bloco): so o ROW6 nao fecha
+  var MOLDES = {
+    row6:   {cells:[[0,0],[1,0],[2,0],[3,0],[4,0],[5,0]], correta:true},
+    cross:  {cells:[[0,1],[1,1],[2,1],[3,1],[1,0],[1,2]], correta:false},
+    fileira:{cells:[[0,-1],[0,0],[0,1],[1,0],[2,0],[3,0]], correta:false},
+    zigue:  {cells:[[0,0],[1,0],[1,1],[2,1],[2,2],[3,2]], correta:false}
+  };
+  // "correta" aqui significa: é a resposta certa do jogo (o molde que NAO fecha)
+  var ORDEM = ['zigue','row6','fileira','cross'];
+
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+  var respondido = false, tentativas = 0, inicio = Date.now();
+
+  ORDEM.forEach(function(chave){
+    var m = MOLDES[chave];
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.innerHTML = drawNet(m.cells);
+    b.dataset.chave = chave;
+    b.onclick = function(){ escolher(b, chave); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (MOLDES[btn.dataset.chave].correta) btn.classList.add('certa');
+    });
+  }
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+  function escolher(botao, chave){
+    if (respondido) return;
+    tentativas++;
+    var acertou = MOLDES[chave].correta;
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Esse molde dá a volta e fica sem chão nem teto.';
+      msg.style.color = '#16a34a';
+      enviar(true, chave);
+      return;
+    }
+    botao.classList.add('errada');
+    botao.disabled = true;
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Esse molde fecha certinho. Procure o que dá a volta.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'O molde que não fecha é a fileira reta de seis quadrados.';
+    msg.style.color = '#dc2626';
+    enviar(false, chave);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!--
+ENUNCIADO
+Uma trena de costura mede 9 cm de comprimento e tem uma marquinha a
+cada 1 centímetro, contando a marquinha do começo e a do final.
+Quantas marquinhas há ao todo na trena? Clique na resposta certa.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:420px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .dado{background:#e2f2ea;border:2px solid #3E9B6B;border-radius:10px;padding:12px;
+        margin-bottom:16px;text-align:center;font-size:13.5px;color:#2C7A54;font-weight:700;}
+  .marcas{display:flex;justify-content:center;gap:4px;margin:10px 0 2px;flex-wrap:wrap;}
+  .marca{width:16px;height:16px;border-radius:50%;background:#3E9B6B;}
+  .opcoes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  button.opcao{padding:12px 4px;font-size:16px;border-radius:10px;border:2px solid #d1d5db;
+               background:#fff;cursor:pointer;transition:all .2s ease;font-weight:700;
+               font-family:"Courier New",monospace;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{background:var(--verde);color:#fff;border-color:var(--verde);}
+  button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
+  button.opcao:disabled{cursor:default;opacity:.85;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="dado">
+    Trena de 9 cm, uma marquinha a cada 1 centímetro
+    <div class="marcas" id="marcas"></div>
+  </div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var marcasDiv = document.getElementById('marcas');
+  for (var i = 0; i <= 9; i++){
+    var d = document.createElement('div');
+    d.className = 'marca';
+    marcasDiv.appendChild(d);
+  }
+
+  var OPCOES = ['9', '8', '10', '18'];
+  var CORRETO = '10';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+
+  OPCOES.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.textContent = o;
+    b.dataset.valor = o;
+    b.onclick = function(){ escolher(b, o); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! 9 intervalos mais 1 dá 10 marquinhas.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Conte os intervalos e depois some 1.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'A resposta certa era ' + CORRETO + ' marquinhas.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

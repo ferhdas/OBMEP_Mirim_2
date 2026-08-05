@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 680 200"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="q_ohj_ex1_enunciado.svg"
+   inkscape:export-filename="q_ohj_ex1_enunciado.png"
+   inkscape:export-xdpi="112.94118"
+   inkscape:export-ydpi="112.94118"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.89117647"
+     inkscape:cx="340"
+     inkscape:cy="99.867987"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <rect
+     width="680"
+     height="200"
+     fill="white"
+     id="rect1" />
+  <text
+     x="340"
+     y="34"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="19"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">De ontem para hoje</text>
+  <rect
+     x="60"
+     y="70"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="175"
+     y="100"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text2">Ontem</text>
+  <text
+     x="175"
+     y="128"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="18"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text3">Terça-feira</text>
+  <rect
+     x="390"
+     y="70"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#FCEBD9"
+     stroke="#E0701B"
+     stroke-width="2.2"
+     stroke-dasharray="6,5"
+     id="rect3" />
+  <text
+     x="505"
+     y="100"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text4">Hoje</text>
+  <text
+     x="505"
+     y="130"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="26"
+     font-weight="bold"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text5">?</text>
+  <line
+     x1="300"
+     y1="110"
+     x2="372"
+     y2="110"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line5" />
+  <polygon
+     points="380,110 372,105 372,115"
+     fill="#E0701B"
+     id="polygon5" />
+  <text
+     x="340"
+     y="98"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="13"
+     font-weight="bold"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text6">+1 dia</text>
+</svg>

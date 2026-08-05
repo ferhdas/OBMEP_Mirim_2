@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #faf9f5;
+    padding: 20px;
+    min-height: 200px;
+  }
+  #painel {
+    background: #fff;
+    border-radius: 12px;
+    border: 2px solid #e2d9f3;
+    padding: 20px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  #rodada-info {
+    font-size: 12px;
+    color: #7e22ce;
+    font-weight: 600;
+    text-align: right;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  #grade-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 20px;
+  }
+  #grade {
+    display: grid;
+    gap: 5px;
+  }
+  .celula {
+    width: 38px;
+    height: 38px;
+    border-radius: 7px;
+    border: 2px solid #c4b5e8;
+    transition: transform 0.15s;
+  }
+  .celula.marcada { background: #7e22ce; border-color: #5b21b6; }
+  .celula.livre   { background: #e9e4f7; }
+
+  #alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .alt-btn {
+    padding: 14px 8px;
+    font-size: 22px;
+    font-weight: 700;
+    border: 2.5px solid #c4b5e8;
+    border-radius: 10px;
+    background: #f5f0ff;
+    color: #3b0764;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .alt-btn:hover:not(:disabled) {
+    background: #ede9fe;
+    border-color: #7e22ce;
+    transform: translateY(-2px);
+  }
+  .alt-btn:disabled { cursor: default; }
+  .alt-btn.correta  { background: #dcfce7; border-color: #16a34a; color: #14532d; }
+  .alt-btn.errada   { background: #fee2e2; border-color: #dc2626; color: #7f1d1d; }
+
+  #feedback {
+    margin-top: 16px;
+    min-height: 28px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    padding: 6px 0;
+    transition: background 0.2s;
+  }
+  #feedback.ok  { background: #dcfce7; color: #15803d; }
+  #feedback.nok { background: #fee2e2; color: #b91c1c; }
+
+  #proximo-btn {
+    display: none;
+    margin: 14px auto 0;
+    padding: 10px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #7e22ce;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  #proximo-btn:hover { background: #6b21a8; }
+</style>
+</head>
+<body>
+<div id="painel">
+  <div id="rodada-info"></div>
+  <div id="grade-wrap"><div id="grade"></div></div>
+  <div id="alternativas"></div>
+  <div id="feedback"></div>
+  <button id="proximo-btn">Próxima →</button>
+</div>
+
+<script>
+(function(){
+  // ── Banco de rodadas ──────────────────────────────────────────────────────
+  // Cada rodada: cols, rows, marcadas (índices 0-based), e as 4 alternativas
+  // com qual é a correta (índice 0-3).
+  var rodadas = [
+    { cols:4, rows:2, marcadas:[0,1],       alts:["1/2","1/4","2/8","2/6"], correta:2 },
+    { cols:3, rows:2, marcadas:[0,1,2],     alts:["3/5","1/2","3/6","2/3"], correta:2 },
+    { cols:5, rows:1, marcadas:[0,1],       alts:["2/5","3/5","1/5","2/4"], correta:0 },
+    { cols:4, rows:2, marcadas:[0,1,2,3,4], alts:["5/8","4/8","3/8","5/6"], correta:0 },
+    { cols:3, rows:3, marcadas:[0,3,6],     alts:["1/3","3/6","2/9","3/9"], correta:3 },
+    { cols:4, rows:2, marcadas:[2,3,6,7],   alts:["1/2","3/8","4/6","4/8"], correta:3 },
+  ];
+
+  var ordemRodadas = [0,1,2,3,4,5];
+  // embaralhar
+  for(var i=ordemRodadas.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1));
+    var t=ordemRodadas[i];ordemRodadas[i]=ordemRodadas[j];ordemRodadas[j]=t;
+  }
+  ordemRodadas = ordemRodadas.slice(0,4); // 4 rodadas por sessão
+
+  var rodadaAtual = 0;
+  var acertos = 0;
+  var respondido = false;
+  var respondidoFinal = false;
+  var inicio = Date.now();
+
+  function renderRodada(){
+    var r = rodadas[ordemRodadas[rodadaAtual]];
+    var total = r.cols * r.rows;
+
+    // Info
+    document.getElementById('rodada-info').textContent =
+      'Rodada ' + (rodadaAtual+1) + ' de ' + ordemRodadas.length;
+
+    // Grade
+    var g = document.getElementById('grade');
+    g.innerHTML = '';
+    g.style.gridTemplateColumns = 'repeat('+r.cols+', 38px)';
+    for(var i=0;i<total;i++){
+      var c = document.createElement('div');
+      c.className = 'celula ' + (r.marcadas.indexOf(i)>=0 ? 'marcada' : 'livre');
+      g.appendChild(c);
+    }
+
+    // Alternativas
+    var altDiv = document.getElementById('alternativas');
+    altDiv.innerHTML = '';
+    // embaralhar ordem das alts preservando qual é a correta
+    var idx = [0,1,2,3];
+    for(var i=3;i>0;i--){
+      var j=Math.floor(Math.random()*(i+1));
+      var t=idx[i];idx[i]=idx[j];idx[j]=t;
+    }
+    var novaPosCorreta = idx.indexOf(r.correta);
+
+    idx.forEach(function(altIdx, posBtn){
+      var btn = document.createElement('button');
+      btn.className = 'alt-btn';
+      btn.innerHTML = fracHTML(r.alts[altIdx]);
+      btn.dataset.correto = (altIdx === r.correta) ? '1' : '0';
+      btn.onclick = function(){ escolher(btn, posBtn === novaPosCorreta); };
+      altDiv.appendChild(btn);
+    });
+
+    // limpa feedback
+    var fb = document.getElementById('feedback');
+    fb.textContent = '';
+    fb.className = '';
+    document.getElementById('proximo-btn').style.display = 'none';
+    respondido = false;
+  }
+
+  function fracHTML(str){
+    var p = str.split('/');
+    return '<span style="display:inline-flex;flex-direction:column;align-items:center;line-height:1.1">'
+      +'<span>'+p[0]+'</span>'
+      +'<span style="border-top:2.5px solid currentColor;width:100%;margin:2px 0"></span>'
+      +'<span>'+p[1]+'</span>'
+      +'</span>';
+  }
+
+  function escolher(btn, eCorreta){
+    if(respondido) return;
+    respondido = true;
+    // desabilitar todos
+    document.querySelectorAll('.alt-btn').forEach(function(b){
+      b.disabled = true;
+      if(b.dataset.correto==='1') b.classList.add('correta');
+    });
+    if(!eCorreta) btn.classList.add('errada');
+
+    var fb = document.getElementById('feedback');
+    if(eCorreta){
+      acertos++;
+      fb.textContent = '✓ Correto!';
+      fb.className = 'ok';
+    } else {
+      fb.textContent = '✗ Não é essa. A marcada está em destaque.';
+      fb.className = 'nok';
+    }
+
+    // se for a última rodada, encerrar
+    if(rodadaAtual >= ordemRodadas.length - 1){
+      setTimeout(function(){
+        encerrar(eCorreta);
+      }, 1200);
+    } else {
+      document.getElementById('proximo-btn').style.display = 'block';
+    }
+  }
+
+  function encerrar(ultimaCorreta){
+    if(respondidoFinal) return;
+    respondidoFinal = true;
+    var acertouFinal = (acertos === ordemRodadas.length);
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertouFinal,
+      meta: {
+        tentativas: ordemRodadas.length,
+        tempo: Math.round((Date.now()-inicio)/1000),
+        resposta: acertos + '/' + ordemRodadas.length + ' acertos'
+      }
+    }, '*');
+  }
+
+  document.getElementById('proximo-btn').onclick = function(){
+    rodadaAtual++;
+    renderRodada();
+  };
+
+  renderRodada();
+})();
+</script>
+</body>
+</html>

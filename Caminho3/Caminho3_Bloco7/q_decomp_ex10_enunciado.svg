@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 560 420" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect width="560" height="420" fill="white"/>
+<text x="280.0" y="30.0" font-family="DejaVu Sans" font-size="16" font-weight="bold" fill="#14365A" text-anchor="middle">Cubo de madeira amarelo, aresta com 6 cubinhos</text><polygon points="150.1,165.0 280.0,240.0 280.0,390.0 150.1,315.0" fill="#8a6d1a" stroke="#14365A" stroke-width="1.3"/><polygon points="409.9,165.0 280.0,240.0 280.0,390.0 409.9,315.0" fill="#F6C445" stroke="#14365A" stroke-width="1.3"/><polygon points="280.0,90.0 409.9,165.0 280.0,240.0 150.1,165.0" fill="#FCEFC2" stroke="#14365A" stroke-width="1.3"/><text x="280.0" y="400.0" font-family="DejaVu Sans Mono" font-size="12" font-weight="normal" fill="#8A97A6" text-anchor="middle">cubo grande, aresta = 6 cubinhos</text>
+</svg>

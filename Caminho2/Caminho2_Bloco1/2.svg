@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- FIGURA 2: Retângulo dividido em 6 partes, 2 coloridas. Setas indicando numerador e denominador -->
+
+<svg
+   viewBox="0 0 380 160"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="2.svg"
+   inkscape:export-filename="2.png"
+   inkscape:export-xdpi="202.10527"
+   inkscape:export-ydpi="202.10527"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.9315789"
+     inkscape:cx="190"
+     inkscape:cy="80.245232"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <rect
+     width="380"
+     height="160"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <text
+     x="190"
+     y="22"
+     text-anchor="middle"
+     font-size="13"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text1">Como ler a fração de uma figura</text>
+  <!-- 6 retângulos -->
+  <!-- 2 coloridos (laranja) -->
+  <rect
+     x="20"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E5532E"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect2" />
+  <rect
+     x="76"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E5532E"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect3" />
+  <!-- 4 brancos/bege -->
+  <rect
+     x="132"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E8D4A8"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect4" />
+  <rect
+     x="188"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E8D4A8"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect5" />
+  <rect
+     x="244"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E8D4A8"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect6" />
+  <rect
+     x="300"
+     y="40"
+     width="52"
+     height="70"
+     fill="#E8D4A8"
+     stroke="#1A2F4F"
+     stroke-width="1.5"
+     rx="4"
+     id="rect7" />
+  <!-- Chave embaixo: partes coloridas -->
+  <line
+     x1="20"
+     y1="122"
+     x2="128"
+     y2="122"
+     stroke="#E5532E"
+     stroke-width="2"
+     id="line7" />
+  <line
+     x1="20"
+     y1="118"
+     x2="20"
+     y2="126"
+     stroke="#E5532E"
+     stroke-width="2"
+     id="line8" />
+  <line
+     x1="128"
+     y1="118"
+     x2="128"
+     y2="126"
+     stroke="#E5532E"
+     stroke-width="2"
+     id="line9" />
+  <text
+     x="106"
+     y="136"
+     text-anchor="middle"
+     font-size="11px"
+     fill="#e5532e"
+     font-weight="bold"
+     id="text9">2 partes coloridas → numerador</text>
+  <!-- Chave embaixo: total -->
+  <line
+     x1="20"
+     y1="146"
+     x2="352"
+     y2="146"
+     stroke="#4a6fa5"
+     stroke-width="2"
+     id="line10" />
+  <line
+     x1="20"
+     y1="142"
+     x2="20"
+     y2="150"
+     stroke="#4a6fa5"
+     stroke-width="2"
+     id="line11" />
+  <line
+     x1="352"
+     y1="142"
+     x2="352"
+     y2="150"
+     stroke="#4a6fa5"
+     stroke-width="2"
+     id="line12" />
+  <text
+     x="186"
+     y="156"
+     text-anchor="middle"
+     font-size="11px"
+     fill="#4a6fa5"
+     font-weight="bold"
+     id="text12">6 partes no total → denominador</text>
+  <!-- Fração no canto direito -->
+  <text
+     x="366.63489"
+     y="67.510391"
+     text-anchor="middle"
+     font-size="15.7936px"
+     fill="#1a2f4f"
+     font-weight="bold"
+     id="text13"
+     style="stroke-width:0.78968">2</text>
+  <line
+     x1="354"
+     y1="72.248466"
+     x2="379.26974"
+     y2="72.248466"
+     stroke="#1a2f4f"
+     stroke-width="1.57936"
+     id="line13" />
+  <text
+     x="366.63489"
+     y="88.042068"
+     text-anchor="middle"
+     font-size="15.7936px"
+     fill="#1a2f4f"
+     font-weight="bold"
+     id="text14"
+     style="stroke-width:0.78968">6</text>
+</svg>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- FIGURA Q1: Torta dividida em 6 partes, 2 comidas, 4 restantes -->
+
+<svg
+   viewBox="0 0 260 230"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="Q1.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs7" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.3307692"
+     inkscape:cx="134.71947"
+     inkscape:cy="108.54785"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <rect
+     width="260"
+     height="230"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <text
+     x="130"
+     y="22"
+     text-anchor="middle"
+     font-size="13"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text1">O que sobrou da torta</text>
+  <g
+     transform="translate(130,120)"
+     id="g6">
+    <!-- 6 fatias, ângulo 60° cada. Vértices do hexágono regular a r=85 -->
+    <!-- ângulos: 0°, 60°, 120°, 180°, 240°, 300° (medidos do eixo x) -->
+    <!-- Fatias RESTANTES (bege/laranja): fatias 0–3 -->
+    <!-- fatia 0: de -90° a -30°  (topo para direita superior) -->
+    <path
+       d="M0,0 L0,-85 A85,85 0 0,1 73.6,-42.5 Z"
+       fill="#E5532E"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path1" />
+    <!-- fatia 1: de -30° a 30° -->
+    <path
+       d="M0,0 L73.6,-42.5 A85,85 0 0,1 73.6,42.5 Z"
+       fill="#E5532E"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path2" />
+    <!-- fatia 2: de 30° a 90° -->
+    <path
+       d="M0,0 L73.6,42.5 A85,85 0 0,1 0,85 Z"
+       fill="#E5532E"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path3" />
+    <!-- fatia 3: de 90° a 150° -->
+    <path
+       d="M0,0 L0,85 A85,85 0 0,1 -73.6,42.5 Z"
+       fill="#E5532E"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       id="path4" />
+    <!-- Fatias COMIDAS (cinza/vazio): fatias 4–5 -->
+    <!-- fatia 4: de 150° a 210° -->
+    <path
+       d="M0,0 L-73.6,42.5 A85,85 0 0,1 -73.6,-42.5 Z"
+       fill="#D0D0D0"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       stroke-dasharray="4,3"
+       id="path5" />
+    <!-- fatia 5: de 210° a 270° -->
+    <path
+       d="M0,0 L-73.6,-42.5 A85,85 0 0,1 0,-85 Z"
+       fill="#D0D0D0"
+       stroke="#1A2F4F"
+       stroke-width="1.5"
+       stroke-dasharray="4,3"
+       id="path6" />
+    <!-- Contorno -->
+    <circle
+       r="85"
+       fill="none"
+       stroke="#1A2F4F"
+       stroke-width="2"
+       id="circle6" />
+  </g>
+  <!-- Legenda -->
+  <rect
+     x="14"
+     y="205"
+     width="14"
+     height="14"
+     fill="#e5532e"
+     rx="2"
+     id="rect6" />
+  <text
+     x="34"
+     y="217"
+     font-size="12px"
+     fill="#1a2f4f"
+     id="text6">fatias que sobraram</text>
+  <rect
+     x="153"
+     y="205"
+     width="14"
+     height="14"
+     fill="#d0d0d0"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     rx="2"
+     id="rect7" />
+  <text
+     x="173"
+     y="217"
+     font-size="12px"
+     fill="#1a2f4f"
+     id="text7">fatias comidas</text>
+</svg>

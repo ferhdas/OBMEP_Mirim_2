@@ -1,0 +1,110 @@
+<!--
+ENUNCIADO
+Três colegas falam sobre hoje. Júlia diz: "Ontem foi domingo." Léo diz: "Hoje é
+segunda-feira." Marta diz: "Amanhã será quarta-feira." Só um dos três está
+enganado. Clique no nome de quem está enganado.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .falas{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+  button.fala{text-align:left;padding:12px;border-radius:10px;border:2px solid #d1d5db;
+              background:#fff;cursor:pointer;transition:all .2s ease;}
+  button.fala:hover:not(:disabled){border-color:var(--roxo);}
+  button.fala .nome{font-weight:700;color:#14365A;font-size:14px;margin-bottom:6px;display:block;}
+  button.fala .quote{font-size:13px;font-style:italic;color:#374151;}
+  button.fala.certa{background:var(--verde);border-color:var(--verde);}
+  button.fala.certa .nome, button.fala.certa .quote{color:#fff;}
+  button.fala.errada{background:var(--vermelho);border-color:var(--vermelho);}
+  button.fala.errada .nome, button.fala.errada .quote{color:#fff;}
+  button.fala:disabled{cursor:default;opacity:.9;}
+  #msg{margin-top:6px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="falas" id="falas"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var FALAS = [
+    { nome: 'Júlia', quote: '"Ontem foi domingo."' },
+    { nome: 'Léo',   quote: '"Hoje é segunda-feira."' },
+    { nome: 'Marta', quote: '"Amanhã será quarta-feira."' }
+  ];
+  var CORRETO = 'Marta';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('falas');
+  var msg = document.getElementById('msg');
+
+  FALAS.forEach(function(f){
+    var b = document.createElement('button');
+    b.className = 'fala';
+    b.dataset.valor = f.nome;
+    b.innerHTML = '<span class="nome">' + f.nome + '</span><span class="quote">' + f.quote + '</span>';
+    b.onclick = function(){ escolher(b, f.nome); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Essa é a fala que não bate com as outras.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Traduza cada fala num dia e compare.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Quem estava enganada era ' + CORRETO + '.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

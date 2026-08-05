@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="680" height="200" fill="white"/>
+  <text x="340" y="34" font-family="Poppins, Inter, sans-serif" font-size="19" font-weight="bold" fill="#14365A" text-anchor="middle">Hoje é dia 22, quinta-feira. Qual é o próximo domingo?</text>
+
+  <rect x="60" y="75" width="230" height="80" rx="12" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+  <text x="175" y="105" font-family="Poppins, Inter, sans-serif" font-size="13" fill="#8A97A6" text-anchor="middle">Hoje, dia do mês 22</text>
+  <text x="175" y="133" font-family="Poppins, Inter, sans-serif" font-size="18" font-weight="bold" fill="#14365A" text-anchor="middle">Quinta-feira</text>
+
+  <rect x="390" y="75" width="230" height="80" rx="12" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2" stroke-dasharray="6,5"/>
+  <text x="505" y="105" font-family="Poppins, Inter, sans-serif" font-size="13" fill="#8A97A6" text-anchor="middle">Próximo domingo, dia</text>
+  <text x="505" y="137" font-family="'DejaVu Sans Mono', monospace" font-size="26" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+
+  <line x1="300" y1="115" x2="372" y2="115" stroke="#E0701B" stroke-width="2.4"/>
+  <polygon points="380,115 372,110 372,120" fill="#E0701B"/>
+  <text x="340" y="103" font-family="'DejaVu Sans Mono', monospace" font-size="13" font-weight="bold" fill="#E0701B" text-anchor="middle">quantos passos?</text>
+</svg>

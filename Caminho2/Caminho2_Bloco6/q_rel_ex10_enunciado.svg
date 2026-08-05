@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 680 220"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="q_rel_ex10_enunciado.svg"
+   inkscape:export-filename="q_rel_ex10_enunciado.png"
+   inkscape:export-xdpi="112.94118"
+   inkscape:export-ydpi="112.94118"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs7" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.89117647"
+     inkscape:cx="340"
+     inkscape:cy="109.967"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <rect
+     width="680"
+     height="220"
+     fill="white"
+     id="rect1" />
+  <text
+     x="340"
+     y="30"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="18px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text1">O ônibus leva 55 min do terminal ao ponto final, na ida</text>
+  <rect
+     x="230"
+     y="46"
+     width="220"
+     height="44"
+     rx="10"
+     fill="#FCEFC2"
+     stroke="#F6C445"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="340"
+     y="73"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="15"
+     font-weight="bold"
+     fill="#8a6d1a"
+     text-anchor="middle"
+     id="text2">duração: 55 minutos</text>
+  <rect
+     x="60"
+     y="110"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2"
+     id="rect3" />
+  <text
+     x="175"
+     y="136"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text3">Sai do ponto final (volta)</text>
+  <text
+     x="175"
+     y="168"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="22"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text4">13h30</text>
+  <rect
+     x="390"
+     y="110"
+     width="230"
+     height="80"
+     rx="12"
+     fill="#FCEBD9"
+     stroke="#E0701B"
+     stroke-width="2.2"
+     stroke-dasharray="6,5"
+     id="rect4" />
+  <text
+     x="505"
+     y="136"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text5">Chega ao terminal</text>
+  <text
+     x="505"
+     y="172"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="26"
+     font-weight="bold"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text6">?</text>
+  <line
+     x1="300"
+     y1="150"
+     x2="372"
+     y2="150"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line6" />
+  <polygon
+     points="380,150 372,145 372,155"
+     fill="#E0701B"
+     id="polygon6" />
+  <text
+     x="340"
+     y="138"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="13"
+     font-weight="bold"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text7">+55 min</text>
+</svg>

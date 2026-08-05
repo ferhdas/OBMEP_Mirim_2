@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:480px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .dado{display:flex;justify-content:center;align-items:center;gap:14px;
+        background:#f5f3ff;border:2px solid var(--roxo);border-radius:10px;
+        padding:12px;margin-bottom:14px;flex-wrap:wrap;}
+  .bloco{text-align:center;}
+  .bloco .num{font-family:"Courier New",monospace;font-size:20px;font-weight:700;color:var(--roxo);}
+  .bloco .rot{font-size:12px;color:#6b7280;margin-top:2px;}
+  .igual{font-size:18px;color:var(--roxo);font-weight:700;}
+  .meta{display:flex;justify-content:center;align-items:center;gap:14px;
+        background:#fff7ed;border:2px solid #f97316;border-radius:10px;
+        padding:12px;margin-bottom:18px;flex-wrap:wrap;}
+  .meta .num{color:#c2410c;}
+  .stepper{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;}
+  .stepper button{width:44px;height:44px;border-radius:10px;border:2px solid #d1d5db;
+                  background:#fff;font-size:18px;font-weight:700;cursor:pointer;
+                  transition:all .2s ease;font-family:"Courier New",monospace;}
+  .stepper button:hover:not(:disabled){border-color:var(--roxo);}
+  .stepper button:disabled{opacity:.5;cursor:default;}
+  #valorAtual{min-width:64px;text-align:center;font-size:26px;font-weight:700;
+              font-family:"Courier New",monospace;color:#1f2937;}
+  #confirmar{display:block;margin:0 auto;padding:12px 28px;font-size:15px;font-weight:700;
+             border-radius:10px;border:none;background:var(--roxo);color:#fff;cursor:pointer;
+             transition:all .2s ease;}
+  #confirmar:hover:not(:disabled){background:#6b21a8;}
+  #confirmar:disabled{opacity:.6;cursor:default;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="dado">
+    <div class="bloco"><div class="num">1 caixa</div><div class="rot">equivale a</div></div>
+    <div class="igual">=</div>
+    <div class="bloco"><div class="num">8</div><div class="rot">copos</div></div>
+    <div class="igual">=</div>
+    <div class="bloco"><div class="num">4</div><div class="rot">potinhos</div></div>
+  </div>
+  <div class="meta">
+    <div class="bloco"><div class="num">6</div><div class="rot">potinhos</div></div>
+    <div class="igual">=</div>
+    <div class="bloco"><div class="num">?</div><div class="rot">copos</div></div>
+  </div>
+  <div class="stepper">
+    <button id="menos5" type="button">−5</button>
+    <button id="menos1" type="button">−1</button>
+    <span id="valorAtual">0</span>
+    <button id="mais1" type="button">+1</button>
+    <button id="mais5" type="button">+5</button>
+  </div>
+  <button id="confirmar" type="button">Confirmar</button>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var CORRETA = 12;
+  var MIN = 0, MAX = 30;
+  var valor = 0;
+  var respondido = false, tentativas = 0, inicio = Date.now();
+
+  var span = document.getElementById('valorAtual');
+  var msg = document.getElementById('msg');
+  var btnConfirmar = document.getElementById('confirmar');
+
+  function ajustar(delta){
+    valor = Math.max(MIN, Math.min(MAX, valor + delta));
+    span.textContent = valor;
+  }
+
+  document.getElementById('menos5').onclick = function(){ ajustar(-5); };
+  document.getElementById('menos1').onclick = function(){ ajustar(-1); };
+  document.getElementById('mais1').onclick = function(){ ajustar(1); };
+  document.getElementById('mais5').onclick = function(){ ajustar(5); };
+
+  function travar(){
+    ['menos5','menos1','mais1','mais5'].forEach(function(id){
+      document.getElementById(id).disabled = true;
+    });
+    btnConfirmar.disabled = true;
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  btnConfirmar.onclick = function(){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETA);
+
+    if (acertou){
+      span.style.color = '#16a34a';
+      travar();
+      msg.textContent = 'Isso! Resposta certa.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    if (tentativas < 2){
+      span.style.color = '#dc2626';
+      msg.textContent = 'Ainda não. Ajuste o número e confirme de novo.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    var respostaAluno = valor;
+    span.textContent = CORRETA;
+    span.style.color = '#16a34a';
+    travar();
+    msg.textContent = 'A resposta certa era ' + CORRETA + ' copos.';
+    msg.style.color = '#dc2626';
+    enviar(false, respostaAluno);
+  };
+})();
+</script>
+</body>
+</html>

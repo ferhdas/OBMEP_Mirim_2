@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- FIGURA 3: 12 bolinhas, 4 delas escuras, representando 4/12 = 1/3 do conjunto -->
+
+<svg
+   viewBox="0 0 340 120"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="3.svg"
+   inkscape:export-filename="3.png"
+   inkscape:export-xdpi="225.88235"
+   inkscape:export-ydpi="225.88235"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0952031"
+     inkscape:cx="87.654974"
+     inkscape:cy="94.046483"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <rect
+     width="340"
+     height="120"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <text
+     x="170"
+     y="20"
+     text-anchor="middle"
+     font-size="13"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text1">Um colar com 12 contas: 4 são escuras</text>
+  <!-- 12 bolinhas em linha -->
+  <!-- Bolinhas escuras (navy): posições 1,2,3,4 -->
+  <circle
+     cx="26"
+     cy="57"
+     r="16"
+     fill="#1a2f4f"
+     id="circle1" />
+  <circle
+     cx="58"
+     cy="57"
+     r="16"
+     fill="#1a2f4f"
+     id="circle2" />
+  <circle
+     cx="90"
+     cy="57"
+     r="16"
+     fill="#1a2f4f"
+     id="circle3" />
+  <circle
+     cx="122"
+     cy="57"
+     r="16"
+     fill="#1a2f4f"
+     id="circle4" />
+  <!-- Bolinhas claras (bege): posições 5–12 -->
+  <circle
+     cx="154"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle5" />
+  <circle
+     cx="186"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle6" />
+  <circle
+     cx="218"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle7" />
+  <circle
+     cx="250"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle8" />
+  <circle
+     cx="282"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle9" />
+  <circle
+     cx="314"
+     cy="57"
+     r="16"
+     fill="#e8d4a8"
+     stroke="#1a2f4f"
+     stroke-width="1.5"
+     id="circle10" />
+  <!-- Mais duas bege em segunda linha ajustada — são 12 ao total -->
+  <!-- Ajuste: linha dupla 6+6 -->
+  <text
+     x="170"
+     y="98"
+     text-anchor="middle"
+     font-size="12px"
+     fill="#4a6fa5"
+     id="text10">4 contas escuras em 12 → fração escura = 4/12</text>
+  <text
+     x="170"
+     y="115"
+     text-anchor="middle"
+     font-size="11"
+     fill="#1A2F4F"
+     id="text11">Isso é o mesmo que 1/3 do colar</text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#646464;stroke:#d4ad7d"
+     x="136.33662"
+     y="101.55116"
+     id="text12"><tspan
+       sodipodi:role="line"
+       id="tspan11"></tspan></text>
+</svg>

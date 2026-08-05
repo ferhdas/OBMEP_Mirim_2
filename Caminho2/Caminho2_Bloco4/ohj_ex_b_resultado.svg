@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 700 380"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="ohj_ex_b_resultado.svg"
+   inkscape:export-filename="ohj_ex_b_resultado.png"
+   inkscape:export-xdpi="109.71429"
+   inkscape:export-ydpi="109.71429"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.86571429"
+     inkscape:cx="350"
+     inkscape:cy="189.43894"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <rect
+     width="700"
+     height="380"
+     fill="white"
+     id="rect1" />
+  <text
+     x="350"
+     y="32"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="18"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Cada fala traduzida em dia: três concordam, um não</text>
+  <rect
+     x="20"
+     y="56"
+     width="320"
+     height="112"
+     rx="12"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2.4"
+     id="rect2" />
+  <text
+     x="40"
+     y="82"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     id="text2">Ana</text>
+  <text
+     x="40"
+     y="104"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#1f2937"
+     id="text3">amanhã = sábado</text>
+  <text
+     x="40"
+     y="126"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="15"
+     font-weight="bold"
+     fill="#2C7A54"
+     id="text4">hoje = sexta-feira</text>
+  <rect
+     x="360"
+     y="56"
+     width="320"
+     height="112"
+     rx="12"
+     fill="#FBE2E1"
+     stroke="#C0392B"
+     stroke-width="2.4"
+     id="rect4" />
+  <text
+     x="380"
+     y="82"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     id="text5">Beto</text>
+  <text
+     x="380"
+     y="104"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#1f2937"
+     id="text6">hoje = sábado</text>
+  <text
+     x="380"
+     y="126"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="15"
+     font-weight="bold"
+     fill="#C0392B"
+     id="text7">não bate com os outros</text>
+  <rect
+     x="20"
+     y="188"
+     width="320"
+     height="112"
+     rx="12"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2.4"
+     id="rect7" />
+  <text
+     x="40"
+     y="214"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     id="text8">Carla</text>
+  <text
+     x="40"
+     y="236"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#1f2937"
+     id="text9">depois de amanhã = domingo</text>
+  <text
+     x="40"
+     y="258"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="15"
+     font-weight="bold"
+     fill="#2C7A54"
+     id="text10">hoje = sexta-feira</text>
+  <rect
+     x="360"
+     y="188"
+     width="320"
+     height="112"
+     rx="12"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2.4"
+     id="rect10" />
+  <text
+     x="380"
+     y="214"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     id="text11">Dudu</text>
+  <text
+     x="380"
+     y="236"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     fill="#1f2937"
+     id="text12">ontem = quinta-feira</text>
+  <text
+     x="380"
+     y="258"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="15"
+     font-weight="bold"
+     fill="#2C7A54"
+     id="text13">hoje = sexta-feira</text>
+  <rect
+     x="130"
+     y="322"
+     width="440"
+     height="46"
+     rx="10"
+     fill="#FCEFC2"
+     stroke="#F6C445"
+     stroke-width="2.4"
+     id="rect13" />
+  <text
+     x="350"
+     y="351"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="16px"
+     font-weight="bold"
+     fill="#8a6d1a"
+     text-anchor="middle"
+     id="text14">Beto está enganado. Hoje é sexta-feira</text>
+</svg>

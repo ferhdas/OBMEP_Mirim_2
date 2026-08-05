@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- FIGURA 4: Duas cestas de frutas mostrando complemento — 1/2 das laranjas e 1/4 das maçãs comidas -->
+
+<svg
+   viewBox="0 0 400 200"
+   font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="4.svg"
+   inkscape:export-filename="4.png"
+   inkscape:export-xdpi="192"
+   inkscape:export-ydpi="192"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview20"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.515"
+     inkscape:cx="200"
+     inkscape:cy="99.669967"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg20" />
+  <rect
+     width="400"
+     height="200"
+     fill="#faf9f5"
+     rx="10"
+     id="rect1" />
+  <text
+     x="200"
+     y="22"
+     text-anchor="middle"
+     font-size="13"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text1">Frações de dois conjuntos diferentes</text>
+  <!-- Laranjas: 4 bolinhas, 2 comidas -->
+  <text
+     x="100"
+     y="50"
+     text-anchor="middle"
+     font-size="12"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text2">Laranjas (8 ao todo)</text>
+  <!-- 8 laranjas: 4 comidas (cinza) + 4 restantes (laranja) -->
+  <!-- linha 1: 4 laranjas -->
+  <circle
+     cx="42"
+     cy="80"
+     r="17"
+     fill="#d0d0d0"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle2" />
+  <circle
+     cx="76"
+     cy="80"
+     r="17"
+     fill="#D0D0D0"
+     stroke="#1A2F4F"
+     stroke-width="1"
+     id="circle3" />
+  <circle
+     cx="110"
+     cy="80"
+     r="17"
+     fill="#d0d0d0"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle4" />
+  <circle
+     cx="144"
+     cy="80"
+     r="17"
+     fill="#d0d0d0"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle5" />
+  <!-- linha 2: 4 laranjas restantes -->
+  <circle
+     cx="42"
+     cy="114"
+     r="17"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle6" />
+  <circle
+     cx="76"
+     cy="114"
+     r="17"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle7" />
+  <circle
+     cx="110"
+     cy="114"
+     r="17"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle8" />
+  <circle
+     cx="144"
+     cy="114"
+     r="17"
+     fill="#e5532e"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle9" />
+  <text
+     x="92"
+     y="150"
+     text-anchor="middle"
+     font-size="11"
+     fill="#D0D0D0"
+     font-weight="bold"
+     id="text9">comidas: 4/8 = 1/2</text>
+  <text
+     x="92"
+     y="165"
+     text-anchor="middle"
+     font-size="11"
+     fill="#E5532E"
+     font-weight="bold"
+     id="text10">restam: 4/8 = 1/2</text>
+  <!-- Linha divisória -->
+  <line
+     x1="186"
+     y1="34"
+     x2="186"
+     y2="174"
+     stroke="#d0d0d0"
+     stroke-width="1.5"
+     stroke-dasharray="5, 4"
+     id="line10" />
+  <!-- Maçãs: 8 bolinhas, 2 comidas -->
+  <text
+     x="300"
+     y="50"
+     text-anchor="middle"
+     font-size="12"
+     fill="#1A2F4F"
+     font-weight="bold"
+     id="text11">Maçãs (8 ao todo)</text>
+  <!-- 2 comidas (cinza) + 6 restantes (vermelho) -->
+  <circle
+     cx="222"
+     cy="80"
+     r="17"
+     fill="#d0d0d0"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle11" />
+  <circle
+     cx="256"
+     cy="80"
+     r="17"
+     fill="#D0D0D0"
+     stroke="#1A2F4F"
+     stroke-width="1"
+     id="circle12" />
+  <circle
+     cx="290"
+     cy="80"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle13" />
+  <circle
+     cx="324"
+     cy="80"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle14" />
+  <circle
+     cx="290"
+     cy="114"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle15" />
+  <circle
+     cx="324"
+     cy="114"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle16" />
+  <circle
+     cx="222"
+     cy="114"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle17" />
+  <circle
+     cx="256"
+     cy="114"
+     r="17"
+     fill="#4a6fa5"
+     stroke="#1a2f4f"
+     stroke-width="1"
+     id="circle18" />
+  <text
+     x="276"
+     y="150"
+     text-anchor="middle"
+     font-size="11px"
+     fill="#d0d0d0"
+     font-weight="bold"
+     id="text18">comidas: 2/8 = 1/4</text>
+  <text
+     x="276"
+     y="165"
+     text-anchor="middle"
+     font-size="11px"
+     fill="#4a6fa5"
+     font-weight="bold"
+     id="text19">restam: 6/8 = 3/4</text>
+  <text
+     x="200"
+     y="190"
+     text-anchor="middle"
+     font-size="11"
+     fill="#1A2F4F"
+     id="text20">Cada fruta tem o seu próprio &quot;todo&quot;!</text>
+</svg>

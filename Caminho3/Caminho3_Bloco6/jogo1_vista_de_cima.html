@@ -1,0 +1,116 @@
+<!--
+ENUNCIADO
+Observe a montagem de cubinhos. Clique na vista de cima (com o número de
+cubinhos de cada posição) que combina com essa montagem.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:460px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .dado{display:flex;justify-content:center;align-items:center;
+        background:#e6f0fa;border:2px solid #2F80C4;border-radius:10px;
+        padding:14px;margin-bottom:8px;}
+  .rot{text-align:center;font-size:12px;color:#6b7280;margin-bottom:16px;}
+  .opcoes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  button.opcao{padding:8px 4px;border-radius:10px;border:2px solid #d1d5db;
+               background:#fff;cursor:pointer;transition:all .2s ease;
+               display:flex;flex-direction:column;align-items:center;gap:4px;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{background:#dcfce7;border-color:var(--verde);}
+  button.opcao.errada{background:#fee2e2;border-color:var(--vermelho);}
+  button.opcao:disabled{cursor:default;opacity:.85;}
+  .letra{font-size:12px;font-weight:700;color:#6b7280;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="dado">
+    <svg viewBox="0 0 247 205" width="220" height="182" xmlns="http://www.w3.org/2000/svg"><polygon points="45.6,132.5 71.5,147.5 45.6,162.5 19.6,147.5" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="19.6,87.5 45.6,102.5 45.6,132.5 19.6,117.5" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="71.5,87.5 45.6,102.5 45.6,132.5 71.5,117.5" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="45.6,72.5 71.5,87.5 45.6,102.5 19.6,87.5" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,155.0 149.5,170.0 123.5,185.0 97.5,170.0" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="97.5,110.0 123.5,125.0 123.5,155.0 97.5,140.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,110.0 123.5,125.0 123.5,155.0 149.5,140.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,95.0 149.5,110.0 123.5,125.0 97.5,110.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="97.5,80.0 123.5,95.0 123.5,125.0 97.5,110.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,80.0 123.5,95.0 123.5,125.0 149.5,110.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,65.0 149.5,80.0 123.5,95.0 97.5,80.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="97.5,65.0 123.5,80.0 123.5,110.0 97.5,95.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,65.0 123.5,80.0 123.5,110.0 149.5,95.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,50.0 149.5,65.0 123.5,80.0 97.5,65.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="97.5,35.0 123.5,50.0 123.5,80.0 97.5,65.0" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="149.5,35.0 123.5,50.0 123.5,80.0 149.5,65.0" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="123.5,20.0 149.5,35.0 123.5,50.0 97.5,35.0" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/><polygon points="201.4,132.5 227.4,147.5 201.4,162.5 175.5,147.5" fill="#F3F6FA" stroke="#CBD5DF" stroke-width="1.3"/><polygon points="175.5,87.5 201.4,102.5 201.4,132.5 175.5,117.5" fill="#9CC3E8" stroke="#14365A" stroke-width="1.6"/><polygon points="227.4,87.5 201.4,102.5 201.4,132.5 227.4,117.5" fill="#BFD9F0" stroke="#14365A" stroke-width="1.6"/><polygon points="201.4,72.5 227.4,87.5 201.4,102.5 175.5,87.5" fill="#EAF2FA" stroke="#14365A" stroke-width="1.6"/></svg>
+  </div>
+  <div class="rot">a montagem</div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var OPCOES = [
+    {id:'A', svg:'<svg viewBox="0 0 76 76" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="68" height="68" fill="white" stroke="#CBD5DF" stroke-width="2"/><line x1="36" y1="2" x2="36" y2="70" stroke="#CBD5DF" stroke-width="1.6"/><line x1="2" y1="36" x2="70" y2="36" stroke="#CBD5DF" stroke-width="1.6"/><rect x="2" y="2" width="68" height="68" fill="none" stroke="#14365A" stroke-width="2.4"/><text x="19" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">2</text><text x="19" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="53" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="53" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">3</text></svg>'},
+    {id:'B', svg:'<svg viewBox="0 0 76 76" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="68" height="68" fill="white" stroke="#CBD5DF" stroke-width="2"/><line x1="36" y1="2" x2="36" y2="70" stroke="#CBD5DF" stroke-width="1.6"/><line x1="2" y1="36" x2="70" y2="36" stroke="#CBD5DF" stroke-width="1.6"/><rect x="2" y="2" width="68" height="68" fill="none" stroke="#14365A" stroke-width="2.4"/><text x="19" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="19" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">2</text><text x="53" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">3</text><text x="53" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text></svg>'},
+    {id:'C', svg:'<svg viewBox="0 0 76 76" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="68" height="68" fill="white" stroke="#CBD5DF" stroke-width="2"/><line x1="36" y1="2" x2="36" y2="70" stroke="#CBD5DF" stroke-width="1.6"/><line x1="2" y1="36" x2="70" y2="36" stroke="#CBD5DF" stroke-width="1.6"/><rect x="2" y="2" width="68" height="68" fill="none" stroke="#14365A" stroke-width="2.4"/><text x="19" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="19" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">3</text><text x="53" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">2</text><text x="53" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text></svg>'},
+    {id:'D', svg:'<svg viewBox="0 0 76 76" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="68" height="68" fill="white" stroke="#CBD5DF" stroke-width="2"/><line x1="36" y1="2" x2="36" y2="70" stroke="#CBD5DF" stroke-width="1.6"/><line x1="2" y1="36" x2="70" y2="36" stroke="#CBD5DF" stroke-width="1.6"/><rect x="2" y="2" width="68" height="68" fill="none" stroke="#14365A" stroke-width="2.4"/><text x="19" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">2</text><text x="19" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="53" y="26" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">1</text><text x="53" y="60" font-family="DejaVu Sans Mono, monospace" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">2</text></svg>'}
+  ];
+  var CORRETO = 'A';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+
+  OPCOES.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.innerHTML = o.svg + '<span class="letra">' + o.id + '</span>';
+    b.dataset.valor = o.id;
+    b.onclick = function(){ escolher(b, o.id); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Essa é a vista de cima certa.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Conte os cubinhos de cada posição da base, um por vez.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'A vista certa era a opção ' + CORRETO + '.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

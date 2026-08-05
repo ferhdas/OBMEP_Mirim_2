@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 680 400"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="dias_ex_c_resultado.svg"
+   inkscape:export-filename="dias_ex_c_resultado.png"
+   inkscape:export-xdpi="112.94118"
+   inkscape:export-ydpi="112.94118"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.63015693"
+     inkscape:cx="428.4647"
+     inkscape:cy="230.10141"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <rect
+     width="680"
+     height="400"
+     fill="white"
+     id="rect1" />
+  <text
+     x="340"
+     y="36"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="19px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text1">Duas contas: a diferença e depois o resto</text>
+  <rect
+     x="140"
+     y="60"
+     width="400"
+     height="60"
+     rx="12"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="340"
+     y="96"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="17px"
+     font-weight="bold"
+     fill="#2f80c4"
+     text-anchor="middle"
+     id="text2">23 - 5 = 18 dias de diferença</text>
+  <rect
+     x="140"
+     y="157"
+     width="400"
+     height="60"
+     rx="12"
+     fill="#eee8fa"
+     stroke="#7a5cc0"
+     stroke-width="2"
+     id="rect3" />
+  <text
+     x="340"
+     y="193"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="17px"
+     font-weight="bold"
+     fill="#7a5cc0"
+     text-anchor="middle"
+     id="text3">18 dividido por 7 = 2, resto 4</text>
+  <rect
+     x="140"
+     y="258"
+     width="400"
+     height="55"
+     rx="12"
+     fill="#e2f2ea"
+     stroke="#3e9b6b"
+     stroke-width="2"
+     id="rect4" />
+  <text
+     x="340"
+     y="292"
+     font-family="'DejaVu Sans Mono', monospace"
+     font-size="17px"
+     font-weight="bold"
+     fill="#3e9b6b"
+     text-anchor="middle"
+     id="text4">quinta-feira + 4 dias</text>
+  <line
+     x1="342"
+     y1="319"
+     x2="342"
+     y2="333"
+     stroke="#8a97a6"
+     stroke-width="2.4"
+     id="line4" />
+  <polygon
+     points="335,341 340,349 345,341 "
+     fill="#8a97a6"
+     id="polygon4"
+     transform="translate(2,-8)" />
+  <line
+     x1="342"
+     y1="227"
+     x2="342"
+     y2="241"
+     stroke="#8a97a6"
+     stroke-width="2.4"
+     id="line4-7" />
+  <polygon
+     points="340,349 345,341 335,341 "
+     fill="#8a97a6"
+     id="polygon4-5"
+     transform="translate(2,-100)" />
+  <line
+     x1="342"
+     y1="127"
+     x2="342"
+     y2="141"
+     stroke="#8a97a6"
+     stroke-width="2.4"
+     id="line4-3" />
+  <polygon
+     points="345,341 335,341 340,349 "
+     fill="#8a97a6"
+     id="polygon4-56"
+     transform="translate(2,-200)" />
+  <rect
+     x="190"
+     y="348"
+     width="300"
+     height="40"
+     rx="12"
+     fill="#fcefc2"
+     stroke="#f6c445"
+     stroke-width="2.4"
+     id="rect5" />
+  <text
+     x="340"
+     y="374"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="18px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text5">Resposta: segunda-feira</text>
+</svg>

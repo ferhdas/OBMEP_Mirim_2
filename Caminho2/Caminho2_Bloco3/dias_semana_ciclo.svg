@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 520 520"
+   version="1.1"
+   id="svg19"
+   sodipodi:docname="dias_semana_ciclo.svg"
+   inkscape:export-filename="dias_semana_ciclo.png"
+   inkscape:export-xdpi="147.69"
+   inkscape:export-ydpi="147.69"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs19" />
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0615385"
+     inkscape:cx="260"
+     inkscape:cy="260"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19" />
+  <rect
+     width="520"
+     height="520"
+     fill="white"
+     id="rect1" />
+  <text
+     x="260.0"
+     y="36"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="21"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">A semana anda em roda</text>
+  <circle
+     cx="260.0"
+     cy="100.0"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle1" />
+  <text
+     x="260.0"
+     y="105.0"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text2">Domingo</text>
+  <circle
+     cx="392.9113520195651"
+     cy="164.0067336840153"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle2" />
+  <text
+     x="392.9113520195651"
+     y="161.0067336840153"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text3">Segunda</text>
+  <text
+     x="392.9113520195651"
+     y="177.0067336840153"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="11"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text4">-feira</text>
+  <circle
+     cx="425.73774507091"
+     cy="307.82855877257344"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle4" />
+  <text
+     x="425.73774507091"
+     y="304.82855877257344"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text5">Terça</text>
+  <text
+     x="425.73774507091"
+     y="320.82855877257344"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="11"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text6">-feira</text>
+  <circle
+     cx="333.7602356499849"
+     cy="423.1647075434112"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle6" />
+  <text
+     x="333.7602356499849"
+     y="420.1647075434112"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text7">Quarta</text>
+  <text
+     x="333.7602356499849"
+     y="436.1647075434112"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="11"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text8">-feira</text>
+  <circle
+     cx="186.23976435001512"
+     cy="423.1647075434113"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle8" />
+  <text
+     x="186.23976435001512"
+     y="420.1647075434113"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text9">Quinta</text>
+  <text
+     x="186.23976435001512"
+     y="436.1647075434113"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="11"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text10">-feira</text>
+  <circle
+     cx="94.26225492908998"
+     cy="307.8285587725734"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle10" />
+  <text
+     x="94.26225492908998"
+     y="304.8285587725734"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text11">Sexta</text>
+  <text
+     x="94.26225492908998"
+     y="320.8285587725734"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="11"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text12">-feira</text>
+  <circle
+     cx="127.08864798043493"
+     cy="164.00673368401533"
+     r="44"
+     fill="#E6F0FA"
+     stroke="#2F80C4"
+     stroke-width="2.4"
+     id="circle12" />
+  <text
+     x="127.08864798043493"
+     y="169.00673368401533"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text13">Sábado</text>
+  <line
+     x1="306.85835048888987"
+     y1="106.58551169048579"
+     x2="351.3"
+     y2="128.0"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line13" />
+  <polygon
+     points="358.546887990037,131.47739943431938 353.5,123.5 349.2,132.5"
+     fill="#E0701B"
+     id="polygon13" />
+  <line
+     x1="416.97829531352704"
+     y1="204.74806669178997"
+     x2="428.0"
+     y2="252.9"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line14" />
+  <polygon
+     points="429.7443098222958,260.6796307502088 432.8,251.8 423.1,254.0"
+     fill="#E0701B"
+     id="polygon14" />
+  <line
+     x1="408.89038199341564"
+     y1="352.04665837104386"
+     x2="378.1"
+     y2="390.6"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line15" />
+  <polygon
+     points="373.1208042054644,396.9002902120755 382.0,393.8 374.2,387.5"
+     fill="#E0701B"
+     id="polygon15" />
+  <line
+     x1="288.68497422196464"
+     y1="437.5624428500767"
+     x2="239.3"
+     y2="437.6"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line16" />
+  <polygon
+     points="231.3150257780353,437.5624428500767 239.3,442.6 239.3,432.6"
+     fill="#E0701B"
+     id="polygon16" />
+  <line
+     x1="146.87919579453558"
+     y1="396.9002902120755"
+     x2="116.1"
+     y2="358.3"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line17" />
+  <polygon
+     points="111.10961800658436,352.0466583710438 112.2,361.4 120.0,355.2"
+     fill="#E0701B"
+     id="polygon17" />
+  <line
+     x1="90.2556901777042"
+     y1="260.67963075020873"
+     x2="101.2"
+     y2="212.5"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line18" />
+  <polygon
+     points="103.02170468647293,204.74806669179003 96.4,211.4 106.1,213.7"
+     fill="#E0701B"
+     id="polygon18" />
+  <line
+     x1="161.45311200996292"
+     y1="131.47739943431944"
+     x2="205.9"
+     y2="110.1"
+     stroke="#E0701B"
+     stroke-width="2.4"
+     id="line19" />
+  <polygon
+     points="213.1416495111102,106.58551169048576 203.8,105.6 208.1,114.6"
+     fill="#E0701B"
+     id="polygon19" />
+  <text
+     x="260.0"
+     y="496"
+     font-family="Poppins, Inter, sans-serif"
+     font-size="13"
+     font-weight="normal"
+     fill="#8A97A6"
+     text-anchor="middle"
+     id="text19">depois de sabado, volta a domingo</text>
+</svg>

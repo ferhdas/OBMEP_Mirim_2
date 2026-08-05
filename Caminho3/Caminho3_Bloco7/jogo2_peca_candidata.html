@@ -1,0 +1,114 @@
+<!--
+ENUNCIADO
+Uma peça de brinquedo de encaixe precisa ter exatamente 10 cubinhos para
+caber certinho na caixa. Quatro peças candidatas estão desenhadas abaixo.
+Conte os cubinhos de cada uma e clique na peça que tem exatamente 10
+cubinhos.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .aviso{text-align:center;font-size:13px;color:#6b7280;margin-bottom:14px;}
+  .opcoes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  button.opcao{padding:8px 4px 10px;border-radius:10px;border:2px solid #d1d5db;
+               background:#f7f7f5;cursor:pointer;transition:all .2s ease;
+               display:flex;flex-direction:column;align-items:center;gap:4px;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao .rotulo{font-weight:700;font-size:13px;color:#1f2937;}
+  button.opcao.certa{background:#dcfce7;border-color:var(--verde);}
+  button.opcao.errada{background:#fee2e2;border-color:var(--vermelho);}
+  button.opcao:disabled{cursor:default;opacity:.9;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="aviso">alvo: peça com exatamente 10 cubinhos</div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var ICONES = {
+    bar9: '<svg viewBox="0 0 180 160" width="150" height="133" xmlns="http://www.w3.org/2000/svg"><polygon points="20.7,40.0 34.6,48.0 34.6,64.0 20.7,56.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,40.0 34.6,48.0 34.6,64.0 48.4,56.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="34.6,32.0 48.4,40.0 34.6,48.0 20.7,40.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="34.6,48.0 48.4,56.0 48.4,72.0 34.6,64.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,48.0 48.4,56.0 48.4,72.0 62.3,64.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,40.0 62.3,48.0 48.4,56.0 34.6,48.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,56.0 62.3,64.0 62.3,80.0 48.4,72.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 62.3,64.0 62.3,80.0 76.1,72.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,48.0 76.1,56.0 62.3,64.0 48.4,56.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,64.0 76.1,72.0 76.1,88.0 62.3,80.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 76.1,72.0 76.1,88.0 90.0,80.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 90.0,64.0 76.1,72.0 62.3,64.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,72.0 90.0,80.0 90.0,96.0 76.1,88.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 90.0,80.0 90.0,96.0 103.9,88.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 103.9,72.0 90.0,80.0 76.1,72.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,80.0 103.9,88.0 103.9,104.0 90.0,96.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,80.0 103.9,88.0 103.9,104.0 117.7,96.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 117.7,80.0 103.9,88.0 90.0,80.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,88.0 117.7,96.0 117.7,112.0 103.9,104.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,88.0 117.7,96.0 117.7,112.0 131.6,104.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,80.0 131.6,88.0 117.7,96.0 103.9,88.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,96.0 131.6,104.0 131.6,120.0 117.7,112.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="145.4,96.0 131.6,104.0 131.6,120.0 145.4,112.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,88.0 145.4,96.0 131.6,104.0 117.7,96.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,104.0 145.4,112.0 145.4,128.0 131.6,120.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="159.3,104.0 145.4,112.0 145.4,128.0 159.3,120.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="145.4,96.0 159.3,104.0 145.4,112.0 131.6,104.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/></svg>',
+    b10: '<svg viewBox="0 0 180 160" width="150" height="133" xmlns="http://www.w3.org/2000/svg"><polygon points="96.9,52.0 110.8,60.0 110.8,76.0 96.9,68.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="124.6,52.0 110.8,60.0 110.8,76.0 124.6,68.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="110.8,44.0 124.6,52.0 110.8,60.0 96.9,52.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,60.0 96.9,68.0 96.9,84.0 83.1,76.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="110.8,60.0 96.9,68.0 96.9,84.0 110.8,76.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="96.9,52.0 110.8,60.0 96.9,68.0 83.1,60.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="110.8,60.0 124.6,68.0 124.6,84.0 110.8,76.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="138.5,60.0 124.6,68.0 124.6,84.0 138.5,76.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="124.6,52.0 138.5,60.0 124.6,68.0 110.8,60.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="69.2,68.0 83.1,76.0 83.1,92.0 69.2,84.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="96.9,68.0 83.1,76.0 83.1,92.0 96.9,84.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,60.0 96.9,68.0 83.1,76.0 69.2,68.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="96.9,68.0 110.8,76.0 110.8,92.0 96.9,84.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="124.6,68.0 110.8,76.0 110.8,92.0 124.6,84.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="110.8,60.0 124.6,68.0 110.8,76.0 96.9,68.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="55.4,76.0 69.2,84.0 69.2,100.0 55.4,92.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,76.0 69.2,84.0 69.2,100.0 83.1,92.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="69.2,68.0 83.1,76.0 69.2,84.0 55.4,76.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,76.0 96.9,84.0 96.9,100.0 83.1,92.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="110.8,76.0 96.9,84.0 96.9,100.0 110.8,92.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="96.9,68.0 110.8,76.0 96.9,84.0 83.1,76.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="41.5,84.0 55.4,92.0 55.4,108.0 41.5,100.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="69.2,84.0 55.4,92.0 55.4,108.0 69.2,100.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="55.4,76.0 69.2,84.0 55.4,92.0 41.5,84.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="69.2,84.0 83.1,92.0 83.1,108.0 69.2,100.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="96.9,84.0 83.1,92.0 83.1,108.0 96.9,100.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,76.0 96.9,84.0 83.1,92.0 69.2,84.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="55.4,92.0 69.2,100.0 69.2,116.0 55.4,108.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="83.1,92.0 69.2,100.0 69.2,116.0 83.1,108.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="69.2,84.0 83.1,92.0 69.2,100.0 55.4,92.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/></svg>',
+    bar11: '<svg viewBox="0 0 180 160" width="150" height="133" xmlns="http://www.w3.org/2000/svg"><polygon points="6.9,32.0 20.7,40.0 20.7,56.0 6.9,48.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="34.6,32.0 20.7,40.0 20.7,56.0 34.6,48.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="20.7,24.0 34.6,32.0 20.7,40.0 6.9,32.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="20.7,40.0 34.6,48.0 34.6,64.0 20.7,56.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,40.0 34.6,48.0 34.6,64.0 48.4,56.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="34.6,32.0 48.4,40.0 34.6,48.0 20.7,40.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="34.6,48.0 48.4,56.0 48.4,72.0 34.6,64.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,48.0 48.4,56.0 48.4,72.0 62.3,64.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,40.0 62.3,48.0 48.4,56.0 34.6,48.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="48.4,56.0 62.3,64.0 62.3,80.0 48.4,72.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 62.3,64.0 62.3,80.0 76.1,72.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,48.0 76.1,56.0 62.3,64.0 48.4,56.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,64.0 76.1,72.0 76.1,88.0 62.3,80.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 76.1,72.0 76.1,88.0 90.0,80.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 90.0,64.0 76.1,72.0 62.3,64.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,72.0 90.0,80.0 90.0,96.0 76.1,88.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 90.0,80.0 90.0,96.0 103.9,88.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 103.9,72.0 90.0,80.0 76.1,72.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,80.0 103.9,88.0 103.9,104.0 90.0,96.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,80.0 103.9,88.0 103.9,104.0 117.7,96.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 117.7,80.0 103.9,88.0 90.0,80.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,88.0 117.7,96.0 117.7,112.0 103.9,104.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,88.0 117.7,96.0 117.7,112.0 131.6,104.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,80.0 131.6,88.0 117.7,96.0 103.9,88.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,96.0 131.6,104.0 131.6,120.0 117.7,112.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="145.4,96.0 131.6,104.0 131.6,120.0 145.4,112.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,88.0 145.4,96.0 131.6,104.0 117.7,96.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="131.6,104.0 145.4,112.0 145.4,128.0 131.6,120.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="159.3,104.0 145.4,112.0 145.4,128.0 159.3,120.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="145.4,96.0 159.3,104.0 145.4,112.0 131.6,104.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="145.4,112.0 159.3,120.0 159.3,136.0 145.4,128.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="173.1,112.0 159.3,120.0 159.3,136.0 173.1,128.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="159.3,104.0 173.1,112.0 159.3,120.0 145.4,112.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/></svg>',
+    c8: '<svg viewBox="0 0 180 160" width="150" height="133" xmlns="http://www.w3.org/2000/svg"><polygon points="76.1,72.0 90.0,80.0 90.0,96.0 76.1,88.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 90.0,80.0 90.0,96.0 103.9,88.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 103.9,72.0 90.0,80.0 76.1,72.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,80.0 76.1,88.0 76.1,104.0 62.3,96.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,80.0 76.1,88.0 76.1,104.0 90.0,96.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,72.0 90.0,80.0 76.1,88.0 62.3,80.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,80.0 103.9,88.0 103.9,104.0 90.0,96.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,80.0 103.9,88.0 103.9,104.0 117.7,96.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 117.7,80.0 103.9,88.0 90.0,80.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,88.0 90.0,96.0 90.0,112.0 76.1,104.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,88.0 90.0,96.0 90.0,112.0 103.9,104.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,80.0 103.9,88.0 90.0,96.0 76.1,88.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 90.0,64.0 90.0,80.0 76.1,72.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,56.0 90.0,64.0 90.0,80.0 103.9,72.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,48.0 103.9,56.0 90.0,64.0 76.1,56.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="62.3,64.0 76.1,72.0 76.1,88.0 62.3,80.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 76.1,72.0 76.1,88.0 90.0,80.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,56.0 90.0,64.0 76.1,72.0 62.3,64.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 103.9,72.0 103.9,88.0 90.0,80.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="117.7,64.0 103.9,72.0 103.9,88.0 117.7,80.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,56.0 117.7,64.0 103.9,72.0 90.0,64.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/><polygon points="76.1,72.0 90.0,80.0 90.0,96.0 76.1,88.0" fill="#14365A" stroke="#14365A" stroke-width="1.3"/><polygon points="103.9,72.0 90.0,80.0 90.0,96.0 103.9,88.0" fill="#2F80C4" stroke="#14365A" stroke-width="1.3"/><polygon points="90.0,64.0 103.9,72.0 90.0,80.0 76.1,72.0" fill="#E6F0FA" stroke="#14365A" stroke-width="1.3"/></svg>'
+  };
+  var ORDEM = ['bar9', 'b10', 'bar11', 'c8'];
+  var CORRETO = 'b10';
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+  var rotulos = {bar9:'peça 1', b10:'peça 2', bar11:'peça 3', c8:'peça 4'};
+
+  ORDEM.forEach(function(chave){
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.dataset.valor = chave;
+    b.innerHTML = ICONES[chave] + '<span class="rotulo">' + rotulos[chave] + '</span>';
+    b.onclick = function(){ escolher(b, chave); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.valor === CORRETO) btn.classList.add('certa');
+    });
+  }
+
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+
+  function escolher(botao, valor){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (valor === CORRETO);
+
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Essa peça tem exatamente 10 cubinhos.';
+      msg.style.color = '#16a34a';
+      enviar(true, valor);
+      return;
+    }
+
+    botao.classList.add('errada');
+    botao.disabled = true;
+
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Conte os cubinhos dessa peça de novo.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'A peça certa era a ' + rotulos[CORRETO] + '.';
+    msg.style.color = '#dc2626';
+    enviar(false, valor);
+  }
+})();
+</script>
+</body>
+</html>

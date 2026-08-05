@@ -1,0 +1,148 @@
+<!--
+ENUNCIADO
+O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dobra.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{--roxo:#7e22ce;--verde:#16a34a;--vermelho:#dc2626;--fundo:#faf9f5;}
+  *{box-sizing:border-box;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--fundo);margin:0;padding:16px;color:#1f2937;}
+  .painel{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;
+          box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .molde{display:flex;justify-content:center;background:#eef3f8;border:2px solid #2F80C4;
+         border-radius:10px;padding:14px;margin-bottom:16px;}
+  .rot{text-align:center;font-size:12px;color:#6b7280;margin-bottom:14px;}
+  .opcoes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  button.opcao{padding:10px;border-radius:10px;border:2px solid #d1d5db;background:#fff;
+               cursor:pointer;transition:all .2s ease;}
+  button.opcao:hover:not(:disabled){border-color:var(--roxo);}
+  button.opcao.certa{border-color:var(--verde);background:#f0fdf4;}
+  button.opcao.errada{border-color:var(--vermelho);background:#fef2f2;}
+  button.opcao:disabled{cursor:default;opacity:.9;}
+  #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+</style>
+</head>
+<body>
+<div class="painel">
+  <div class="molde" id="molde"></div>
+  <div class="rot">molde dado (planificação)</div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="msg"></div>
+</div>
+<script>
+(function(){
+  var NAVY="#14365A", BORDER="#CBD5DF";
+  var COR = {AZUL:"#2F80C4", AMARELO:"#F6C445", VERDE:"#3E9B6B", ROXO:"#7A5CC0",
+             LARANJA:"#E0701B", MARINHO:"#14365A"};
+
+  function svgTag(w,h,inner){
+    return '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" xmlns="http://www.w3.org/2000/svg">'+
+           '<rect width="'+w+'" height="'+h+'" fill="white"/>'+inner+'</svg>';
+  }
+  function rect(x,y,w,h,fill){
+    return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="6" fill="'+fill+'" stroke="'+NAVY+'" stroke-width="2"/>';
+  }
+  // molde em cruz: (1,0) topo, (0,1) esq-visual, (1,1) centro, (2,1) dir-visual, (1,2) baixo1, (1,3) baixo2
+  function drawNet(cores, cell){
+    cell = cell || 46;
+    var cells = [[1,0],[0,1],[1,1],[2,1],[1,2],[1,3]];
+    var s = '';
+    for (var i=0;i<cells.length;i++){
+      var c = cells[i][0], r = cells[i][1];
+      s += rect(c*cell, r*cell, cell-4, cell-4, cores[i]);
+    }
+    return svgTag(3*cell, 4*cell, s);
+  }
+  // cubo isometrico com 3 faces visiveis (topo, direita, esquerda)
+  function cuboIso(s, corTopo, corDir, corEsq){
+    var cx = s*0.95, cy = s*0.15;
+    var dx = s*0.866, dy = s*0.5;
+    var T=[cx,cy], R=[cx+dx,cy+dy], B=[cx,cy+2*dy], L=[cx-dx,cy+dy];
+    var R2=[R[0],R[1]+s], B2=[B[0],B[1]+s], L2=[L[0],L[1]+s];
+    function poly(pts, fill){
+      var p = pts.map(function(pt){return pt[0].toFixed(1)+','+pt[1].toFixed(1);}).join(' ');
+      return '<polygon points="'+p+'" fill="'+fill+'" stroke="'+NAVY+'" stroke-width="1.6"/>';
+    }
+    var out = poly([L,B,B2,L2], corEsq) + poly([R,B,B2,R2], corDir) + poly([T,R,B,L], corTopo);
+    return svgTag(s*2, s*2.2, out);
+  }
+
+  // dados corretos calculados por simulador de dobradura (ver gen.py do bloco):
+  // molde em cruz A: topo=VERDE, direita-visual(0,1)=LARANJA, esquerda-visual(1,1)=AZUL,
+  // face de tras do topo (1,2)=AMARELO. cubo montado: topo=VERDE, dir=LARANJA, esq=AZUL.
+  var netCores = [COR.VERDE, COR.LARANJA, COR.AZUL, COR.ROXO, COR.AMARELO, COR.LARANJA];
+  document.getElementById('molde').innerHTML = drawNet(netCores);
+
+  var OPCOES = [
+    {chave:'correta', topo:COR.VERDE, dir:COR.LARANJA, esq:COR.AZUL},
+    {chave:'rotacao', topo:COR.LARANJA, dir:COR.AZUL, esq:COR.VERDE},
+    {chave:'cor_de_tras', topo:COR.AMARELO, dir:COR.LARANJA, esq:COR.AZUL},
+    {chave:'inventada', topo:COR.VERDE, dir:COR.LARANJA, esq:COR.MARINHO}
+  ];
+  // embaralha a ordem de exibicao sem mudar qual é a correta
+  var ordem = [2,0,3,1];
+
+  var cont = document.getElementById('opcoes');
+  var msg = document.getElementById('msg');
+  var respondido = false, tentativas = 0, inicio = Date.now();
+
+  ordem.forEach(function(idx){
+    var op = OPCOES[idx];
+    var b = document.createElement('button');
+    b.className = 'opcao';
+    b.innerHTML = cuboIso(34, op.topo, op.dir, op.esq);
+    b.dataset.chave = op.chave;
+    b.onclick = function(){ escolher(b, op.chave); };
+    cont.appendChild(b);
+  });
+
+  function travarBotoes(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){ btn.disabled = true; });
+  }
+  function revelarCorreta(){
+    Array.prototype.forEach.call(cont.querySelectorAll('button'), function(btn){
+      if (btn.dataset.chave === 'correta') btn.classList.add('certa');
+    });
+  }
+  function enviar(acertou, valorEscolhido){
+    if (respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo: 'resposta',
+      acertou: acertou,
+      meta: { tentativas: tentativas, tempo: Math.round((Date.now() - inicio) / 1000), resposta: valorEscolhido }
+    }, '*');
+  }
+  function escolher(botao, chave){
+    if (respondido) return;
+    tentativas++;
+    var acertou = (chave === 'correta');
+    if (acertou){
+      botao.classList.add('certa');
+      travarBotoes();
+      msg.textContent = 'Isso! Esse é o cubo certo.';
+      msg.style.color = '#16a34a';
+      enviar(true, chave);
+      return;
+    }
+    botao.classList.add('errada');
+    botao.disabled = true;
+    if (tentativas < 2){
+      msg.textContent = 'Ainda não. Confira as três cores e a posição de cada uma.';
+      msg.style.color = '#dc2626';
+      return;
+    }
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'O cubo certo é o marcado em verde.';
+    msg.style.color = '#dc2626';
+    enviar(false, chave);
+  }
+})();
+</script>
+</body>
+</html>
