@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 276 232" xmlns="http://www.w3.org/2000/svg">
+<rect width="276" height="232" fill="white"/>
+<text x="138.0" y="22" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Figura em ziguezague de 6 quadradinhos: qual o perimetro?</text>
+<rect x="50.0" y="55" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="94.0" y="55" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="94.0" y="99" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="138.0" y="99" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="138.0" y="143" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="182.0" y="143" width="44" height="44" rx="2" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+</svg>

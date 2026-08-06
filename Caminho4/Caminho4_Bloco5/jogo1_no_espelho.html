@@ -1,0 +1,112 @@
+<!-- ENUNCIADO: A cena acima mostra uma seta e uma bolinha coloridas. Clique na única opção abaixo que mostra corretamente essa cena refletida num espelho vertical. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:480px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #estimulo{ width:160px; height:auto; display:block; margin:0 auto 14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:80px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="estimulo" viewBox="0 0 140 100"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  // original: arrow pointing right, dot above the tail
+  document.getElementById("estimulo").innerHTML =
+    '<rect width="140" height="100" fill="white"/>' +
+    '<line x1="30" y1="55" x2="100" y2="55" stroke="'+NAVY+'" stroke-width="5"/>' +
+    '<polygon points="100,55 84,45 84,65" fill="'+NAVY+'"/>' +
+    '<circle cx="30" cy="30" r="9" fill="#FBE1DD" stroke="#C0392B" stroke-width="2.4"/>';
+
+  // options: variants of arrow direction + dot side/height
+  function opt(dir, dotX, dotY){
+    var s = '<svg viewBox="0 0 140 100"><rect width="140" height="100" fill="white"/>';
+    var tail, tip, tipDx, tipDy;
+    if(dir==="left"){ tail=[100,55]; tip=[30,55]; }
+    else { tail=[30,55]; tip=[100,55]; }
+    s += '<line x1="'+tail[0]+'" y1="'+tail[1]+'" x2="'+tip[0]+'" y2="'+tip[1]+'" stroke="'+NAVY+'" stroke-width="5"/>';
+    var dx = dir==="left" ? 16 : -16;
+    s += '<polygon points="'+tip[0]+','+tip[1]+' '+(tip[0]+dx)+','+(tip[1]-10)+' '+(tip[0]+dx)+','+(tip[1]+10)+'" fill="'+NAVY+'"/>';
+    s += '<circle cx="'+dotX+'" cy="'+dotY+'" r="9" fill="#FBE1DD" stroke="#C0392B" stroke-width="2.4"/>';
+    s += '</svg>';
+    return s;
+  }
+
+  // correct: arrow left, dot above the tail (which is now on the right side, at x=100)
+  var OPCOES = {
+    a: opt("left", 100, 30),   // CORRETA
+    b: opt("left", 100, 75),   // wrong: dot below instead of above
+    c: opt("right", 30, 30),   // wrong: arrow didn't flip
+    d: opt("left", 30, 30)     // wrong: dot stayed on original side
+  };
+  var CORRETA = "a";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ["c","a","d","b"].forEach(function(chave){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = OPCOES[chave];
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! A seta virou para a esquerda, e a bolinha continua na mesma altura.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Lembre-se: o espelho troca esquerda por direita, mas nunca troca cima por baixo.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A opção certa é a seta virada para a esquerda, com a bolinha na mesma altura de antes.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A opção certa é a primeira, com a seta virada e a bolinha na mesma altura.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

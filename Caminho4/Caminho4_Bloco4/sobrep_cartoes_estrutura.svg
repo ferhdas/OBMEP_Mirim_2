@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="300" fill="white"/>
+<text x="230.0" y="22" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">Qual e a ordem dos cartoes, de cima para baixo?</text>
+<rect x="120" y="90" width="130" height="130" rx="6" fill="#FCEFC2" stroke="#F6C445" stroke-width="2.4"/>
+<rect x="160" y="120" width="130" height="130" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.4"/>
+<rect x="200" y="150" width="130" height="130" rx="6" fill="#FBE1DD" stroke="#C0392B" stroke-width="2.4"/>
+</svg>

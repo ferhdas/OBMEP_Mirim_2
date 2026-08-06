@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 640 410" xmlns="http://www.w3.org/2000/svg">
+<rect width="640" height="410" fill="white"/>
+<text x="320.0" y="26" font-family="DejaVu Sans" font-size="13.5" font-weight="bold" fill="#14365A" text-anchor="middle">7 pentágonos, 4 triângulos e 6 quadrados</text>
+<polygon points="80.0,56.0 102.82535639108369,72.58359213500127 94.10684605501936,99.41640786499875 65.89315394498064,99.41640786499875 57.17464360891631,72.58359213500127" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="160.0,56 136.0,99.2 184.0,99.2" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="216.0" y="56" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<polygon points="320.0,56.0 342.8253563910837,72.58359213500127 334.10684605501933,99.41640786499875 305.89315394498067,99.41640786499875 297.1746436089163,72.58359213500127" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="376.0" y="56" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<polygon points="480.0,56 456.0,99.2 504.0,99.2" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="560.0,56.0 582.8253563910837,72.58359213500127 574.1068460550193,99.41640786499875 545.8931539449807,99.41640786499875 537.1746436089163,72.58359213500127" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="56.0" y="156" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<polygon points="160.0,156 136.0,199.2 184.0,199.2" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="240.0,156.0 262.8253563910837,172.58359213500125 254.10684605501936,199.41640786499875 225.89315394498064,199.41640786499875 217.1746436089163,172.58359213500125" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="296.0" y="156" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<polygon points="400.0,156 376.0,199.2 424.0,199.2" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="480.0,156.0 502.8253563910837,172.58359213500125 494.10684605501933,199.41640786499875 465.89315394498067,199.41640786499875 457.1746436089163,172.58359213500125" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="536.0" y="156" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<polygon points="80.0,256.0 102.82535639108369,272.58359213500125 94.10684605501936,299.41640786499875 65.89315394498064,299.41640786499875 57.17464360891631,272.58359213500125" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="160.0,256.0 182.8253563910837,272.58359213500125 174.10684605501936,299.41640786499875 145.89315394498064,299.41640786499875 137.1746436089163,272.58359213500125" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="216.0" y="256" width="48" height="48" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+</svg>

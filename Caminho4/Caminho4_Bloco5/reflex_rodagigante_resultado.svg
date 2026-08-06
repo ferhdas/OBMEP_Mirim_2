@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="320" fill="white"/>
+<text x="230.0" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Sim: 3 e multiplo do periodo (3), entao fica igual</text>
+<circle cx="140" cy="160" r="94" fill="white" stroke="#CBD5DF" stroke-width="2"/>
+<circle cx="164.75" cy="117.13174251267029" r="16" fill="#2F80C4" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="189.5" cy="160.0" r="16" fill="#C0392B" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="164.75" cy="202.8682574873297" r="16" fill="#F6C445" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="115.24999999999999" cy="202.8682574873297" r="16" fill="#2F80C4" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="90.5" cy="160.0" r="16" fill="#C0392B" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="115.25000000000001" cy="117.13174251267027" r="16" fill="#F6C445" stroke="#14365A" stroke-width="1.6"/>
+<text x="140" y="270" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Original</text>
+<circle cx="340" cy="160" r="94" fill="white" stroke="#CBD5DF" stroke-width="2"/>
+<circle cx="364.75" cy="117.13174251267029" r="16" fill="#2F80C4" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="389.5" cy="160.0" r="16" fill="#C0392B" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="364.75" cy="202.8682574873297" r="16" fill="#F6C445" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="315.25" cy="202.8682574873297" r="16" fill="#2F80C4" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="290.5" cy="160.0" r="16" fill="#C0392B" stroke="#14365A" stroke-width="1.6"/>
+<circle cx="315.25" cy="117.13174251267027" r="16" fill="#F6C445" stroke="#14365A" stroke-width="1.6"/>
+<text x="340" y="270" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#3E9B6B" text-anchor="middle">Girada 3 espacamentos (igual!)</text>
+</svg>

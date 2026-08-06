@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 400 256" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="256" fill="white"/>
+<text x="200.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">Escada monotona: largura 10, altura 6. Qual o perimetro?</text>
+<rect x="174.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="174.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="148.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="200.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="40" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="96.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="66" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="40" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="174.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="148.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="148.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="200.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="200.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="40" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="66" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="70.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="122.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="66" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="148.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="174.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="200.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="66" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="304.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="70.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="278.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="96.0" y="144" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="122.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="118" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="170" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="252.0" y="40" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<rect x="226.0" y="92" width="26" height="26" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="1.6"/>
+<text x="200.0" y="218" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">largura = 10</text>
+<text x="60.0" y="118.0" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="end">altura = 6</text>
+</svg>

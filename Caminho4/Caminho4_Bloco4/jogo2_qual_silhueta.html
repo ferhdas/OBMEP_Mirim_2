@@ -1,0 +1,103 @@
+<!-- ENUNCIADO: Os dois retângulos acima estão colados exatamente no centro, sem girar. Entre os cinco contornos abaixo, clique na única silhueta que os dois retângulos formam juntos. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #estimulo{ width:220px; height:auto; display:block; margin:0 auto 14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:64px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="estimulo" viewBox="0 0 160 160"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var cx=80, cy=80;
+  var estHtml = '<rect width="160" height="160" fill="white"/>';
+  estHtml += '<rect x="'+(cx-60)+'" y="'+(cy-22)+'" width="120" height="44" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.4" rx="3"/>';
+  estHtml += '<rect x="'+(cx-22)+'" y="'+(cy-60)+'" width="44" height="120" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.4" rx="3"/>';
+  document.getElementById("estimulo").innerHTML = estHtml;
+
+  function crossIcon(){
+    var s = '<svg viewBox="0 0 70 70"><polygon points="26,10 44,10 44,26 60,26 60,44 44,44 44,60 26,60 26,44 10,44 10,26 26,26" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>';
+    return s;
+  }
+  function circleIcon(){ return '<svg viewBox="0 0 70 70"><circle cx="35" cy="35" r="28" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>'; }
+  function squareIcon(){ return '<svg viewBox="0 0 70 70"><rect x="12" y="12" width="46" height="46" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4" rx="3"/></svg>'; }
+  function diamondIcon(){ return '<svg viewBox="0 0 70 70"><polygon points="35,8 62,35 35,62 8,35" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>'; }
+  function starIcon(){
+    var pts=[]; for(var i=0;i<10;i++){ var r=(i%2===0)?30:13; var a=(-90+i*36)*Math.PI/180; pts.push((35+r*Math.cos(a)).toFixed(1)+","+(35+r*Math.sin(a)).toFixed(1)); }
+    return '<svg viewBox="0 0 70 70"><polygon points="'+pts.join(" ")+'" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>';
+  }
+
+  var OPCOES = { a: circleIcon, b: crossIcon, c: diamondIcon, d: squareIcon, e: starIcon };
+  var CORRETA = "b";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  Object.keys(OPCOES).forEach(function(chave){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = OPCOES[chave]();
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Os dois retângulos, um deitado e um em pé, formam uma cruz.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Pense em cada direção: qual retângulo se estica mais longe do centro ali?";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A silhueta certa é a cruz, formada pelas pontas dos dois retângulos.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A silhueta certa é a cruz.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

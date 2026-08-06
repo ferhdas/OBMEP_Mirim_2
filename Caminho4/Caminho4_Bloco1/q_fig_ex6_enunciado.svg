@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="780" height="300" fill="white"/>
+<text x="390.0" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Peca isosceles (base 60, altura 40) - qual figura DA para montar?</text>
+<text x="60" y="48" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">A peça</text>
+<polygon points="30,100 90,100 60,60" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="175.0,157.0 207.9089653438087,176.0 207.9089653438087,214.0 175.0,233.0 142.0910346561913,214.0 142.09103465619134,176.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="175" y="257" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Hexágono</text>
+<polygon points="300,155 330,195 300,235 270,195" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="300" y="257" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Losango</text>
+<polygon points="425.0,157.0 454.70959633378516,171.30738752936813 462.0472606629093,203.45579549033994 441.4875820864672,229.2368169802919 408.5124179135328,229.23681698029193 387.9527393370907,203.45579549033994 395.29040366621484,171.30738752936813" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="425" y="257" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Heptágono</text>
+<polygon points="550.0,157.0 586.1401476192158,183.257354213752 572.3358395871139,225.742645786248 527.6641604128861,225.742645786248 513.8598523807841,183.257354213752" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="550" y="257" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Pentágono</text>
+<polygon points="675.0,157.0 701.8700576850888,168.1299423149112 713.0,195.0 701.8700576850888,221.8700576850888 675.0,233.0 648.1299423149112,221.8700576850888 637.0,195.0 648.1299423149112,168.1299423149112" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="675" y="257" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Octógono</text>
+</svg>

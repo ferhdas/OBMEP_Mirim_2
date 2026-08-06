@@ -1,2 +1,142 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg"><rect width="640" height="380" fill="white"/><text x="320.0" y="28.0" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Uma seta pintada numa face aponta para a casa vizinha, no papel</text><rect x="290.0" y="45.0" width="60.0" height="60.0" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="230.0" y="105.0" width="60.0" height="60.0" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="290.0" y="105.0" width="60.0" height="60.0" rx="6" fill="#FCEFC2" stroke="#14365A" stroke-width="2.2"/><rect x="350.0" y="105.0" width="60.0" height="60.0" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="290.0" y="165.0" width="60.0" height="60.0" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="290.0" y="225.0" width="60.0" height="60.0" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><line x1="340.0" y1="135.0" x2="309.0" y2="135.0" stroke="#E0701B" stroke-width="3.2"/><polygon points="300.0,135.0 309.0,140.0 309.0,130.0" fill="#E0701B"/><text x="320.0" y="311.0" font-family="DejaVu Sans" font-size="12.5" font-weight="normal" fill="#8A97A6" text-anchor="middle">a seta aponta para a casa da esquerda</text></svg>
+<svg
+   viewBox="0 0 640 380"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="planif_giro_estrutura.svg"
+   inkscape:export-filename="planif_giro_estrutura.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs7" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4613225"
+     inkscape:cx="265.51292"
+     inkscape:cy="76.642904"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7" />
+  <rect
+     width="640"
+     height="380"
+     fill="white"
+     id="rect1" />
+  <text
+     x="320.0"
+     y="28.0"
+     font-family="DejaVu Sans"
+     font-size="15"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Uma seta pintada numa face aponta para a casa vizinha, no papel</text>
+  <rect
+     x="290"
+     y="55"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect2" />
+  <rect
+     x="230"
+     y="115"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect3" />
+  <rect
+     x="290"
+     y="115"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#fcefc2"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect4" />
+  <rect
+     x="350"
+     y="115"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect5" />
+  <rect
+     x="290"
+     y="175"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect6" />
+  <rect
+     x="290"
+     y="235"
+     width="60"
+     height="60"
+     rx="6"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect7" />
+  <line
+     x1="340"
+     y1="145"
+     x2="309"
+     y2="145"
+     stroke="#e0701b"
+     stroke-width="3.2"
+     id="line7" />
+  <polygon
+     points="309,130 300,135 309,140 "
+     fill="#e0701b"
+     id="polygon7"
+     transform="translate(0,10)" />
+  <text
+     x="320"
+     y="337"
+     font-family="'DejaVu Sans'"
+     font-size="12.5px"
+     font-weight="normal"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text7">a seta aponta para a casa da esquerda</text>
+  <text
+     xml:space="preserve"
+     style="font-size:21.3333px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#2f80c4;stroke:#ffff31;stroke-width:6"
+     x="313.26401"
+     y="92.61599"
+     id="text8"><tspan
+       sodipodi:role="line"
+       id="tspan7"
+       x="313.26401"
+       y="92.61599"
+       style="font-size:21.3333px;stroke:none">1</tspan></text>
+</svg>

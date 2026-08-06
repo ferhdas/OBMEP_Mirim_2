@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="380" fill="white"/>
+<text x="190.0" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">A silhueta final e uma cruz</text>
+<polygon points="155.0,165.0 90.0,165.0 90.0,235.0 155.0,235.0 155.0,300.0 225.0,300.0 225.0,235.0 290.0,235.0 290.0,165.0 225.0,165.0 225.0,100.0 155.0,100.0" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="190.0" y="330.0" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#3E9B6B" text-anchor="middle">Silhueta = cruz</text>
+</svg>

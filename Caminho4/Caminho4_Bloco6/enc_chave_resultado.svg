@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+<rect width="520" height="260" fill="white"/>
+<text x="260.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">Fechadura A: mesma ordem de profundidades</text>
+<text x="70" y="55" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Chave (3,1,4,2)</text>
+<rect x="60" y="80" width="15" height="30" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<rect x="78" y="100" width="15" height="10" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<rect x="96" y="70" width="15" height="40" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<rect x="114" y="90" width="15" height="20" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="290" y="145" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Fech. A</text>
+<rect x="260" y="190" width="15" height="30" rx="6" fill="#EEF3F8" stroke="#3E9B6B" stroke-width="2"/>
+<rect x="278" y="210" width="15" height="10" rx="6" fill="#EEF3F8" stroke="#3E9B6B" stroke-width="2"/>
+<rect x="296" y="180" width="15" height="40" rx="6" fill="#EEF3F8" stroke="#3E9B6B" stroke-width="2"/>
+<rect x="314" y="200" width="15" height="20" rx="6" fill="#EEF3F8" stroke="#3E9B6B" stroke-width="2"/>
+<circle cx="290" cy="160" r="11.0" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<path d="M 284.0,160 L 288.5,165.0 L 296.0,155.0" fill="none" stroke="#3E9B6B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="380" y="145" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Fech. B</text>
+<rect x="350" y="200" width="15" height="20" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="368" y="210" width="15" height="10" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="386" y="180" width="15" height="40" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="404" y="190" width="15" height="30" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<circle cx="380" cy="160" r="11.0" fill="#FBE4E1" stroke="#C0392B" stroke-width="2"/>
+<line x1="374.0" y1="154.0" x2="386.0" y2="166.0" stroke="#C0392B" stroke-width="3"/>
+<line x1="374.0" y1="166.0" x2="386.0" y2="154.0" stroke="#C0392B" stroke-width="3"/>
+<text x="470" y="145" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Fech. C</text>
+<rect x="440" y="190" width="15" height="30" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="458" y="210" width="15" height="10" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="476" y="180" width="15" height="40" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<rect x="494" y="190" width="15" height="30" rx="6" fill="#EEF3F8" stroke="#C0392B" stroke-width="2"/>
+<circle cx="470" cy="160" r="11.0" fill="#FBE4E1" stroke="#C0392B" stroke-width="2"/>
+<line x1="464.0" y1="154.0" x2="476.0" y2="166.0" stroke="#C0392B" stroke-width="3"/>
+<line x1="464.0" y1="166.0" x2="476.0" y2="154.0" stroke="#C0392B" stroke-width="3"/>
+</svg>

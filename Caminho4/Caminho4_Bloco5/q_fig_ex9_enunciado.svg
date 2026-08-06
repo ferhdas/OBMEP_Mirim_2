@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+<rect width="340" height="340" fill="white"/>
+<text x="170.0" y="20" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Volta = 16s. Depois de 8s, onde esta o ponto que comecou na direita?</text>
+<circle cx="170.0" cy="180.0" r="120" fill="none" stroke="#14365A" stroke-width="2.4"/>
+<circle cx="290.0" cy="180.0" r="11" fill="#C0392B" stroke="#14365A" stroke-width="2"/>
+</svg>

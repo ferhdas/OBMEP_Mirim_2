@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="300" fill="white"/>
+<text x="230.0" y="22" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">Vermelho (0 cortes) - Azul (1 corte) - Amarelo (2 cortes)</text>
+<rect x="80" y="60" width="100" height="60" rx="6" fill="#FBE1DD" stroke="#C0392B" stroke-width="2.4"/>
+<text x="210" y="85" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#C0392B" text-anchor="middle">Vermelho</text>
+<text x="210" y="104" font-family="DejaVu Sans" font-size="11" font-weight="normal" fill="#14365A" text-anchor="middle">0 cortes</text>
+<rect x="80" y="140" width="100" height="60" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.4"/>
+<text x="210" y="165" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#2F80C4" text-anchor="middle">Azul</text>
+<text x="210" y="184" font-family="DejaVu Sans" font-size="11" font-weight="normal" fill="#14365A" text-anchor="middle">1 corte</text>
+<rect x="80" y="220" width="100" height="60" rx="6" fill="#FCEFC2" stroke="#F6C445" stroke-width="2.4"/>
+<text x="210" y="245" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#F6C445" text-anchor="middle">Amarelo</text>
+<text x="210" y="264" font-family="DejaVu Sans" font-size="11" font-weight="normal" fill="#14365A" text-anchor="middle">2 cortes</text>
+</svg>

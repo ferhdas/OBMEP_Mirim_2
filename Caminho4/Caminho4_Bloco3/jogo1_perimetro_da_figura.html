@@ -1,0 +1,117 @@
+<!-- ENUNCIADO: A figura abaixo é feita de quadradinhos de 1 cm de lado, grudados uns nos outros. Clique no número que mostra o perímetro certo dessa figura (a soma só dos lados de fora). -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:480px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #figura{ width:100%; height:auto; margin-bottom:14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  button.opcao{ padding:14px 6px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:20px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="figura" viewBox="0 0 300 260"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  // S-hexomino: 5 cells, zigzag
+  var cells = [[0,0],[1,0],[1,1],[2,1],[2,2]];
+  var cell = 46, x0 = 70, y0 = 30;
+  var html = '<rect width="300" height="260" fill="white"/>';
+  cells.forEach(function(p){
+    html += '<rect x="'+(x0+p[0]*cell)+'" y="'+(y0+p[1]*cell)+'" width="'+cell+'" height="'+cell+'" rx="3" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.2"/>';
+  });
+  document.getElementById("figura").innerHTML = html;
+
+  // perimeter computed here (kept consistent with drawing): 5 cells zigzag -> perimeter
+  function perimetro(cs){
+    var set = {}; cs.forEach(function(p){ set[p[0]+","+p[1]] = true; });
+    var p = 0;
+    cs.forEach(function(c){
+      [[1,0],[-1,0],[0,1],[0,-1]].forEach(function(d){
+        if(!set[(c[0]+d[0])+","+(c[1]+d[1])]) p++;
+      });
+    });
+    return p;
+  }
+  var CORRETA = perimetro(cells); // = 14
+
+  var OPCOES = [
+    {chave:"a", valor: cells.length*4},        // 20, sem descontar nada
+    {chave:"b", valor: CORRETA},                // 14
+    {chave:"c", valor: cells.length*4 - CORRETA*2 }, // apenas os escondidos (errado)
+    {chave:"d", valor: cells.length}            // 5, confundiu com área
+  ];
+  var ordem = ["a","c","b","d"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var opc = OPCOES.filter(function(o){ return o.chave===chave; })[0];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = opc.valor;
+    b.onclick = function(){ escolher(b, opc.valor); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){
+      var opc = OPCOES.filter(function(o){ return o.chave===k; })[0];
+      if(opc.valor === CORRETA) botoes[k].classList.add("certa");
+    });
+  }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! O perímetro é " + CORRETA + ", contando só os lados de fora.";
+      fb.className = "ok"; enviar(true, valor);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Conte só os lados que ficam na borda de fora, sem contar os que dois quadradinhos compartilham.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A resposta certa é " + CORRETA + ".";
+        fb.className = "no"; enviar(false, valor);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é " + CORRETA + ".";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

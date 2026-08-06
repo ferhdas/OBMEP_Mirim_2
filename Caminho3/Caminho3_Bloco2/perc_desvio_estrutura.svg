@@ -1,2 +1,181 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 700.0 320.0" xmlns="http://www.w3.org/2000/svg"><rect width="700.0" height="320.0" fill="white"/><text x="350.0" y="32.0" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#14365A" text-anchor="middle">O trecho reto e o desvio</text><rect x="260.0" y="58.0" width="180.0" height="72.0" rx="12" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2"/><text x="350.0" y="84.0" font-family="DejaVu Sans" font-size="13" font-weight="normal" fill="#8A97A6" text-anchor="middle">trecho reto</text><text x="350.0" y="113.0" font-family="DejaVu Sans Mono" font-size="21" font-weight="bold" fill="#14365A" text-anchor="middle">35 km</text><text x="350.0" y="158.0" font-family="DejaVu Sans" font-size="13" font-weight="normal" fill="#8A97A6" text-anchor="middle">desvio (três trechos)</text><rect x="70.0" y="172.0" width="130.0" height="66.0" rx="12" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="135.0" y="212.0" font-family="DejaVu Sans Mono" font-size="19" font-weight="bold" fill="#c2410c" text-anchor="middle">12 km</text><rect x="285.0" y="172.0" width="130.0" height="66.0" rx="12" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="350.0" y="212.0" font-family="DejaVu Sans Mono" font-size="19" font-weight="bold" fill="#c2410c" text-anchor="middle">18 km</text><rect x="500.0" y="172.0" width="130.0" height="66.0" rx="12" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="565.0" y="212.0" font-family="DejaVu Sans Mono" font-size="19" font-weight="bold" fill="#c2410c" text-anchor="middle">15 km</text><text x="242.5" y="212.0" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">+</text><text x="457.5" y="212.0" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#14365A" text-anchor="middle">+</text><rect x="210.0" y="268.0" width="280.0" height="44.0" rx="10" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2" stroke-dasharray="6,5"/><text x="350.0" y="297.0" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#c2410c" text-anchor="middle">quantos km a mais?</text></svg>
+<svg
+   viewBox="0 0 700.0 320.0"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="perc_desvio_estrutura.svg"
+   inkscape:export-filename="perc_desvio_estrutura.png"
+   inkscape:export-xdpi="109.71429"
+   inkscape:export-ydpi="109.71429"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.86571429"
+     inkscape:cx="350"
+     inkscape:cy="160.56106"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <rect
+     width="700.0"
+     height="320.0"
+     fill="white"
+     id="rect1" />
+  <text
+     x="350.0"
+     y="32.0"
+     font-family="DejaVu Sans"
+     font-size="19"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">O trecho reto e o desvio</text>
+  <rect
+     x="199.47925"
+     y="80.473404"
+     width="301.52344"
+     height="49.395485"
+     rx="20.101562"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="2.82664"
+     id="rect2" />
+  <text
+     x="350"
+     y="62"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="normal"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text2">trecho reto</text>
+  <text
+     x="350.0"
+     y="113.0"
+     font-family="DejaVu Sans Mono"
+     font-size="21"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text3">35 km</text>
+  <text
+     x="350"
+     y="168"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="normal"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text4">desvio (três trechos)</text>
+  <rect
+     x="70"
+     y="186"
+     width="130"
+     height="52"
+     rx="12"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect4" />
+  <text
+     x="135"
+     y="216"
+     font-family="'DejaVu Sans Mono'"
+     font-size="19px"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text5">12 km</text>
+  <rect
+     x="284.87955"
+     y="185.87955"
+     width="130.24089"
+     height="52.240894"
+     rx="12.022236"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect5" />
+  <text
+     x="350"
+     y="216"
+     font-family="'DejaVu Sans Mono'"
+     font-size="19px"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text6">18 km</text>
+  <rect
+     x="500"
+     y="186"
+     width="130"
+     height="52"
+     rx="12"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect6" />
+  <text
+     x="565"
+     y="216"
+     font-family="'DejaVu Sans Mono'"
+     font-size="19px"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text7">15 km</text>
+  <text
+     x="242.5"
+     y="212.0"
+     font-family="DejaVu Sans"
+     font-size="22"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text8">+</text>
+  <text
+     x="457.5"
+     y="212.0"
+     font-family="DejaVu Sans"
+     font-size="22"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text9">+</text>
+  <rect
+     x="210"
+     y="260"
+     width="280"
+     height="44"
+     rx="10"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     stroke-dasharray="6, 5"
+     id="rect9" />
+  <text
+     x="350"
+     y="289"
+     font-family="'DejaVu Sans'"
+     font-size="15px"
+     font-weight="bold"
+     fill="#c2410c"
+     text-anchor="middle"
+     id="text10">quantos km a mais?</text>
+</svg>

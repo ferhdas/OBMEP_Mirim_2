@@ -1,0 +1,130 @@
+<!-- ENUNCIADO: A malha abaixo tem uma vaga em formato de L. Entre as cinco peças soltas, sem girar nem virar nenhuma delas, clique na única que encaixa exatamente na vaga. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #malha{ width:100%; height:auto; margin-bottom:10px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:6px 2px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:56px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="malha" viewBox="0 0 400 170"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var ORIENTS = {
+    right_down: [[0,0],[1,0],[1,1]],
+    left_down:  [[1,0],[0,0],[0,1]],
+    right_up:   [[0,1],[1,1],[1,0]],
+    left_up:    [[1,1],[0,1],[0,0]],
+    straight:   [[0,0],[1,0],[2,0]]
+  };
+
+  function cellRect(x,y,s,fill,stroke){
+    return '<rect x="'+x+'" y="'+y+'" width="'+s+'" height="'+s+'" rx="3" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2.2"/>';
+  }
+
+  // draw the malha with a gap shaped "right_down" at a fixed position
+  var cell = 24, cols=8, rows=5, x0=20, y0=15;
+  var gapOrient = "right_down", gapPos=[3,1];
+  var gapCells = {};
+  ORIENTS[gapOrient].forEach(function(d){ gapCells[(gapPos[0]+d[0])+","+(gapPos[1]+d[1])] = true; });
+  var html = '<rect width="400" height="170" fill="white"/>';
+  for(var r=0;r<rows;r++){
+    for(var c=0;c<cols;c++){
+      var key = c+","+r;
+      if(gapCells[key]){
+        html += cellRect(x0+c*cell, y0+r*cell, cell, "none", "#dc2626");
+      } else {
+        html += cellRect(x0+c*cell, y0+r*cell, cell, "#DCE7F2", "#9FB4C8");
+      }
+    }
+  }
+  document.getElementById("malha").innerHTML = html;
+
+  function fragIcon(orient){
+    var cells = ORIENTS[orient];
+    var s = 16;
+    var d = '<svg viewBox="0 0 56 56">';
+    cells.forEach(function(p){ d += cellRect(4+p[0]*s, 4+p[1]*s, s, "#EEF3F8", NAVY); });
+    d += '</svg>';
+    return d;
+  }
+
+  var OPCOES = [
+    {chave:"a", orient:"left_up"},
+    {chave:"b", orient:"straight"},
+    {chave:"c", orient:"right_down"},
+    {chave:"d", orient:"left_down"},
+    {chave:"e", orient:"right_up"}
+  ];
+  var CORRETA = "c";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  OPCOES.forEach(function(opc){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = fragIcon(opc.orient);
+    b.onclick = function(){ escolher(b, opc.chave); };
+    opcoesEl.appendChild(b);
+    botoes[opc.chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Essa peça está virada exatamente como a vaga pede.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Repare para que lado o degrau da peça aponta, sem imaginar nenhum giro.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A peça certa é a que tem o degrau virado do mesmo jeito da vaga, sem girar nem virar.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é a peça C.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

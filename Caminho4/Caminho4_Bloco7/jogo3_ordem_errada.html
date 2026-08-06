@@ -1,0 +1,109 @@
+<!-- ENUNCIADO: Cada cartão mostra três tubos com seus comprimentos e a ordem de saída anotada, do primeiro ao último. Três cartões têm a ordem certa (do tubo mais curto para o mais longo), e um cartão está errado. Clique no cartão errado. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:10px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; font-size:12.5px; color:#333; text-align:left; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao .linha{ display:block; margin:2px 0; font-weight:700; }
+  button.opcao .ordem{ display:block; margin-top:6px; font-weight:700; color:#7e22ce; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CARTOES = {
+    a: { lens:[70,40,55], ordemMostrada:[2,3,1] },   // correct order would be 2,3,1 -> matches, OK card
+    b: { lens:[35,80,60], ordemMostrada:[2,3,1] },   // correct order is 1,3,2 -> mismatch, EXCEPTION
+    c: { lens:[90,20,50], ordemMostrada:[2,3,1] },   // correct order is 2,3,1 -> matches, OK card
+    d: { lens:[45,75,25], ordemMostrada:[3,1,2] }    // correct order is 3,1,2 -> matches, OK card
+  };
+  var ordem = ["c","b","a","d"];
+
+  Object.keys(CARTOES).forEach(function(k){
+    var c = CARTOES[k];
+    var withIdx = c.lens.map(function(v,i){ return {v:v, tubo:i+1}; });
+    withIdx.sort(function(x,y){ return x.v - y.v; });
+    var correta = withIdx.map(function(o){ return o.tubo; });
+    c.correta = correta.join(",") === c.ordemMostrada.join(",");
+  });
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  function cardHtml(c){
+    var s = "";
+    c.lens.forEach(function(len, i){
+      s += '<span class="linha">Tubo '+(i+1)+': '+len+' cm</span>';
+    });
+    s += '<span class="ordem">Ordem de saida: '+c.ordemMostrada.join(", ")+'</span>';
+    return s;
+  }
+
+  var CORRETA = null;
+  Object.keys(CARTOES).forEach(function(k){ if(!CARTOES[k].correta) CORRETA = k; });
+
+  ordem.forEach(function(chave){
+    var c = CARTOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = cardHtml(c);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! A ordem anotada nesse cartão não é do tubo mais curto para o mais longo.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ordene os três comprimentos do menor para o maior e compare com a ordem anotada.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O cartão errado é o que não segue a ordem do tubo mais curto para o mais longo.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O cartão errado está marcado em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

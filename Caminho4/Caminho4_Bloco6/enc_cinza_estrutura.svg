@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="260" fill="white"/>
+<text x="230.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">8 pecas triangulares cinzas: quantos quadrados formam?</text>
+<polygon points="60,110 100,110 60,70" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="130,110 170,110 130,70" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="200,110 240,110 200,70" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="270,110 310,110 270,70" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="60,200 100,200 60,160" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="130,200 170,200 130,160" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="200,200 240,200 200,160" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="270,200 310,200 270,160" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

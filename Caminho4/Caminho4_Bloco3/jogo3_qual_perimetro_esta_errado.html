@@ -1,0 +1,105 @@
+<!-- ENUNCIADO: Cada escada abaixo mostra sua largura, sua altura, e o perímetro anotado (lembre-se: para uma escada que só desce, o perímetro é 2 vezes a soma da largura com a altura). Três dessas contas estão certas, e uma está errada. Clique na escada com o perímetro errado. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:8px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:100px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  function stepIcon(w,h,perimShown){
+    var maxw=100, maxh=60;
+    var scale = Math.min(maxw/w, maxh/h);
+    var rw=w*scale, rh=h*scale;
+    var x=(140-rw)/2, y=8;
+    var s = '<svg viewBox="0 0 140 110">';
+    s += '<polyline points="'+x+','+(y+rh)+' '+(x+rw)+','+(y+rh)+' '+(x+rw)+','+y+'" fill="none" stroke="'+NAVY+'" stroke-width="2.4"/>';
+    s += '<polyline points="'+x+','+(y+rh)+' '+x+','+y+' '+(x+rw)+','+y+'" fill="none" stroke="'+NAVY+'" stroke-width="1" stroke-dasharray="3,3"/>';
+    s += '<text x="70" y="'+(y+rh+20)+'" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">larg '+w+', alt '+h+'</text>';
+    s += '<text x="70" y="'+(y+rh+36)+'" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">perimetro = '+perimShown+'</text>';
+    s += '</svg>';
+    return s;
+  }
+
+  var CARTOES = {
+    a: { w:8, h:5, shown:26, correta:false },   // 2*(8+5)=26 CORRECT
+    b: { w:6, h:9, shown:32, correta:true },    // 2*(6+9)=30, shown 32 -> WRONG (exception)
+    c: { w:11, h:4, shown:30, correta:false },  // 2*(11+4)=30 CORRECT
+    d: { w:7, h:7, shown:28, correta:false }    // 2*(7+7)=28 CORRECT
+  };
+  var ordem = ["c","b","a","d"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var c = CARTOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = stepIcon(c.w, c.h, c.shown);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){ if(CARTOES[k].correta) botoes[k].classList.add("certa"); });
+  }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(CARTOES[chave].correta){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! 2 x (6+9) = 30, não 32. Essa era a conta errada.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Some a largura com a altura e dobre o resultado, depois compare com o número anotado.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A conta errada é 2 x (6+9) = 32: o certo seria 30.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A conta errada é a do card com perímetro 32.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

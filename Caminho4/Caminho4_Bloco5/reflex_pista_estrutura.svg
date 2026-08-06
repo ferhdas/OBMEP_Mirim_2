@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="380" fill="white"/>
+<text x="190.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">3 carrinhos, volta=12s. Onde estao depois de 6s?</text>
+<circle cx="190.0" cy="200.0" r="130" fill="none" stroke="#14365A" stroke-width="2.4"/>
+<circle cx="190.0" cy="70.0" r="12" fill="#2F80C4" stroke="#14365A" stroke-width="2"/>
+<circle cx="302.58330249197707" cy="265.0" r="12" fill="#C0392B" stroke="#14365A" stroke-width="2"/>
+<circle cx="77.41669750802296" cy="265.0" r="12" fill="#3E9B6B" stroke="#14365A" stroke-width="2"/>
+</svg>

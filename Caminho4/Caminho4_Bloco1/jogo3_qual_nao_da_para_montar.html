@@ -1,0 +1,130 @@
+<!-- ENUNCIADO: Duas peças triangulares idênticas podem formar várias figuras diferentes, encostando os lados sem deixar buraco. Clique na única figura, entre as quatro abaixo, que essas duas peças NÃO conseguem formar. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:560px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:10px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:110px; display:block; }
+  button.opcao .rot{ display:block; margin-top:6px; font-size:12px; font-weight:700; color:#444; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A", NEUTRAL = "#EEF3F8";
+
+  function retanguloIcon(){
+    return '<svg viewBox="0 0 140 120">'+
+      '<polygon points="30,20 110,20 110,90" fill="'+NEUTRAL+'" stroke="'+NAVY+'" stroke-width="2.5"/>'+
+      '<polygon points="30,20 110,90 30,90" fill="#E6F0FA" stroke="'+NAVY+'" stroke-width="2.5"/></svg>';
+  }
+  function trianguloMaiorIcon(){
+    return '<svg viewBox="0 0 140 120">'+
+      '<polygon points="20,90 70,90 70,25" fill="'+NEUTRAL+'" stroke="'+NAVY+'" stroke-width="2.5"/>'+
+      '<polygon points="70,90 120,90 70,25" fill="#E6F0FA" stroke="'+NAVY+'" stroke-width="2.5"/></svg>';
+  }
+  function paralelogramoIcon(){
+    return '<svg viewBox="0 0 140 120">'+
+      '<polygon points="40,95 40,55 100,55 40,95" fill="'+NEUTRAL+'" stroke="'+NAVY+'" stroke-width="2.5"/>'+
+      '<polygon points="100,55 100,15 40,55 100,55" fill="#E6F0FA" stroke="'+NAVY+'" stroke-width="2.5"/></svg>';
+  }
+  function estrelaIcon(){
+    var cx=70, cy=58, rOut=42, rIn=17, pts=[];
+    for(var i=0;i<10;i++){
+      var r = (i%2===0)? rOut : rIn;
+      var a = (-90 + i*36) * Math.PI/180;
+      pts.push((cx+r*Math.cos(a)).toFixed(1)+","+(cy+r*Math.sin(a)).toFixed(1));
+    }
+    return '<svg viewBox="0 0 140 120"><polygon points="'+pts.join(" ")+'" fill="#FBE4E1" stroke="'+NAVY+'" stroke-width="2.5"/></svg>';
+  }
+
+  var MOLDES = {
+    a: { draw: retanguloIcon, rot: "Retângulo", correta: false },
+    b: { draw: estrelaIcon, rot: "Estrela de 5 pontas", correta: true },
+    c: { draw: trianguloMaiorIcon, rot: "Triângulo maior", correta: false },
+    d: { draw: paralelogramoIcon, rot: "Paralelogramo", correta: false }
+  };
+  var ordem = ["c", "a", "b", "d"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var m = MOLDES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = m.draw() + '<span class="rot">' + m.rot + '</span>';
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){ if(MOLDES[k].correta) botoes[k].classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(MOLDES[chave].correta){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Duas peças triangulares têm só 6 lados retos ao todo, e não dá para formar as pontas de uma estrela com eles.";
+      fb.className = "ok";
+      enviar(true, chave);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Essa aqui dá para montar encostando as duas peças sem sobra. Procure a que tem pontas entrando para dentro.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é a estrela: as outras três usam só os lados retos das duas peças, sem sobra.";
+        fb.className = "no";
+        enviar(false, chave);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é a estrela.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

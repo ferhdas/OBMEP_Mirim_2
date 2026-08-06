@@ -1,0 +1,131 @@
+<!-- ENUNCIADO: A trilha desenhada tem um pedaço faltando, marcado com "?". Entre os cinco pedacinhos abaixo, clique no único que completa a trilha corretamente, subindo e descendo do jeito certo. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #trilha{ width:100%; height:auto; margin-bottom:10px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:6px 2px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:50px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="trilha" viewBox="0 0 400 140"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A", GRAY = "#9CA3AF";
+
+  function trailPath(base){
+    // two visible peaks (25, 45), then a gap, drawn as dashed "?" zone
+    var pts = [[20,base],[60,base-25],[100,base],[140,base-45],[180,base]];
+    var d = "M " + pts.map(function(p){return p[0]+","+p[1];}).join(" L ");
+    return {d:d, endx:180, endy:base};
+  }
+
+  var trailSvg = document.getElementById("trilha");
+  var base = 110;
+  var main = trailPath(base);
+  var html = '<rect width="400" height="140" fill="white"/>';
+  html += '<path d="'+main.d+'" fill="none" stroke="'+NAVY+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>';
+  html += '<line x1="180" y1="'+base+'" x2="380" y2="'+base+'" stroke="#CBD5DF" stroke-width="1.5" stroke-dasharray="4,4"/>';
+  html += '<circle cx="240" cy="70" r="18" fill="#FCEFC2" stroke="#F6C445" stroke-width="2"/>';
+  html += '<text x="240" y="76" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">?</text>';
+  html += '<text x="60" y="'+(base-35)+'" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">25</text>';
+  html += '<text x="140" y="'+(base-55)+'" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">45</text>';
+  trailSvg.innerHTML = html;
+
+  function fragIcon(rise, fall, color){
+    var y0 = 44, run = 28;
+    var p0 = [4, y0], p1 = [4+run, y0-rise], p2 = [4+2*run, y0-rise+fall];
+    var d = "M "+p0.join(",")+" L "+p1.join(",")+" L "+p2.join(",");
+    return '<svg viewBox="0 0 64 50"><path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  // hidden real peak = 35 rise / 35 fall
+  var OPCOES = [
+    {chave:"a", rise:35, fall:25},
+    {chave:"b", rise:25, fall:35},
+    {chave:"c", rise:35, fall:35},
+    {chave:"d", rise:45, fall:35},
+    {chave:"e", rise:35, fall:45}
+  ];
+  var CORRETA = "c";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  OPCOES.forEach(function(opc){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = fragIcon(opc.rise, opc.fall, NAVY);
+    b.onclick = function(){ escolher(b, opc.chave); };
+    opcoesEl.appendChild(b);
+    botoes[opc.chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Esse pedaço sobe 35 e desce 35, igual ao pico que faltava.";
+      fb.className = "ok";
+      enviar(true, chave);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Compare a subida com a descida desse pedacinho: elas precisam ser iguais uma à outra.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "O pedaço certo sobe 35 e desce 35. Os outros misturam números de picos diferentes.";
+        fb.className = "no";
+        enviar(false, chave);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. O pedaço certo é o que sobe 35 e desce 35.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

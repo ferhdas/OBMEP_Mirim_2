@@ -1,0 +1,106 @@
+<!-- ENUNCIADO: Cada ícone abaixo mostra um caminho traçado numa malha, feito de trechinhos de 1 cm. Clique no único caminho que tem exatamente 8 trechinhos. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:64px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  function pathIcon(pts, cell){
+    var s = '<svg viewBox="0 0 70 70">';
+    for(var r=0;r<=4;r++) s += '<line x1="4" y1="'+(4+r*15.5)+'" x2="66" y2="'+(4+r*15.5)+'" stroke="#E3E9F0" stroke-width="1"/>';
+    for(var c=0;c<=4;c++) s += '<line x1="'+(4+c*15.5)+'" y1="4" x2="'+(4+c*15.5)+'" y2="66" stroke="#E3E9F0" stroke-width="1"/>';
+    var d = "M " + pts.map(function(p){ return (4+p[0]*15.5)+","+(4+p[1]*15.5); }).join(" L ");
+    s += '<path d="'+d+'" fill="none" stroke="'+NAVY+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+    s += '</svg>';
+    return s;
+  }
+
+  var PATHS = {
+    a: [[0,0],[1,0],[1,1],[2,1],[0,1]],                 // will be fixed below with explicit steps
+    b: [[0,0],[1,0],[2,0],[2,1],[2,2],[3,2]],
+    c: [[0,2],[1,1],[2,2],[3,1]],
+    d: [[0,0],[1,1],[2,0],[3,1],[4,0]],
+    e: [[0,0],[1,0],[1,1],[2,1],[2,2],[3,2],[3,3],[4,3]]
+  };
+  // define paths purely as step counts by construction (list length - 1 = segments)
+  PATHS.a = [[0,0],[1,0],[1,1],[2,1],[2,2],[3,2]];        // 5 segments
+  PATHS.b = [[0,0],[1,0],[1,1],[2,1],[2,2],[3,2],[3,3],[4,3],[4,4]]; // 8 segments -> CORRETA
+  PATHS.c = [[0,2],[1,1],[2,2],[3,1],[4,2]];              // 4 segments
+  PATHS.d = [[0,0],[1,0],[1,1],[2,1],[2,2],[3,2],[3,3]];  // 6 segments
+  PATHS.e = [[0,0],[1,1],[2,0],[3,1],[4,0],[5,1],[6,0],[7,1],[8,0],[9,1]]; // 9 segments
+
+  var CORRETA = "b";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  Object.keys(PATHS).forEach(function(chave){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = pathIcon(PATHS[chave]);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Esse caminho tem exatamente 8 trechinhos.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Conte trechinho por trechinho, sem julgar pelo tamanho que o caminho ocupa.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O caminho certo é o que tem 8 trechinhos, nem mais nem menos.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O caminho certo tem 8 trechinhos.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

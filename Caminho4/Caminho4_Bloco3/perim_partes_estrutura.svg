@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="300" fill="white"/>
+<text x="250.0" y="20" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Contorno inteiro = 8 lados = 32 cm. Contorno da regiao cinza (5 lados)?</text>
+<rect x="80" y="150" width="50" height="50" rx="0" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2"/>
+<polygon points="80,150 130,150 105.0,106.5" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="130" y="150" width="50" height="50" rx="0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<polygon points="130,150 180,150 155.0,106.5" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="105.0" y="180.0" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">cinza</text>
+</svg>

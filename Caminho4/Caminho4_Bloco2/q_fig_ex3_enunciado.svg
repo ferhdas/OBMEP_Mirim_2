@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="620" height="300" fill="white"/>
+<text x="310.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">Sem girar nem virar: qual peca encaixa na vaga?</text>
+<rect x="60" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="88" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="116" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="144" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="172" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="200" y="50" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="60" y="78" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="88" y="78" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="144" y="78" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="172" y="78" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="200" y="78" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="60" y="106" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="88" y="106" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="172" y="106" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="200" y="106" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="60" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="88" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="116" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="144" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="172" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="200" y="134" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="60" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="88" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="116" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="144" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="172" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="200" y="162" width="28" height="28" rx="2" fill="#DCE7F2" stroke="#9FB4C8" stroke-width="1.2"/>
+<rect x="144" y="106" width="28" height="28" rx="2" fill="none" stroke="#C0392B" stroke-width="2.4"/>
+<rect x="116" y="78" width="28" height="28" rx="2" fill="none" stroke="#C0392B" stroke-width="2.4"/>
+<rect x="116" y="106" width="28" height="28" rx="2" fill="none" stroke="#C0392B" stroke-width="2.4"/>
+<text x="144" y="38" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">vaga</text>
+<rect x="70.0" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="93.8" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="93.8" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="93.8" y="290.98" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">A</text>
+<rect x="198.8" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="175.0" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="175.0" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="198.8" y="290.98" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">B</text>
+<rect x="280.0" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="303.8" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="327.6" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="303.8" y="290.98" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">C</text>
+<rect x="385.0" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="408.8" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="408.8" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="408.8" y="290.98" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">D</text>
+<rect x="513.8" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="490.0" y="248.8" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<rect x="490.0" y="225.0" width="23.8" height="23.8" rx="3" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="513.8" y="290.98" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">E</text>
+</svg>

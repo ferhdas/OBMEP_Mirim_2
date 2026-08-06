@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="380" fill="white"/>
+<text x="190.0" y="22" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Duas elipses coladas no centro, uma em pe e uma deitada: qual a silhueta?</text>
+<ellipse cx="190.0" cy="200.0" rx="110.0" ry="45.0" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.4"/>
+<ellipse cx="190.0" cy="200.0" rx="45.0" ry="110.0" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.4" opacity="0.85"/>
+</svg>

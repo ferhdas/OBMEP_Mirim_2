@@ -1,0 +1,120 @@
+<!-- ENUNCIADO: A roda-gigante acima tem 6 cabines, pintadas num padrão que se repete a cada 3 cabines. Entre as cinco rodas abaixo, cada uma girada de um número diferente de espaçamentos, clique na única que fica com o desenho exatamente igual ao original. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #estimulo{ width:150px; height:auto; display:block; margin:0 auto 14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; position:relative; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:64px; display:block; }
+  button.opcao .rot{ display:block; font-size:10px; font-weight:700; color:#666; margin-top:2px; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="estimulo" viewBox="0 0 100 100"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var N = 6, PERIODO = 3;
+  var PADRAO = ["#2F80C4","#C0392B","#F6C445"]; // azul, vermelho, amarelo, periodo 3
+  var base = [];
+  for(var i=0;i<N;i++) base.push(PADRAO[i % PERIODO]);
+
+  function wheel(order, r){
+    var cx=50, cy=50;
+    var s = '<circle cx="'+cx+'" cy="'+cy+'" r="'+(r+3)+'" fill="white" stroke="#CBD5DF" stroke-width="1.6"/>';
+    for(var i=0;i<N;i++){
+      var a0 = (-90 + i*360/N) * Math.PI/180;
+      var a1 = (-90 + (i+1)*360/N) * Math.PI/180;
+      var mx = cx + r*0.55*Math.cos((a0+a1)/2), my = cy + r*0.55*Math.sin((a0+a1)/2);
+      s += '<circle cx="'+mx.toFixed(1)+'" cy="'+my.toFixed(1)+'" r="'+(r*0.16)+'" fill="'+order[i]+'" stroke="'+NAVY+'" stroke-width="1.2"/>';
+    }
+    return s;
+  }
+
+  document.getElementById("estimulo").innerHTML = '<rect width="100" height="100" fill="white"/>' + wheel(base, 44);
+
+  function rotate(arr, k){
+    var n = arr.length;
+    var out = [];
+    for(var i=0;i<n;i++) out.push(arr[((i - k) % n + n) % n]);
+    return out;
+  }
+
+  var giros = [1,2,3,4,5];
+  var CORRETA = null;
+  var OPCOES = {};
+  ["a","b","c","d","e"].forEach(function(chave, idx){
+    var k = giros[idx];
+    OPCOES[chave] = { arr: rotate(base, k), k: k };
+    if(k % PERIODO === 0) CORRETA = chave;
+  });
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  Object.keys(OPCOES).forEach(function(chave){
+    var opc = OPCOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = '<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="white"/>' + wheel(opc.arr, 44) + '</svg>' +
+      '<span class="rot">girada ' + opc.k + '</span>';
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! O padrão se repete a cada 3 cabines, e esse giro é múltiplo de 3.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ache o período do padrão de cores e veja quais giros são múltiplos dele.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A roda certa é a que girou um múltiplo de 3 espaçamentos, o período do padrão.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A roda certa está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

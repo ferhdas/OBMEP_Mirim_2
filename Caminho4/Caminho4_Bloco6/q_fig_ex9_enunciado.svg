@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 590 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="590" height="220" fill="white"/>
+<text x="295.0" y="20" font-family="DejaVu Sans" font-size="11.5" font-weight="bold" fill="#14365A" text-anchor="middle">Buraco triangular, base 24 e altura 18. Qual pedaco encaixa exatamente?</text>
+<rect x="60.0" y="150.0" width="20" height="20" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="70" y="182" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">A</text>
+<polygon points="158.0,160 182.0,160 170,142" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="170" y="182" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">B</text>
+<polygon points="261.0,160 279.0,160 270,136" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="270" y="182" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">C</text>
+<rect x="358.0" y="148.0" width="24" height="24" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<text x="370" y="182" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">D</text>
+<polygon points="460.0,160 480.0,160 470,142" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="470" y="182" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">E</text>
+</svg>

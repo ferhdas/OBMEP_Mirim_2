@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg">
+<rect width="780" height="300" fill="white"/>
+<text x="390.0" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Duas pecas com angulo reto (catetos 35 e 45) - qual figura NAO da para montar?</text>
+<text x="60" y="48" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">A peça</text>
+<polygon points="30,100 59.75,100 30,61.75" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="145,265 145,220 180,220" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="180,220 145,220 180,175" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="175" y="257" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">Paralelogramo</text>
+<polygon points="300.0,157.0 332.9089653438087,176.0 332.9089653438087,214.0 300.0,233.0 267.0910346561913,214.0 267.0910346561913,176.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="300" y="257" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">Hexágono</text>
+<polygon points="395,235 430,235 430,190" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="395,235 430,190 395,190" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="425" y="257" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">Retângulo</text>
+<polygon points="505,235 550,235 550,200" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="550,235 595,235 550,200" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="550" y="257" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">Triângulo maior</text>
+<text x="550" y="271" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">(base larga)</text>
+<polygon points="640,235 675,235 675,190" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="675,235 710,235 675,190" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="675" y="257" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">Triângulo maior</text>
+<text x="675" y="271" font-family="DejaVu Sans" font-size="11" font-weight="bold" fill="#14365A" text-anchor="middle">(base estreita)</text>
+</svg>

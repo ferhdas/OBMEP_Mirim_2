@@ -1,0 +1,107 @@
+<!-- ENUNCIADO: O contorno acima tem um buraco em formato de meia-lua. Entre os cinco pedaços abaixo, clique no único que preenche o buraco exatamente, sem sobrar nem faltar. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #estimulo{ width:220px; height:auto; display:block; margin:0 auto 14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:64px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="estimulo" viewBox="0 0 220 120"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var R = 24;
+  document.getElementById("estimulo").innerHTML =
+    '<rect width="220" height="120" fill="white"/>' +
+    '<path d="M 30,50 L 190,45 L 195,90 Q 130,60 65,90 L 30,90 Z" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/>';
+
+  function semiIcon(r){
+    var cx=35, cy=45;
+    return '<svg viewBox="0 0 70 60"><path d="M '+(cx-r)+','+cy+' A '+r+','+r+' 0 0 1 '+(cx+r)+','+cy+' Z" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>';
+  }
+  function triIcon(r){
+    return '<svg viewBox="0 0 70 60"><polygon points="'+(35-r)+',48 '+(35+r)+',48 35,'+(48-r)+'" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>';
+  }
+  function sqIcon(r){
+    return '<svg viewBox="0 0 70 60"><rect x="'+(35-r*0.7)+'" y="'+(48-r*1.2)+'" width="'+(r*1.4)+'" height="'+(r*1.2)+'" fill="#EEF3F8" stroke="'+NAVY+'" stroke-width="2.4"/></svg>';
+  }
+
+  var OPCOES = {
+    a: semiIcon(17),
+    b: semiIcon(24),   // CORRETA
+    c: semiIcon(30),
+    d: triIcon(22),
+    e: sqIcon(22)
+  };
+  var CORRETA = "b";
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  Object.keys(OPCOES).forEach(function(chave){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = OPCOES[chave];
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Esse pedaço tem o tamanho e o formato exatos do buraco.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Compare o tamanho e o formato do pedaço com o buraco, não só o formato geral.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O pedaço certo é o que tem exatamente o mesmo tamanho e formato do buraco.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O pedaço certo está marcado em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

@@ -1,2 +1,165 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg"><rect width="560" height="430" fill="white"/><text x="280.0" y="30.0" font-family="DejaVu Sans" font-size="15.5" font-weight="bold" fill="#14365A" text-anchor="middle">Cada par de faces opostas 'pula uma casa' na fileira reta</text><rect x="304.0" y="55.0" width="64.0" height="64.0" rx="6" fill="#2F80C4" stroke="#14365A" stroke-width="2.2"/><rect x="240.0" y="119.0" width="64.0" height="64.0" rx="6" fill="#F6C445" stroke="#14365A" stroke-width="2.2"/><rect x="304.0" y="119.0" width="64.0" height="64.0" rx="6" fill="#3E9B6B" stroke="#14365A" stroke-width="2.2"/><rect x="368.0" y="119.0" width="64.0" height="64.0" rx="6" fill="#7A5CC0" stroke="#14365A" stroke-width="2.2"/><rect x="304.0" y="183.0" width="64.0" height="64.0" rx="6" fill="#E0701B" stroke="#14365A" stroke-width="2.2"/><rect x="304.0" y="247.0" width="64.0" height="64.0" rx="6" fill="#14365A" stroke="#14365A" stroke-width="2.2"/><path d="M 336.0,87.0 Q 276.0,151.0 336.0,215.0" fill="none" stroke="#8A97A6" stroke-width="2" stroke-dasharray="6,5"/><path d="M 272.0,151.0 Q 336.0,91.0 400.0,151.0" fill="none" stroke="#F6C445" stroke-width="3" stroke-dasharray="6,5"/><path d="M 336.0,151.0 Q 276.0,215.0 336.0,279.0" fill="none" stroke="#8A97A6" stroke-width="2" stroke-dasharray="6,5"/><rect x="60.0" y="300.0" width="300.0" height="72.0" rx="10" fill="#FCEFC2" stroke="#F6C445" stroke-width="2.2"/><text x="210.0" y="330.0" font-family="DejaVu Sans" font-size="13" font-weight="normal" fill="#8a6d1a" text-anchor="middle">amarelo fica oposto a</text><text x="210.0" y="356.0" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#8a6d1a" text-anchor="middle">roxo</text></svg>
+<svg
+   viewBox="0 0 560 430"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="planif_pares_resultado.svg"
+   inkscape:export-filename="planif_pares_resultado.png"
+   inkscape:export-xdpi="137.14285"
+   inkscape:export-ydpi="137.14285"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.55449901"
+     inkscape:cx="295.76247"
+     inkscape:cy="88.368057"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <rect
+     width="560"
+     height="430"
+     fill="white"
+     id="rect1" />
+  <text
+     x="280.0"
+     y="30.0"
+     font-family="DejaVu Sans"
+     font-size="15.5"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Cada par de faces opostas 'pula uma casa' na fileira reta</text>
+  <rect
+     x="252"
+     y="57"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#2f80c4"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect2" />
+  <rect
+     x="188"
+     y="121"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#f6c445"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect3" />
+  <rect
+     x="252"
+     y="121"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#3e9b6b"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect4" />
+  <rect
+     x="316"
+     y="121"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#7a5cc0"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect5" />
+  <rect
+     x="252"
+     y="185"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#e0701b"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect6" />
+  <rect
+     x="252"
+     y="249"
+     width="64"
+     height="64"
+     rx="6"
+     fill="#14365a"
+     stroke="#14365a"
+     stroke-width="2.2"
+     id="rect7" />
+  <path
+     d="m 284,89 q -60,64 0,128"
+     fill="none"
+     stroke="#8A97A6"
+     stroke-width="2"
+     stroke-dasharray="6, 5"
+     id="path7"
+     style="stroke:#3bfd33;stroke-opacity:1" />
+  <path
+     d="m 220,153 q 64,-60 128,0"
+     fill="none"
+     stroke="#F6C445"
+     stroke-width="3"
+     stroke-dasharray="6, 5"
+     id="path8"
+     style="stroke:#f64e45;stroke-opacity:1" />
+  <path
+     d="m 284,153 q -60,64 0,128"
+     fill="none"
+     stroke="#8A97A6"
+     stroke-width="2"
+     stroke-dasharray="6, 5"
+     id="path9"
+     style="stroke:#ffff31;stroke-opacity:1" />
+  <g
+     id="g10"
+     transform="translate(92.9,31.651984)">
+    <rect
+       x="60"
+       y="300"
+       width="300"
+       height="72"
+       rx="10"
+       fill="#fcefc2"
+       stroke="#f6c445"
+       stroke-width="2.2"
+       id="rect9" />
+    <text
+       x="210"
+       y="330"
+       font-family="'DejaVu Sans'"
+       font-size="13px"
+       font-weight="normal"
+       fill="#8a6d1a"
+       text-anchor="middle"
+       id="text9">amarelo fica oposto a</text>
+    <text
+       x="210"
+       y="356"
+       font-family="'DejaVu Sans'"
+       font-size="20px"
+       font-weight="bold"
+       fill="#8a6d1a"
+       text-anchor="middle"
+       id="text10">roxo</text>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+<!-- ENUNCIADO: Cada par de folhinhas abaixo tem buraquinhos brancos em posições diferentes. Em três pares, os buraquinhos das duas folhas nunca coincidem, e a sobreposição fica toda preta. Em um par, algum buraquinho coincide, e sobra branco. Clique no par onde sobra branco. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:8px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:110px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  function pairIcon(holes1, holes2){
+    var n=3, cell=18;
+    function grid(holes, x0){
+      var g = "";
+      for(var r=0;r<n;r++){
+        for(var c=0;c<n;c++){
+          var key = c+","+r;
+          var fill = holes.indexOf(key)>=0 ? "white" : NAVY;
+          g += '<rect x="'+(x0+c*cell)+'" y="'+(4+r*cell)+'" width="'+cell+'" height="'+cell+'" fill="'+fill+'" stroke="#8896A6" stroke-width="1"/>';
+        }
+      }
+      return g;
+    }
+    var s = '<svg viewBox="0 0 140 66">';
+    s += grid(holes1, 6);
+    s += grid(holes2, 76);
+    s += '</svg>';
+    return s;
+  }
+
+  function inter(h1, h2){
+    return h1.filter(function(x){ return h2.indexOf(x) >= 0; }).length;
+  }
+
+  var PARES = {
+    a: { h1:["0,0","1,2","2,1"], h2:["0,2","1,0","2,2"] },       // disjoint
+    b: { h1:["0,1","1,1","2,0"], h2:["1,1","0,0","2,2"] },       // shares "1,1" -> exception
+    c: { h1:["0,0","0,2","2,0"], h2:["0,1","1,0","2,1"] },       // disjoint
+    d: { h1:["1,0","1,2","0,1"], h2:["0,0","2,0","2,2"] }        // disjoint
+  };
+  var CORRETA = null;
+  Object.keys(PARES).forEach(function(k){
+    var p = PARES[k];
+    p.intersecao = inter(p.h1, p.h2);
+    if(p.intersecao > 0) CORRETA = k;
+  });
+
+  var ordem = ["c","b","a","d"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var p = PARES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = pairIcon(p.h1, p.h2);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Nesse par, um buraquinho aparece nas duas folhas na mesma casinha, então sobra branco.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Compare casinha por casinha: em algum par, um buraquinho se repete na mesma posição nas duas folhas.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O par certo é aquele em que as duas folhas têm um buraquinho na mesma casinha.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O par certo é aquele com um buraquinho repetido na mesma casinha.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

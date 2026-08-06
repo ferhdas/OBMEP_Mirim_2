@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="200" fill="white"/>
+<text x="190.0" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Seta para cima, bolinha a esquerda. No espelho vertical, a bolinha fica de que lado?</text>
+<line x1="190.0" y1="40" x2="190.0" y2="180" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="6,4"/>
+<line x1="90" y1="120" x2="90" y2="80" stroke="#14365A" stroke-width="4"/>
+<polygon points="90,80 98,90 82,90" fill="#14365A" stroke="#14365A" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="65" cy="120" r="8" fill="#FBE1DD" stroke="#C0392B" stroke-width="2"/>
+</svg>

@@ -1,0 +1,114 @@
+<!-- ENUNCIADO: O retângulo abaixo está coberto por peças iguais de 4 quadradinhos cada, algumas verdes, outras amarelas, e as demais vermelhas (sem cor marcada). Clique no número de peças vermelhas. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #malha{ width:100%; height:auto; margin-bottom:14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  button.opcao{ padding:14px 6px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:20px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="malha" viewBox="0 0 480 240"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var COLMAP = { g:["#3E9B6B","#E2F2EA"], y:["#F6C445","#FCEFC2"], u:[NAVY,"#EEF3F8"] };
+  var seq = ["g","g","g","g","y","y","y","u","u","u","u","u"]; // 4 verdes, 3 amarelas, 5 vermelhas (incognita)
+  var CORRETA = seq.filter(function(k){return k==="u";}).length;
+
+  var svgEl = document.getElementById("malha");
+  var cell = 40, bcols = 4, brows = 3; // 4x3 blocks of 2x2 = 8x6 grid = 48 cells / 4 = 12 pieces
+  var x0 = (480 - bcols*2*cell)/2, y0 = 20;
+  var html = '<rect width="480" height="240" fill="white"/>';
+  var i = 0;
+  for(var r=0;r<brows;r++){
+    for(var c=0;c<bcols;c++){
+      var k = seq[i++];
+      var col = COLMAP[k];
+      var bx = x0+c*2*cell, by = y0+r*2*cell;
+      html += '<rect x="'+bx+'" y="'+by+'" width="'+(2*cell)+'" height="'+(2*cell)+'" rx="6" fill="'+col[1]+'" stroke="'+col[0]+'" stroke-width="2.4"/>';
+    }
+  }
+  svgEl.innerHTML = html;
+
+  var OPCOES = [
+    {chave:"a", valor: CORRETA},
+    {chave:"b", valor: 4},
+    {chave:"c", valor: 12},
+    {chave:"d", valor: 7}
+  ];
+  var ordem = ["c","a","d","b"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var opc = OPCOES.filter(function(o){ return o.chave===chave; })[0];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = opc.valor;
+    b.onclick = function(){ escolher(b, opc.valor); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){
+      var opc = OPCOES.filter(function(o){ return o.chave===k; })[0];
+      if(opc.valor === CORRETA) botoes[k].classList.add("certa");
+    });
+  }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! 12 peças ao todo, menos as 7 já coloridas, sobram " + CORRETA + " vermelhas.";
+      fb.className = "ok"; enviar(true, valor);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ache primeiro o total de peças, depois subtraia as verdes e as amarelas.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A resposta certa é " + CORRETA + ": 48 quadradinhos ÷ 4 = 12 peças; 12 − 7 = 5.";
+        fb.className = "no"; enviar(false, valor);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é " + CORRETA + ".";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

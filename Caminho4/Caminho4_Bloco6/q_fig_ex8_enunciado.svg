@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="220" fill="white"/>
+<text x="230.0" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">14 pecas triangulares cinzas: quantos quadrados formam?</text>
+<polygon points="50,92 82,92 50,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="108,92 140,92 108,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="166,92 198,92 166,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="224,92 256,92 224,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="282,92 314,92 282,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="340,92 372,92 340,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="398,92 430,92 398,60" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="50,162 82,162 50,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="108,162 140,162 108,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="166,162 198,162 166,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="224,162 256,162 224,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="282,162 314,162 282,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="340,162 372,162 340,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="398,162 430,162 398,130" fill="#CBD2D9" stroke="#14365A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,95 @@
+<!-- ENUNCIADO: Quatro cartões estão empilhados, cada um com um número diferente de bordas cortadas pelos outros. Clique no cartão que está no topo da pilha (o que não tem nenhuma borda cortada). -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:480px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #pilha{ width:100%; height:auto; margin-bottom:14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  button.opcao{ padding:14px 6px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="pilha" viewBox="0 0 300 260"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var cartoes = [ {lab:"A", cortes:2}, {lab:"B", cortes:0}, {lab:"C", cortes:3}, {lab:"D", cortes:1} ];
+  var colors = [["#2F80C4","#E6F0FA"], ["#C0392B","#FBE1DD"], ["#F6C445","#FCEFC2"], ["#3E9B6B","#E2F2EA"]];
+  var backToFront = cartoes.slice().sort(function(a,b){ return b.cortes - a.cortes; });
+  var html = '<rect width="300" height="260" fill="white"/>';
+  backToFront.forEach(function(c, i){
+    var col = colors[cartoes.indexOf(c) % 4];
+    var x = 60 + i*35, y = 40 + i*35;
+    html += '<rect x="'+x+'" y="'+y+'" width="120" height="120" rx="8" fill="'+col[1]+'" stroke="'+col[0]+'" stroke-width="2.6"/>';
+    html += '<text x="'+(x+60)+'" y="'+(y+68)+'" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="'+col[0]+'" text-anchor="middle">'+c.lab+'</text>';
+  });
+  document.getElementById("pilha").innerHTML = html;
+
+  var CORRETA = cartoes.filter(function(c){ return c.cortes===0; })[0].lab;
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ["C","A","D","B"].forEach(function(lab){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = lab;
+    b.onclick = function(){ escolher(b, lab); };
+    opcoesEl.appendChild(b);
+    botoes[lab] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, lab){
+    if(respondido) return;
+    tentativas++;
+    if(lab === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! O cartão " + CORRETA + " não tem nenhuma borda cortada.";
+      fb.className = "ok"; enviar(true, lab);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Procure o cartão sem nenhuma borda escondida por outro.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O cartão certo é o " + CORRETA + ", o único sem bordas cortadas.";
+        fb.className = "no"; enviar(false, lab);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O cartão certo é o " + CORRETA + ".";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

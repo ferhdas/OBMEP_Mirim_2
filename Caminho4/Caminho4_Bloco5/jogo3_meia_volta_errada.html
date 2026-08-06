@@ -1,0 +1,108 @@
+<!-- ENUNCIADO: Cada pista abaixo mostra o ponto de partida (círculo cheio) e a posição marcada depois de meia volta (círculo vazado). Em três pistas, a posição marcada é o ponto exatamente oposto à partida. Em uma pista, não é. Clique na pista errada. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:8px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:110px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  function pistaIcon(startDeg, markedDeg){
+    var cx=70, cy=55, r=42;
+    function pt(deg){
+      var a = deg*Math.PI/180;
+      return [cx+r*Math.cos(a), cy+r*Math.sin(a)];
+    }
+    var p1 = pt(startDeg), p2 = pt(markedDeg);
+    var s = '<svg viewBox="0 0 140 110">';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+NAVY+'" stroke-width="2"/>';
+    s += '<circle cx="'+p1[0].toFixed(1)+'" cy="'+p1[1].toFixed(1)+'" r="8" fill="'+NAVY+'"/>';
+    s += '<circle cx="'+p2[0].toFixed(1)+'" cy="'+p2[1].toFixed(1)+'" r="8" fill="white" stroke="#dc2626" stroke-width="3"/>';
+    s += '</svg>';
+    return s;
+  }
+
+  function opp(deg){ return (deg + 180) % 360; }
+
+  var CARTOES = {
+    a: { start: 20,  marked: opp(20),  correta:false },
+    b: { start: 100, marked: opp(100)+40, correta:true },  // WRONG: not opposite
+    c: { start: 200, marked: opp(200), correta:false },
+    d: { start: 300, marked: opp(300), correta:false }
+  };
+  var ordem = ["c","b","a","d"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var c = CARTOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = pistaIcon(c.start, c.marked);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){ if(CARTOES[k].correta) botoes[k].classList.add("certa"); });
+  }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(CARTOES[chave].correta){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Nessa pista, o ponto marcado não está do lado exatamente oposto à partida.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Imagine uma linha reta passando pelo centro: ela liga a partida ao ponto oposto certo.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A pista errada é a que não marca o ponto diametralmente oposto à partida.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A pista errada está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

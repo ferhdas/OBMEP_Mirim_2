@@ -1,0 +1,104 @@
+<!-- ENUNCIADO: A chave acima tem dentes de alturas 2, 3, 1 e 4. Entre as quatro fechaduras abaixo, três têm profundidades diferentes das alturas da chave, e uma tem exatamente as mesmas profundidades, na mesma ordem. Clique na fechadura que essa chave abre. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #chave{ width:220px; height:auto; display:block; margin:0 auto 14px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:8px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:80px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="chave" viewBox="0 0 200 90"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  function teeth(heights, color, fill, w, scale){
+    var s = "";
+    heights.forEach(function(h, i){
+      s += '<rect x="'+(i*w)+'" y="'+(60-h*scale)+'" width="'+(w-3)+'" height="'+(h*scale)+'" fill="'+fill+'" stroke="'+color+'" stroke-width="2"/>';
+    });
+    return s;
+  }
+
+  var KEY = [2,3,1,4];
+  document.getElementById("chave").innerHTML = '<rect width="200" height="90" fill="white"/>' + teeth(KEY, "#2F80C4", "#E6F0FA", 40, 11);
+
+  var FECHADURAS = {
+    a: { prof:[3,2,1,4], correta:false },
+    b: { prof:[2,3,4,1], correta:false },
+    c: { prof:[2,3,1,4], correta:true },
+    d: { prof:[2,1,3,4], correta:false }
+  };
+  var ordem = ["a","c","d","b"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(chave){
+    var f = FECHADURAS[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = '<svg viewBox="0 0 200 90">' + teeth(f.prof, NAVY, "#EEF3F8", 40, 11) + '</svg>';
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){
+    Object.keys(botoes).forEach(function(k){ if(FECHADURAS[k].correta) botoes[k].classList.add("certa"); });
+  }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(FECHADURAS[chave].correta){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! As profundidades batem exatamente com os dentes da chave, na mesma ordem.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Compare dente por dente, na ordem da esquerda para a direita, não só os números soltos.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A fechadura certa é a que tem as profundidades 2, 3, 1, 4, na mesma ordem da chave.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A fechadura certa está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

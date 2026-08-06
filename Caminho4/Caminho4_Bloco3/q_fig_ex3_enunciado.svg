@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="260" fill="white"/>
+<text x="230.0" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Contorno inteiro = 45 cm em 9 lados. Contorno da regiao cinza?</text>
+<rect x="90" y="144" width="46" height="46" rx="6" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2"/>
+<polygon points="90,144 136,144 113.0,103.97999999999999" fill="#CBD2D9" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="136" y="144" width="46" height="46" rx="6" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/>
+<polygon points="136,144 182,144 159.0,103.97999999999999" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="113.0" y="172.0" font-family="DejaVu Sans" font-size="10.5" font-weight="bold" fill="#14365A" text-anchor="middle">cinza</text>
+<text x="136" y="230" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">contorno inteiro: 9 lados</text>
+<text x="136" y="252" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">regiao cinza: 4 lados</text>
+</svg>

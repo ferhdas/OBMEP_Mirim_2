@@ -1,0 +1,114 @@
+<!-- ENUNCIADO: Uma pessoa começa olhando para o Norte e vira 4 vezes à esquerda e 1 vez à direita, na ordem que for. Entre as cinco bússolas abaixo, clique na única que mostra a direção final correta. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:600px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:4px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao svg{ width:100%; height:80px; display:block; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A";
+  var dirs = ["N","L","S","O"];
+  var angs = {N:-90, L:0, S:90, O:180};
+
+  function compassIcon(finalDir, colorArrow){
+    var cx=45, cy=45, r=32;
+    var s = '<svg viewBox="0 0 90 90">';
+    s += '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+NAVY+'" stroke-width="2"/>';
+    Object.keys(angs).forEach(function(lab){
+      var a = angs[lab]*Math.PI/180;
+      var lx = cx+(r+10)*Math.cos(a), ly = cy+(r+10)*Math.sin(a);
+      s += '<text x="'+lx+'" y="'+(ly+3)+'" font-family="DejaVu Sans" font-size="9" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">'+lab+'</text>';
+    });
+    var a = angs[finalDir]*Math.PI/180;
+    var x = cx+(r-8)*Math.cos(a), y = cy+(r-8)*Math.sin(a);
+    s += '<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="'+colorArrow+'" stroke-width="3.5"/>';
+    s += '<circle cx="'+x+'" cy="'+y+'" r="5" fill="'+colorArrow+'"/>';
+    s += '</svg>';
+    return s;
+  }
+
+  // 4 esquerdas, 1 direita, comecando no Norte
+  var esq = 4, dir_ = 1;
+  var net = ((dir_ - esq) % 4 + 4) % 4;
+  var startIdx = dirs.indexOf("N");
+  var finalIdx = (startIdx + net) % 4;
+  var CORRETA_DIR = dirs[finalIdx];
+
+  // 5 options: the 4 cardinal directions plus one "quarter-off" decoy (NE) that is never correct
+  angs.NE = -45;
+  var chaves = ["a","b","c","d","e"];
+  var dirsFor = { a:"N", b:"L", c:"S", d:"O", e:"NE" };
+  var CORRETA = null;
+  Object.keys(dirsFor).forEach(function(k){ if(dirsFor[k]===CORRETA_DIR && CORRETA===null) CORRETA = k; });
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  chaves.forEach(function(chave){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = compassIcon(dirsFor[chave], "#2F80C4");
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! 4 esquerdas e 1 direita: sobram 3 esquerdas, três quartos de volta.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Cancele os pares de viradas opostas e veja quanto sobra, e para que lado.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A direção certa é " + CORRETA_DIR + ".";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A direção certa está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>
