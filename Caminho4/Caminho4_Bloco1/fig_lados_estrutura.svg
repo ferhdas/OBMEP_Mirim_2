@@ -1,19 +1,169 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="300" fill="white"/>
-<text x="320.0" y="26" font-family="DejaVu Sans" font-size="14.5" font-weight="bold" fill="#14365A" text-anchor="middle">Quantas figuras sobram depois de tirar as de 4 lados?</text>
-<polygon points="74.0,44 48.0,90.8 100.0,90.8" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="156.0" cy="70" r="26" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/>
-<rect x="212.0" y="44" width="52" height="52" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
-<circle cx="320.0" cy="70" r="26" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/>
-<polygon points="402.0,44.0 426.727469423674,61.96555814625137 417.2824165596043,91.03444185374863 386.7175834403957,91.03444185374863 377.272530576326,61.96555814625137" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<polygon points="484.0,44 458.0,90.8 510.0,90.8" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="566.0" cy="70" r="26" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/>
-<rect x="48.0" y="154" width="52" height="52" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
-<polygon points="156.0,154 130.0,200.8 182.0,200.8" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="238.0" cy="180" r="26" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/>
-<polygon points="320.0,154.0 344.727469423674,171.96555814625137 335.2824165596043,201.03444185374863 304.7175834403957,201.03444185374863 295.272530576326,171.96555814625137" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="376.0" y="154" width="52" height="52" rx="4" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
-<polygon points="484.0,154 458.0,200.8 510.0,200.8" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="566.0" cy="180" r="26" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/>
+<svg
+   viewBox="0 0 640 220"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="fig_lados_estrutura.svg"
+   width="640"
+   height="220"
+   inkscape:export-filename="fig_lados_estrutura.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.65"
+     inkscape:cx="320"
+     inkscape:cy="149.23077"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <g
+     id="g7"
+     transform="translate(18.923027)">
+    <polygon
+       points="48,90.8 100,90.8 74,44 "
+       fill="#e6f0fa"
+       stroke="#2f80c4"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon1"
+       transform="translate(0,-18)" />
+    <circle
+       cx="149.69231"
+       cy="52"
+       r="26"
+       fill="#e2f2ea"
+       stroke="#3e9b6b"
+       stroke-width="2.2"
+       id="circle1" />
+    <rect
+       x="199.38461"
+       y="26"
+       width="52"
+       height="52"
+       rx="4"
+       fill="#fcebd9"
+       stroke="#e0701b"
+       stroke-width="2.2"
+       id="rect2" />
+    <circle
+       cx="301.07693"
+       cy="52"
+       r="26"
+       fill="#e2f2ea"
+       stroke="#3e9b6b"
+       stroke-width="2.2"
+       id="circle2" />
+    <polygon
+       points="417.28242,91.034442 386.71758,91.034442 377.27253,61.965558 402,44 426.72747,61.965558 "
+       fill="#eee8fa"
+       stroke="#7a5cc0"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon2"
+       transform="translate(-25.230769,-18)" />
+    <polygon
+       points="510,90.8 484,44 458,90.8 "
+       fill="#e6f0fa"
+       stroke="#2f80c4"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon3"
+       transform="translate(-31.538462,-18)" />
+    <circle
+       cx="528.15387"
+       cy="52"
+       r="26"
+       fill="#e2f2ea"
+       stroke="#3e9b6b"
+       stroke-width="2.2"
+       id="circle3" />
+  </g>
+  <g
+     id="g6"
+     transform="translate(-18.923077)">
+    <rect
+       x="85.846153"
+       y="136"
+       width="52"
+       height="52"
+       rx="4"
+       fill="#fcebd9"
+       stroke="#e0701b"
+       stroke-width="2.2"
+       id="rect3" />
+    <polygon
+       points="182,200.8 156,154 130,200.8 "
+       fill="#e6f0fa"
+       stroke="#2f80c4"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon4"
+       transform="translate(31.538462,-18)" />
+    <circle
+       cx="263.23077"
+       cy="162"
+       r="26"
+       fill="#e2f2ea"
+       stroke="#3e9b6b"
+       stroke-width="2.2"
+       id="circle4" />
+    <polygon
+       points="335.28242,201.03444 304.71758,201.03444 295.27253,171.96556 320,154 344.72747,171.96556 "
+       fill="#eee8fa"
+       stroke="#7a5cc0"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon5"
+       transform="translate(18.923077,-18)" />
+    <rect
+       x="388.61539"
+       y="136"
+       width="52"
+       height="52"
+       rx="4"
+       fill="#fcebd9"
+       stroke="#e0701b"
+       stroke-width="2.2"
+       id="rect5" />
+    <polygon
+       points="510,200.8 484,154 458,200.8 "
+       fill="#e6f0fa"
+       stroke="#2f80c4"
+       stroke-width="2.2"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polygon6"
+       transform="translate(6.3076923,-18)" />
+    <circle
+       cx="566"
+       cy="162"
+       r="26"
+       fill="#e2f2ea"
+       stroke="#3e9b6b"
+       stroke-width="2.2"
+       id="circle6" />
+  </g>
 </svg>

@@ -1,18 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="340" fill="white"/>
-<text x="320.0" y="24" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Qual pedacinho não é um trecho de verdade da trilha?</text>
-<polyline points="70,150 110,90 150,150 190,110 230,150 270,80 310,150" fill="none" stroke="#14365A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="90" y="90" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">60</text>
-<text x="130" y="110" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">40</text>
-<text x="190" y="75" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">70</text>
-<line x1="70" y1="150" x2="310" y2="150" stroke="#CBD5DF" stroke-width="1.5" stroke-dasharray="4,4"/>
-<polyline points="70,260 92.0,200 114.0,260" fill="none" stroke="#14365A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="92" y="295" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">A</text>
-<polyline points="220,260 242.0,220 264.0,260" fill="none" stroke="#14365A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="242" y="295" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">B</text>
-<polyline points="370,260 392.0,190 414.0,260" fill="none" stroke="#14365A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="392" y="295" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">C</text>
-<polyline points="520,260 542.0,200 564.0,240" fill="none" stroke="#14365A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="542" y="295" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">D</text>
+<svg
+   viewBox="0 0 640 340"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="fig_contorno_estrutura.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.8382174"
+     inkscape:cx="254.70719"
+     inkscape:cy="254.11069"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <text
+     x="240"
+     y="80"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text2">60</text>
+  <text
+     x="320"
+     y="100"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text3">40</text>
+  <text
+     x="400"
+     y="70"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text4">70</text>
+  <line
+     x1="200"
+     y1="150"
+     x2="440"
+     y2="150"
+     stroke="#cbd5df"
+     stroke-width="1.5"
+     stroke-dasharray="4, 4"
+     id="line4" />
+  <g
+     id="g12"
+     transform="translate(0,0.09440181)">
+    <polyline
+       points="70,260 92.0,200 114.0,260"
+       fill="none"
+       stroke="#14365a"
+       stroke-width="3"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polyline4"
+       transform="matrix(1.8458702,0,0,1,-59.210916,0)"
+       style="stroke-width:1.47207323;stroke-dasharray:none" />
+    <text
+       x="92"
+       y="295"
+       font-family="'DejaVu Sans'"
+       font-size="15px"
+       font-weight="bold"
+       fill="#14365a"
+       text-anchor="middle"
+       id="text5">A</text>
+  </g>
+  <g
+     id="g11"
+     transform="matrix(1.786856,0,0,1,-173.10833,0.07080078)">
+    <polyline
+       points="220,260 242.0,220 264.0,260"
+       fill="none"
+       stroke="#14365a"
+       stroke-width="3"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polyline5" />
+    <text
+       x="242"
+       y="295"
+       font-family="'DejaVu Sans'"
+       font-size="15px"
+       font-weight="bold"
+       fill="#14365a"
+       text-anchor="middle"
+       id="text6">B</text>
+  </g>
+  <g
+     id="g10">
+    <polyline
+       points="370,260 392.0,190 414.0,260"
+       fill="none"
+       stroke="#14365A"
+       stroke-width="3"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polyline6" />
+    <text
+       x="392"
+       y="295"
+       font-family="DejaVu Sans"
+       font-size="15"
+       font-weight="bold"
+       fill="#14365A"
+       text-anchor="middle"
+       id="text7">C</text>
+  </g>
+  <g
+     id="g9"
+     transform="translate(0,5.0826075)">
+    <polyline
+       points="520,260 542.0,200 564.0,240"
+       fill="none"
+       stroke="#14365a"
+       stroke-width="3"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="polyline7" />
+    <text
+       x="542"
+       y="295"
+       font-family="'DejaVu Sans'"
+       font-size="15px"
+       font-weight="bold"
+       fill="#14365a"
+       text-anchor="middle"
+       id="text8">D</text>
+  </g>
+  <path
+     style="fill:none;stroke:#14365a;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+     d="M 200,150 256.51539,95.267822 313.03079,150 340.76539,109.54406 368.5,150 404.25,77.785651 440,150 M 269,275 325.51539,220.26782 382.03079,275"
+     id="path12"
+     sodipodi:nodetypes="ccccccc" />
 </svg>
