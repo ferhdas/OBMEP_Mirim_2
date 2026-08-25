@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
-<rect width="380" height="380" fill="white"/>
-<text x="190.0" y="20" font-family="DejaVu Sans" font-size="12.5" font-weight="bold" fill="#14365A" text-anchor="middle">3 carrinhos, volta=12s. Onde estao depois de 6s?</text>
-<circle cx="190.0" cy="200.0" r="130" fill="none" stroke="#14365A" stroke-width="2.4"/>
-<circle cx="190.0" cy="70.0" r="12" fill="#2F80C4" stroke="#14365A" stroke-width="2"/>
-<circle cx="302.58330249197707" cy="265.0" r="12" fill="#C0392B" stroke="#14365A" stroke-width="2"/>
-<circle cx="77.41669750802296" cy="265.0" r="12" fill="#3E9B6B" stroke="#14365A" stroke-width="2"/>
+<svg
+   viewBox="0 0 380 380"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="reflex_pista_estrutura.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.0776316"
+     inkscape:cx="90.47619"
+     inkscape:cy="326.17827"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <rect
+     width="380"
+     height="380"
+     fill="white"
+     id="rect1" />
+  <circle
+     cx="190.0"
+     cy="200.0"
+     r="130"
+     fill="none"
+     stroke="#14365A"
+     stroke-width="2.4"
+     id="circle1" />
+  <circle
+     cx="190.0"
+     cy="70.0"
+     r="12"
+     fill="#2F80C4"
+     stroke="#14365A"
+     stroke-width="2"
+     id="circle2" />
+  <circle
+     cx="302.58330249197707"
+     cy="265.0"
+     r="12"
+     fill="#C0392B"
+     stroke="#14365A"
+     stroke-width="2"
+     id="circle3" />
+  <circle
+     cx="77.41669750802296"
+     cy="265.0"
+     r="12"
+     fill="#3E9B6B"
+     stroke="#14365A"
+     stroke-width="2"
+     id="circle4" />
 </svg>
