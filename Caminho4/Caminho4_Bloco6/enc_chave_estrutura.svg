@@ -20,9 +20,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.1538462"
-     inkscape:cx="260"
-     inkscape:cy="129.76786"
+     inkscape:zoom="1.5229993"
+     inkscape:cx="255.74536"
+     inkscape:cy="112.60675"
      inkscape:window-width="1920"
      inkscape:window-height="1008"
      inkscape:window-x="0"
@@ -47,50 +47,6 @@
      fill="#14365a"
      text-anchor="middle"
      id="text2">Chave</text>
-  <g
-     id="g17"
-     transform="translate(165.5)">
-    <rect
-       x="60"
-       y="80"
-       width="15"
-       height="30"
-       rx="6"
-       fill="#e6f0fa"
-       stroke="#2f80c4"
-       stroke-width="2"
-       id="rect2" />
-    <rect
-       x="78"
-       y="100"
-       width="15"
-       height="10"
-       rx="6"
-       fill="#e6f0fa"
-       stroke="#2f80c4"
-       stroke-width="2"
-       id="rect3" />
-    <rect
-       x="96"
-       y="70"
-       width="15"
-       height="40"
-       rx="6"
-       fill="#e6f0fa"
-       stroke="#2f80c4"
-       stroke-width="2"
-       id="rect4" />
-    <rect
-       x="114"
-       y="90"
-       width="15"
-       height="20"
-       rx="6"
-       fill="#e6f0fa"
-       stroke="#2f80c4"
-       stroke-width="2"
-       id="rect5" />
-  </g>
   <text
      x="165.5"
      y="145"
@@ -101,45 +57,97 @@
      text-anchor="middle"
      id="text5">Fech. A</text>
   <rect
-     x="135.5"
+     x="141.5"
      y="190"
      width="15"
      height="30"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect6" />
+     id="rect6"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
-     x="153.5"
+     x="156.5"
      y="210"
      width="15"
      height="10"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect7" />
+     id="rect7"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
      x="171.5"
      y="180"
      width="15"
      height="40"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect8" />
+     id="rect8"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
-     x="189.5"
+     x="186.5"
      y="200"
      width="15"
      height="20"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect9" />
+     id="rect9"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <rect
+     x="-292.5"
+     y="190"
+     width="15"
+     height="30"
+     rx="0"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2"
+     id="rect6-3"
+     transform="scale(-1,1)"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <rect
+     x="-277.5"
+     y="210"
+     width="15"
+     height="10"
+     rx="0"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2"
+     id="rect7-6"
+     transform="scale(-1,1)"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <rect
+     x="-262.5"
+     y="180"
+     width="15"
+     height="40"
+     rx="0"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2"
+     id="rect8-7"
+     transform="scale(-1,1)"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <rect
+     x="-247.5"
+     y="200"
+     width="15"
+     height="20"
+     rx="0"
+     fill="#eef3f8"
+     stroke="#14365a"
+     stroke-width="2"
+     id="rect9-5"
+     transform="scale(-1,1)"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <text
      x="255.5"
      y="145"
@@ -149,46 +157,6 @@
      fill="#14365a"
      text-anchor="middle"
      id="text9">Fech. B</text>
-  <rect
-     x="225.5"
-     y="200"
-     width="15"
-     height="20"
-     rx="6"
-     fill="#eef3f8"
-     stroke="#14365a"
-     stroke-width="2"
-     id="rect10" />
-  <rect
-     x="243.5"
-     y="210"
-     width="15"
-     height="10"
-     rx="6"
-     fill="#eef3f8"
-     stroke="#14365a"
-     stroke-width="2"
-     id="rect11" />
-  <rect
-     x="261.5"
-     y="180"
-     width="15"
-     height="40"
-     rx="6"
-     fill="#eef3f8"
-     stroke="#14365a"
-     stroke-width="2"
-     id="rect12" />
-  <rect
-     x="279.5"
-     y="190"
-     width="15"
-     height="30"
-     rx="6"
-     fill="#eef3f8"
-     stroke="#14365a"
-     stroke-width="2"
-     id="rect13" />
   <text
      x="345.5"
      y="145"
@@ -199,43 +167,51 @@
      text-anchor="middle"
      id="text13">Fech. C</text>
   <rect
-     x="315.5"
+     x="321.5"
      y="190"
      width="15"
      height="30"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect14" />
+     id="rect14"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
-     x="333.5"
+     x="336.5"
      y="210"
      width="15"
      height="10"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect15" />
+     id="rect15"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
      x="351.5"
      y="180"
      width="15"
      height="40"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect16" />
+     id="rect16"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   <rect
-     x="369.5"
+     x="366.5"
      y="190"
      width="15"
      height="30"
-     rx="6"
+     rx="0"
      fill="#eef3f8"
      stroke="#14365a"
      stroke-width="2"
-     id="rect17" />
+     id="rect17"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  <path
+     style="fill:#0011dd;fill-opacity:1;stroke:#a3bae8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-dashoffset:0.2;stroke-opacity:0.34901962;stroke-dasharray:none"
+     d="M 228.94642,114.17857 V 84.178572 h 15 v 19.999998 h 15 V 74.178572 h 15 v 20 h 15 v 19.999998 z"
+     id="path1" />
 </svg>
