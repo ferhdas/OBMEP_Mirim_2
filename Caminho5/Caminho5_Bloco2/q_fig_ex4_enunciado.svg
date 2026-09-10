@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="220" fill="white"/>
+<text x="190" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Mesa redonda com 12 lugares</text>
+<circle cx="190" cy="120" r="80" fill="none" stroke="#CBD5DF" stroke-width="2"/>
+<circle cx="270" cy="150" r="17" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<text x="270" y="155" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">8</text>
+<text x="190" y="124" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<text x="190" y="195" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Lugares numerados de 1 a 12 ao redor da mesa</text>
+</svg>

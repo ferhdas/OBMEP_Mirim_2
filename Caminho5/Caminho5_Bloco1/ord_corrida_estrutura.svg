@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="220" fill="white"/>
+<text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Corrida de quatro crianças: pódio parcial</text>
+<rect x="40" y="70" width="90" height="70" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="85" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">1º lugar</text>
+<text x="85" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Tomás</text>
+<rect x="150" y="70" width="90" height="70" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="195" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">2º lugar</text>
+<text x="195" y="115" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<rect x="260" y="70" width="90" height="70" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="305" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">3º lugar</text>
+<text x="305" y="115" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<rect x="370" y="70" width="90" height="70" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="415" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">4º lugar</text>
+<text x="415" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Léo</text>
+<text x="240" y="168" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Restam: Bia e Sofia</text>
+<text x="240" y="190" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Pista: Sofia não chegou em segundo lugar</text>
+</svg>

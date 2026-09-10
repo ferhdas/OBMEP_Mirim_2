@@ -1,0 +1,89 @@
+<!-- ENUNCIADO: Três amigos, Bruno, Carla e Duda, têm cada um um bicho de estimação e uma cor favorita. Bruno tem cachorro. Duda gosta de verde. Carla não gosta de azul. Quem tem peixe gosta de amarelo. Clique em quem tem o peixe. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:480px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .pistas{ font-size:12.5px; color:#14365A; margin-bottom:14px; line-height:1.6; }
+  .pistas div{ background:#EEF3F8; border:1.6px solid #CBD5DF; border-radius:8px; padding:8px 10px; margin-bottom:6px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:14px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="pistas">
+      <div>Bruno tem cachorro</div>
+      <div>Duda gosta de verde</div>
+      <div>Carla não gosta de azul</div>
+      <div>Quem tem peixe gosta de amarelo</div>
+    </div>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = "Carla";
+  var ordem = ["Duda", "Bruno", "Carla"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(nome){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = nome;
+    b.onclick = function(){ escolher(b, nome); };
+    opcoesEl.appendChild(b);
+    botoes[nome] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, nome){
+    if(respondido) return;
+    tentativas++;
+    if(nome === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Carla não gosta de azul, então ela gosta de amarelo, e quem gosta de amarelo tem o peixe.";
+      fb.className = "ok"; enviar(true, nome);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Feche primeiro as cores de cada um, depois cruze com a pista do peixe e do amarelo.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "Quem tem o peixe é Carla.";
+        fb.className = "no"; enviar(false, nome);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

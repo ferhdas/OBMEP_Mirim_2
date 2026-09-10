@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="200" fill="white"/>
+<text x="240" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Corrida de cinco crianças</text>
+<rect x="15" y="45" width="80" height="65" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="55" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">1º</text>
+<text x="55" y="83" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Cau</text>
+<rect x="105" y="45" width="80" height="65" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="145" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">2º</text>
+<text x="145" y="83" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Bo</text>
+<rect x="195" y="45" width="80" height="65" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="235" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">3º</text>
+<text x="235" y="88" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<rect x="285" y="45" width="80" height="65" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="325" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">4º</text>
+<text x="325" y="88" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<rect x="375" y="45" width="80" height="65" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="415" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">5º</text>
+<text x="415" y="83" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Emi</text>
+<text x="240" y="140" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Restam: Ana e Dea</text>
+<text x="240" y="160" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Pista: Ana não chegou em segundo nem em quarto lugar</text>
+</svg>

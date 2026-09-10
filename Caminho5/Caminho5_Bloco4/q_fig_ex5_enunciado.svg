@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="150" fill="white"/>
+<text x="230" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Afirmação: todo animal que voa é um pássaro</text>
+<g font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">
+<rect x="10" y="45" width="80" height="45" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="50" y="72">Pardal</text>
+<rect x="100" y="45" width="80" height="45" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="140" y="72">Morcego</text>
+<rect x="190" y="45" width="80" height="45" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="230" y="72">Águia</text>
+<rect x="280" y="45" width="80" height="45" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="320" y="72">Papagaio</text>
+<rect x="370" y="45" width="80" height="45" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="410" y="72">Pomba</text>
+</g>
+<text x="230" y="115" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Qual animal voa mas não é um pássaro?</text>
+</svg>

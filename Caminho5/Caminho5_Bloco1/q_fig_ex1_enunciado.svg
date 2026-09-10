@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="200" fill="white"/>
+<text x="230" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Fila para o sorvete</text>
+<rect x="30" y="45" width="85" height="65" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="72" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">1</text>
+<text x="72" y="83" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Noa</text>
+<rect x="130" y="45" width="85" height="65" rx="10" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="172" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">2</text>
+<text x="172" y="83" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Mia</text>
+<rect x="230" y="45" width="85" height="65" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="272" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">3</text>
+<text x="272" y="88" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<rect x="330" y="45" width="85" height="65" rx="10" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="372" y="40" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">4</text>
+<text x="372" y="88" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<text x="230" y="140" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Restam: Léo e Pipo</text>
+<text x="230" y="160" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Pista: Léo não está no fim da fila</text>
+</svg>

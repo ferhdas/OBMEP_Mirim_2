@@ -1,0 +1,103 @@
+<!-- ENUNCIADO: Uma roda-gigante tem 12 cadeiras numeradas de 1 a 12 ao redor do círculo. Clique na cadeira que fica oposta à cadeira 5. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:460px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #roda{ width:100%; height:auto; margin-bottom:6px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:10px; }
+  button.opcao{ padding:10px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:15px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="roda" viewBox="0 0 360 240"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY = "#14365A", BLUE = "#2F80C4", ORANGE = "#E0701B", FILL = "#E6F0FA";
+  var N = 12, K = 5;
+  var CORRETA = ((K - 1 + N / 2) % N) + 1;
+
+  var cx = 180, cy = 120, r = 85;
+  var html = '<rect width="360" height="240" fill="white"/>';
+  for (var i = 1; i <= N; i++) {
+    var ang = -90 + (i - 1) * (360 / N);
+    var rad = ang * Math.PI / 180;
+    var x = cx + r * Math.cos(rad), y = cy + r * Math.sin(rad);
+    var fill = (i === K) ? "#FCEBD9" : FILL;
+    var stroke = (i === K) ? ORANGE : BLUE;
+    html += '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="16" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2.2"/>';
+    html += '<text x="'+x.toFixed(1)+'" y="'+(y+4).toFixed(1)+'" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="'+NAVY+'" text-anchor="middle">'+i+'</text>';
+  }
+  html += '<text x="180" y="228" font-family="DejaVu Sans" font-size="12" fill="'+NAVY+'" text-anchor="middle">Qual cadeira fica oposta à cadeira '+K+'?</text>';
+  document.getElementById("roda").innerHTML = html;
+
+  var OPCOES = [CORRETA, ((K-1+2)%N)+1, ((K-1+N/2-1+N)%N)+1, K];
+  OPCOES = OPCOES.filter(function(v,i,a){ return a.indexOf(v) === i; });
+  while (OPCOES.length < 4) { var extra = ((OPCOES[OPCOES.length-1] + 2 - 1) % N) + 1; if (OPCOES.indexOf(extra) === -1) OPCOES.push(extra); }
+  var ordem = [OPCOES[2], OPCOES[0], OPCOES[3], OPCOES[1]];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordem.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes[valor] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! " + N + " ÷ 2 = " + (N/2) + ", e " + K + " + " + (N/2) + " = " + CORRETA + ".";
+      fb.className = "ok"; enviar(true, valor);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Some metade do total de cadeiras ao número da cadeira dada.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "A cadeira oposta é a " + CORRETA + ".";
+        fb.className = "no"; enviar(false, valor);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa está marcada em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

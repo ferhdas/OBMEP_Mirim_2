@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="220" fill="white"/>
+<text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Pódio completo da corrida</text>
+<rect x="40" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="85" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">1º lugar</text>
+<text x="85" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Tomás</text>
+<rect x="150" y="70" width="90" height="70" rx="10" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.4"/>
+<text x="195" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">2º lugar</text>
+<text x="195" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Bia</text>
+<rect x="260" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="305" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">3º lugar</text>
+<text x="305" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Sofia</text>
+<rect x="370" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="415" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">4º lugar</text>
+<text x="415" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Léo</text>
+<text x="240" y="168" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Bia (laranja) foi deduzida por eliminação, depois que Sofia ficou com o 3º lugar</text>
+<text x="240" y="190" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#3E9B6B" text-anchor="middle">Tomás, Bia, Sofia, Léo</text>
+</svg>

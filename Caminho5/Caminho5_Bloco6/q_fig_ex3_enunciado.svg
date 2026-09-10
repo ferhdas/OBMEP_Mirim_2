@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="150" fill="white"/>
+<text x="250" y="18" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Vaga em formato de quadrado, cor vermelha</text>
+<rect x="35" y="43" width="70" height="70" rx="6" fill="white" stroke="#C0392B" stroke-width="2.6"/>
+<text x="70" y="83" font-family="DejaVu Sans" font-size="22" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<text x="70" y="132" font-family="DejaVu Sans" font-size="10" fill="#14365A" text-anchor="middle">vaga: quadrado vermelho</text>
+
+<rect x="185" y="53" width="50" height="50" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="210" y="126" font-family="DejaVu Sans" font-size="9.5" fill="#14365A" text-anchor="middle">quadrado azul</text>
+
+<circle cx="320" cy="78" r="25" fill="#FCEBD9" stroke="#C0392B" stroke-width="2"/>
+<text x="320" y="126" font-family="DejaVu Sans" font-size="9.5" fill="#14365A" text-anchor="middle">círculo vermelho</text>
+
+<rect x="405" y="53" width="50" height="50" rx="6" fill="#FCEBD9" stroke="#C0392B" stroke-width="2"/>
+<text x="430" y="126" font-family="DejaVu Sans" font-size="9.5" fill="#14365A" text-anchor="middle">quadrado vermelho</text>
+</svg>

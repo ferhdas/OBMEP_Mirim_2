@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg">
+<rect width="460" height="140" fill="white"/>
+<text x="230" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Meias de 8 cores diferentes</text>
+<g fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.6">
+<rect x="5" y="40" width="52" height="52" rx="7"/><rect x="62" y="40" width="52" height="52" rx="7"/>
+<rect x="119" y="40" width="52" height="52" rx="7"/><rect x="176" y="40" width="52" height="52" rx="7"/>
+<rect x="233" y="40" width="52" height="52" rx="7"/><rect x="290" y="40" width="52" height="52" rx="7"/>
+<rect x="347" y="40" width="52" height="52" rx="7"/><rect x="404" y="40" width="52" height="52" rx="7"/>
+</g>
+<text x="230" y="120" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#E0701B" text-anchor="middle">Quantas meias garantem 2 da mesma cor?</text>
+</svg>

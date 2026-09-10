@@ -1,0 +1,104 @@
+<!-- ENUNCIADO: Cada cartão diz quantos lugares tem uma mesa circular e afirma qual lugar fica oposto a outro. Três cartões estão certos, e um cartão erra a conta do lugar oposto. Clique no cartão errado. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:10px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; font-size:12.5px; color:#333; text-align:left; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao .linha{ display:block; margin:2px 0; font-weight:700; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CARTOES = {
+    a: { n:10, lugar:2, oposto:7 },
+    b: { n:8,  lugar:1, oposto:5 },
+    c: { n:12, lugar:4, oposto:9 },
+    d: { n:6,  lugar:5, oposto:2 }
+  };
+  var ordemBotoes = ["c","a","d","b"];
+
+  Object.keys(CARTOES).forEach(function(k){
+    var c = CARTOES[k];
+    var real = ((c.lugar - 1 + c.n / 2) % c.n) + 1;
+    c.correta = (real === c.oposto);
+  });
+
+  var CORRETA = null;
+  Object.keys(CARTOES).forEach(function(k){ if(!CARTOES[k].correta) CORRETA = k; });
+
+  function cardHtml(c){
+    return '<span class="linha">Mesa com '+c.n+' lugares</span>'
+      + '<span class="linha">O lugar '+c.lugar+' fica oposto ao lugar '+c.oposto+'</span>';
+  }
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordemBotoes.forEach(function(chave){
+    var c = CARTOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = cardHtml(c);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      var c = CARTOES[chave];
+      var real = ((c.lugar - 1 + c.n / 2) % c.n) + 1;
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! Nesse cartão, o lugar oposto ao " + c.lugar + " deveria ser " + real + ", não " + c.oposto + ".";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Em cada cartão, some metade do total ao lugar dado e confira se bate com o lugar oposto anotado.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O cartão errado é o que erra a conta do lugar oposto.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O cartão errado está marcado em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

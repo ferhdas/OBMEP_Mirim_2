@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="250" fill="white"/>
+<text x="190" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Quatro amigos, quatro sobremesas</text>
+<g font-family="DejaVu Sans" font-size="12" font-weight="bold" text-anchor="middle">
+<rect x="30" y="34" width="120" height="30" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="90" y="54" fill="#14365A">Bel</text>
+<rect x="220" y="34" width="120" height="30" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="280" y="54" fill="#14365A">torta</text>
+<rect x="30" y="72" width="120" height="30" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="90" y="92" fill="#14365A">Ega</text>
+<rect x="220" y="72" width="120" height="30" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="280" y="92" fill="#14365A">sorvete</text>
+<rect x="30" y="110" width="120" height="30" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="90" y="130" fill="#14365A">Caio</text>
+<rect x="220" y="110" width="120" height="30" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="280" y="132" fill="#E0701B" font-size="16">?</text>
+<rect x="30" y="148" width="120" height="30" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="90" y="168" fill="#14365A">Duda</text>
+<rect x="220" y="148" width="120" height="30" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="280" y="170" fill="#E0701B" font-size="16">?</text>
+</g>
+<text x="190" y="205" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Restam: mousse e pudim</text>
+<text x="190" y="225" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Pista: quem come mousse não é a Duda</text>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="160" fill="white"/>
+<text x="200" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Mesa comprida, 10 de cada lado</text>
+<rect x="30" y="70" width="340" height="18" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.4"/>
+<circle cx="55" cy="45" r="15" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/>
+<text x="55" y="50" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">7</text>
+<circle cx="55" cy="113" r="15" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="2"/>
+<text x="55" y="118" font-family="DejaVu Sans" font-size="16" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+<text x="20" y="50" font-family="DejaVu Sans" font-size="9" fill="#8A97A6" text-anchor="middle">A</text>
+<text x="20" y="118" font-family="DejaVu Sans" font-size="9" fill="#8A97A6" text-anchor="middle">B</text>
+<text x="200" y="145" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Quem do lado B fica de frente para a pessoa 7 do lado A?</text>
+</svg>

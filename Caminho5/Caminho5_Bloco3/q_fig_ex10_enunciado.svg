@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg">
+<rect width="380" height="210" fill="white"/>
+<text x="190" y="20" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#14365A" text-anchor="middle">Três amigos, três sucos</text>
+<g font-family="DejaVu Sans" font-size="13" font-weight="bold" text-anchor="middle">
+<rect x="30" y="36" width="120" height="32" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="90" y="57" fill="#14365A">Helo</text>
+<rect x="220" y="36" width="120" height="32" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="280" y="57" fill="#14365A">uva</text>
+<rect x="30" y="76" width="120" height="32" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="90" y="97" fill="#14365A">Ivo</text>
+<rect x="220" y="76" width="120" height="32" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="280" y="99" fill="#E0701B" font-size="17">?</text>
+<rect x="30" y="116" width="120" height="32" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="90" y="137" fill="#14365A">Jade</text>
+<rect x="220" y="116" width="120" height="32" rx="7" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.8"/><text x="280" y="139" fill="#E0701B" font-size="17">?</text>
+</g>
+<text x="190" y="175" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Restam: laranja e maçã</text>
+<text x="190" y="195" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">Pista: Ivo não bebe suco de laranja</text>
+</svg>

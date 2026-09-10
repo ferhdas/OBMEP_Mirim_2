@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="150" fill="white"/>
+<rect x="20" y="20" width="360" height="36" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.6"/>
+<text x="200" y="43" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Regra: se múltiplo de 6, então par</text>
+<rect x="90" y="75" width="130" height="40" rx="8" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2"/>
+<text x="155" y="100" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">42 é mult. de 6</text>
+<text x="235" y="100" font-family="DejaVu Sans" font-size="16" fill="#8A97A6" text-anchor="middle">→</text>
+<text x="270" y="103" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#E0701B" text-anchor="middle">?</text>
+</svg>

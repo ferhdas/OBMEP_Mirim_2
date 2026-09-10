@@ -1,0 +1,119 @@
+<!-- ENUNCIADO: Cada cartão mostra um caso, duas regras encadeadas e uma conclusão. Três cartões têm a conclusão certa, e um cartão tem uma conclusão que não bate com a cadeia de regras. Clique no cartão errado. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:540px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .opcoes{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  button.opcao{ padding:10px; border-radius:10px; border:2px solid #ddd; background:#fff; cursor:pointer; transition:all .2s; font-size:11.5px; color:#333; text-align:left; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  button.opcao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  button.opcao .linha{ display:block; margin:2px 0; }
+  button.opcao .concl{ display:block; margin-top:6px; font-weight:700; color:#7e22ce; }
+  #fb{ margin-top:12px; min-height:20px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CARTOES = {
+    a: {
+      caso: "60 é múltiplo de 12",
+      regras: ["Regra 1: mult. de 12 → mult. de 6", "Regra 2: mult. de 6 → par"],
+      conclusao: "60 é par",
+      correta: true
+    },
+    b: {
+      caso: "51 é múltiplo de 3",
+      regras: ["Regra 1 e única: mult. de 3 → soma dos algarismos é mult. de 3"],
+      conclusao: "A soma dos algarismos de 51 é múltiplo de 5",
+      correta: false
+    },
+    c: {
+      caso: "84 é múltiplo de 4",
+      regras: ["Regra 1 e única: mult. de 4 → par"],
+      conclusao: "84 é par",
+      correta: true
+    },
+    d: {
+      caso: "35 é múltiplo de 5",
+      regras: ["Regra 1 e única: mult. de 5 → termina em 0 ou em 5"],
+      conclusao: "35 termina em 0 ou em 5",
+      correta: true
+    }
+  };
+  var ordemBotoes = ["c", "a", "d", "b"];
+
+  var CORRETA = null;
+  Object.keys(CARTOES).forEach(function(k){ if(!CARTOES[k].correta) CORRETA = k; });
+
+  function cardHtml(c){
+    var s = '<span class="linha">'+c.caso+'</span>';
+    c.regras.forEach(function(r){ s += '<span class="linha">'+r+'</span>'; });
+    s += '<span class="concl">Conclusão: '+c.conclusao+'</span>';
+    return s;
+  }
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = {};
+
+  ordemBotoes.forEach(function(chave){
+    var c = CARTOES[chave];
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.innerHTML = cardHtml(c);
+    b.onclick = function(){ escolher(b, chave); };
+    opcoesEl.appendChild(b);
+    botoes[chave] = b;
+  });
+
+  function travarBotoes(){ Object.keys(botoes).forEach(function(k){ botoes[k].disabled = true; }); }
+  function revelarCorreta(){ botoes[CORRETA].classList.add("certa"); }
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({ tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta } }, "*");
+  }
+  function escolher(botao, chave){
+    if(respondido) return;
+    tentativas++;
+    if(chave === CORRETA){
+      botao.classList.add("certa"); travarBotoes();
+      fb.textContent = "Isso! A regra garante que a soma dos algarismos de 51 é múltiplo de 3, não de 5.";
+      fb.className = "ok"; enviar(true, chave);
+    } else {
+      botao.classList.add("errada"); botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Confira, em cada cartão, se a conclusão bate exatamente com o que a regra garante.";
+        fb.className = "no";
+      } else {
+        travarBotoes(); revelarCorreta();
+        fb.textContent = "O cartão errado é o que troca o número que a regra realmente garante.";
+        fb.className = "no"; enviar(false, chave);
+      }
+    }
+  }
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes(); revelarCorreta();
+    fb.textContent = "Sem problema. O cartão errado está marcado em verde.";
+    fb.className = "no"; enviar(false, null);
+  };
+</script>
+</body>
+</html>

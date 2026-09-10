@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="220" fill="white"/>
+<text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Ordem completa da fila</text>
+<text x="60" y="46" font-family="DejaVu Sans" font-size="11" fill="#8A97A6" text-anchor="middle">Frente</text>
+<line x1="80" y1="46" x2="400" y2="46" stroke="#8A97A6" stroke-width="1.6"/>
+<polygon points="400,46 392,41 392,51" fill="#8A97A6"/>
+<text x="420" y="46" font-family="DejaVu Sans" font-size="11" fill="#8A97A6" text-anchor="middle">Fim</text>
+<rect x="40" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="85" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">1</text>
+<text x="85" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Caio</text>
+<rect x="150" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="195" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">2</text>
+<text x="195" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Beto</text>
+<rect x="260" y="70" width="90" height="70" rx="10" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.4"/>
+<text x="305" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">3</text>
+<text x="305" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Duda</text>
+<rect x="370" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
+<text x="415" y="64" font-family="DejaVu Sans" font-size="11" fill="#14365A" text-anchor="middle">4</text>
+<text x="415" y="110" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Ana</text>
+<text x="240" y="168" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Duda (laranja) foi o único deduzido pela pista negativa</text>
+<text x="240" y="190" font-family="DejaVu Sans" font-size="12" font-weight="bold" fill="#3E9B6B" text-anchor="middle">Caio, Beto, Duda, Ana</text>
+</svg>
