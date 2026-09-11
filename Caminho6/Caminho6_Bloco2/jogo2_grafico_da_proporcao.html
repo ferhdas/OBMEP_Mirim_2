@@ -1,0 +1,119 @@
+<!-- ENUNCIADO: Num aquário, a quantidade de bolinhas azuis é o dobro da quantidade de bolinhas vermelhas, e também é o triplo da quantidade de bolinhas verdes. Clique no gráfico que pode representar essas quantidades, na ordem azuis, vermelhas e verdes. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:560px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .graficos{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
+  .grafico{ border:2.5px solid #ddd; border-radius:10px; padding:8px; cursor:pointer; text-align:center; background:#fff; transition:all .2s; }
+  .grafico:hover:not(.travado){ border-color:var(--roxo); }
+  .grafico .titulo{ font-weight:700; color:var(--navy); margin-bottom:4px; font-size:13px; }
+  .grafico svg{ width:100%; height:110px; display:block; }
+  .grafico.certa{ border-color:var(--verde); background:#e9f9ef; }
+  .grafico.errada{ border-color:var(--vermelho); background:#fdecea; }
+  #fb{ margin-top:6px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="graficos" id="graficos"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORES = [["#2F80C4","#E6F0FA"],["#C0392B","#FCEBD9"],["#3E9B6B","#E2F2EA"]];
+  var NOMES = ["Azuis","Verm.","Verdes"];
+  var CANDIDATOS = [
+    { id:"a", valores:[6,3,2] },
+    { id:"b", valores:[6,3,3] },
+    { id:"c", valores:[6,4,2] }
+  ];
+  var CORRETA_ID = "a"; // única em que azul = 2x vermelha E 3x verde
+
+  function barSVG(valores){
+    var maxV = 8, W = 200, H = 110, barW = 40, gap = 22, base = H-18;
+    var s = '<svg viewBox="0 0 '+W+' '+H+'">';
+    valores.forEach(function(v, i){
+      var x = 14 + i*(barW+gap);
+      var h = (H-30) * (v/maxV);
+      var y = base - h;
+      s += '<rect x="'+x+'" y="'+y+'" width="'+barW+'" height="'+h+'" fill="'+CORES[i][1]+'" stroke="'+CORES[i][0]+'" stroke-width="2" rx="4"/>';
+      s += '<text x="'+(x+barW/2)+'" y="'+(y-6)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#14365A">'+v+'</text>';
+    });
+    s += '<line x1="8" y1="'+base+'" x2="'+(W-8)+'" y2="'+base+'" stroke="#14365A" stroke-width="1.5"/>';
+    s += '</svg>';
+    return s;
+  }
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var graficosEl = document.getElementById("graficos");
+  var fb = document.getElementById("fb");
+  var cartoes = {};
+
+  CANDIDATOS.forEach(function(c){
+    var div = document.createElement("div");
+    div.className = "grafico";
+    div.innerHTML = '<div class="titulo">Gráfico ' + c.id.toUpperCase() + '</div>' + barSVG(c.valores);
+    div.onclick = function(){ escolher(div, c.id); };
+    graficosEl.appendChild(div);
+    cartoes[c.id] = div;
+  });
+
+  function travarCartoes(){
+    Object.keys(cartoes).forEach(function(k){ cartoes[k].classList.add("travado"); cartoes[k].onclick = null; });
+  }
+  function revelarCorreta(){
+    cartoes[CORRETA_ID].classList.add("certa");
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(div, id){
+    if(respondido) return;
+    tentativas++;
+    if(id === CORRETA_ID){
+      div.classList.add("certa");
+      travarCartoes();
+      fb.textContent = "Isso! No Gráfico A, azul (6) é o dobro de vermelho (3) e o triplo de verde (2), as duas relações ao mesmo tempo.";
+      fb.className = "ok";
+      enviar(true, id);
+    } else {
+      div.classList.add("errada");
+      div.onclick = null;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Confira as duas relações separadamente, azul é o dobro de vermelho, e azul é o triplo de verde.";
+        fb.className = "no";
+      } else {
+        travarCartoes();
+        revelarCorreta();
+        fb.textContent = "O gráfico certo é o A: só ele tem azul = 2 × vermelho e azul = 3 × verde ao mesmo tempo.";
+        fb.className = "no";
+        enviar(false, id);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarCartoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. O gráfico certo é o A.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

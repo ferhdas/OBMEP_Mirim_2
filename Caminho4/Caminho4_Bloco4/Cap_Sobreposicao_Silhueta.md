@@ -20,7 +20,7 @@ A ordem, de cima para baixo, é vermelho, azul, amarelo. Conferimos olhando o n�
 
 [Inserir aqui a figura `sobrep_cartoes_resultado.svg`.]
 
-**Guarde. A ordem de uma pilha de figuras se descobre contando quantas bordas de cada uma estão cortadas por outra figura. Zero cortes significa estar no topo; quanto mais cortes, mais embaixo na pilha.**
+**Guarde. A ordem de uma pilha de figuras se descobre contando quantas bordas de cada uma estão cortadas por outra figura. Zero cortes significa estar no topo. Quanto mais cortes, mais embaixo na pilha.**
 
 ***Uma folha com buraco deixa a cor de baixo aparecer***
 
@@ -40,7 +40,7 @@ Como não sobra nenhuma casinha branca nas duas folhas ao mesmo tempo, o resulta
 
 ***A silhueta de duas figuras coladas é a soma dos dois contornos***
 
-Quando duas figuras são coladas exatamente no mesmo centro, sem girar nenhuma delas, a ***silhueta*** final (o contorno de fora, olhando as duas figuras como uma só sombra) segue sempre a figura que está mais longe do centro, em cada direção. Onde uma figura se estica mais do que a outra, a silhueta segue essa figura mais comprida; onde é o contrário, ela segue a outra.
+Quando duas figuras são coladas exatamente no mesmo centro, sem girar nenhuma delas, a ***silhueta*** final (o contorno de fora, olhando as duas figuras como uma só sombra) segue sempre a figura que está mais longe do centro, em cada direção. Onde uma figura se estica mais do que a outra, a silhueta segue essa figura mais comprida. Onde é o contrário, ela segue a outra.
 
 **Exemplo 3:** Dois retângulos idênticos são colados exatamente no centro, um deitado (mais largo do que alto) e um em pé (mais alto do que largo), sem girar nenhum dos dois. **Qual é a silhueta resultante, olhando os dois retângulos como uma sombra só?**
 

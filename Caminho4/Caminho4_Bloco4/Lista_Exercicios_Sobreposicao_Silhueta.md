@@ -123,6 +123,6 @@ E) Impossível saber com essas informações
 
 **Notas rápidas para quem for corrigir**
 
-- Nos exercícios de ordem de pilha ($1$, $4$, $7$, $10$), a alternativa "impossível saber" é sempre errada nesse bloco, porque a contagem de bordas cortadas sempre determina a ordem sozinha; ela testa se o aluno confia no método em vez de tentar adivinhar.
+- Nos exercícios de ordem de pilha ($1$, $4$, $7$, $10$), a alternativa "impossível saber" é sempre errada nesse bloco, porque a contagem de bordas cortadas sempre determina a ordem sozinha. Ela testa se o aluno confia no método em vez de tentar adivinhar.
 - Nos exercícios de transparência ($2$, $5$, $8$), as posições dos buraquinhos foram sorteadas e conferidas por código, contando exatamente a interseção das duas folhas, nunca contadas de olho. Os distratores mais comuns somam os buracos das duas folhas sem descontar a repetição, ou contam os buracos de uma folha só.
 - Nos exercícios de silhueta ($3$, $6$, $9$), o exercício $6$ é o caso especial em que as duas figuras são idênticas (mesma largura e altura): a silhueta não vira cruz, continua sendo a própria figura, porque não sobra nenhuma direção em que uma das duas se estica mais que a outra. O exercício $9$ testa se o aluno percebe que a mesma lógica da cruz vale para elipses, mas com pontas arredondadas em vez de cantos retos.

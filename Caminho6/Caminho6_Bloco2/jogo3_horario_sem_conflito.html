@@ -1,0 +1,143 @@
+<!-- ENUNCIADO: O gráfico mostra o horário de cinco atividades de uma feira cultural, das 9h às 14h. Clique no número que mostra o maior número de atividades inteiras que dá para assistir, sem que duas delas aconteçam ao mesmo tempo. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; --azul:#2F80C4; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:560px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:12px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="linha" viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY="#14365A", AZUL="#2F80C4", FILL="#E6F0FA", BORDA="#CBD5DF";
+  var eventos = [
+    {nome:"Xadrez", ini:9, fim:10},
+    {nome:"Teatro", ini:9, fim:12},
+    {nome:"Coral", ini:10, fim:11},
+    {nome:"Dança", ini:11, fim:13},
+    {nome:"Robótica", ini:12, fim:14}
+  ];
+  var hmin = 9, hmax = 14;
+  var ox = 60, oy = 40, scale = 460/(hmax-hmin), rowH = 40;
+
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("linha");
+
+  for(var h=hmin; h<=hmax; h++){
+    var x = ox + (h-hmin)*scale;
+    var line = document.createElementNS(svgNS,"line");
+    line.setAttribute("x1",x); line.setAttribute("y1",oy);
+    line.setAttribute("x2",x); line.setAttribute("y2", oy + eventos.length*rowH + 10);
+    line.setAttribute("stroke", BORDA); line.setAttribute("stroke-width","1.5");
+    svg.appendChild(line);
+    var lbl = document.createElementNS(svgNS,"text");
+    lbl.setAttribute("x",x); lbl.setAttribute("y", oy + eventos.length*rowH + 32);
+    lbl.setAttribute("text-anchor","middle"); lbl.setAttribute("font-weight","700");
+    lbl.setAttribute("font-size","13"); lbl.setAttribute("fill",NAVY);
+    lbl.textContent = h + "h";
+    svg.appendChild(lbl);
+  }
+
+  eventos.forEach(function(ev, i){
+    var y = oy + i*rowH;
+    var x1 = ox + (ev.ini-hmin)*scale, x2 = ox + (ev.fim-hmin)*scale;
+    var rect = document.createElementNS(svgNS,"rect");
+    rect.setAttribute("x",x1); rect.setAttribute("y",y);
+    rect.setAttribute("width", x2-x1); rect.setAttribute("height", 28);
+    rect.setAttribute("rx",6); rect.setAttribute("fill",FILL);
+    rect.setAttribute("stroke",AZUL); rect.setAttribute("stroke-width","2.2");
+    svg.appendChild(rect);
+    var txt = document.createElementNS(svgNS,"text");
+    txt.setAttribute("x",(x1+x2)/2); txt.setAttribute("y", y+19);
+    txt.setAttribute("text-anchor","middle"); txt.setAttribute("font-weight","700");
+    txt.setAttribute("font-size","13"); txt.setAttribute("fill",NAVY);
+    txt.textContent = ev.nome;
+    svg.appendChild(txt);
+  });
+
+  var CORRETA = 3; // Xadrez, Coral, Dança
+  var OPCOES = [2,4,3,5,1];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Xadrez (9h-10h), Coral (10h-11h) e Dança (11h-13h) se encaixam uma emendada na outra, sem sobrepor.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Comece pela atividade que termina mais cedo, e vá escolhendo sempre a próxima que termina mais cedo entre as que ainda cabem.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 3: Xadrez, Coral e Dança, uma emendada na outra sem conflito.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 3.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

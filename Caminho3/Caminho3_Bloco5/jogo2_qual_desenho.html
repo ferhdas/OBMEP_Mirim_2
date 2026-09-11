@@ -1,8 +1,4 @@
-<!--
-ENUNCIADO
-O molde abaixo, com um desenho em cada face, vai virar o cubo mostrado ao lado.
-Clique no desenho que fica na face marcada com "?".
--->
+<!-- ENUNCIADO: O molde abaixo, com um desenho em cada face, vai virar o cubo mostrado ao lado. Clique no desenho que fica na face marcada com "?". -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -25,6 +21,7 @@ Clique no desenho que fica na face marcada com "?".
   button.opcao.errada{border-color:var(--vermelho);background:#fef2f2;}
   button.opcao:disabled{cursor:default;opacity:.9;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -36,6 +33,7 @@ Clique no desenho que fica na face marcada com "?".
   <div class="rot">molde (esquerda) e cubo montado com "?" na face que falta (direita)</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -186,6 +184,14 @@ Clique no desenho que fica na face marcada com "?".
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

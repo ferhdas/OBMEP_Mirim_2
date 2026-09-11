@@ -1,9 +1,4 @@
-<!--
-ENUNCIADO
-Uma trena de costura mede 9 cm de comprimento e tem uma marquinha a
-cada 1 centímetro, contando a marquinha do começo e a do final.
-Quantas marquinhas há ao todo na trena? Clique na resposta certa.
--->
+<!-- ENUNCIADO: Uma trena de costura mede 9 cm de comprimento e tem uma marquinha a cada 1 centímetro, contando a marquinha do começo e a do final. Quantas marquinhas há ao todo na trena? Clique na resposta certa. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,6 +23,7 @@ Quantas marquinhas há ao todo na trena? Clique na resposta certa.
   button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.85;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -38,6 +34,7 @@ Quantas marquinhas há ao todo na trena? Clique na resposta certa.
   </div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -112,6 +109,14 @@ Quantas marquinhas há ao todo na trena? Clique na resposta certa.
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

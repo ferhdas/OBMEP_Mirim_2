@@ -16,8 +16,8 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 
 **Não é X (e por quê).**
 - Não é Aritmética › Grandezas e Medidas › Área e Dinheiro (Caminho $3$, Bloco $4$) como nó principal, embora as duas unidades se encostem pelo mesmo assunto de área. Aqui a área nasce sempre de contar quadradinhos numa malha geométrica dividida visualmente em regiões ou peças, e a percepção espacial (formato, orientação, encaixe) é parte necessária da resposta, não só a conta. Ver a nota de link cruzado abaixo.
-- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste mesmo Caminho), porque ali as peças formam uma figura nova do zero e a pergunta é sobre quais formatos são alcançáveis; aqui as peças cobrem uma malha já delimitada, e a pergunta é sobre quantidade ou sobre qual peça específica falta.
-- Não é Encaixe e a Peça que Falta (Bloco $6$), porque a peça em L não completa um buraco silencioso numa figura única; ela é escolhida entre várias peças soltas e comparada formato a formato e direção a direção contra uma vaga já demarcada numa malha de ladrilhamento.
+- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste mesmo Caminho), porque ali as peças formam uma figura nova do zero e a pergunta é sobre quais formatos são alcançáveis. Aqui as peças cobrem uma malha já delimitada, e a pergunta é sobre quantidade ou sobre qual peça específica falta.
+- Não é Encaixe e a Peça que Falta (Bloco $6$), porque a peça em L não completa um buraco silencioso numa figura única. Ela é escolhida entre várias peças soltas e comparada formato a formato e direção a direção contra uma vaga já demarcada numa malha de ladrilhamento.
 
 **Nota de link cruzado.** As questões `2024/F2/Q14` e `2024/F2/Q15` encostam no Bloco $4$ do Caminho $3$ ("Área e dinheiro"), que trata área em malha pelo lado da medida e do dinheiro. Este bloco trata o mesmo assunto de área pelo lado da percepção espacial (formato das regiões, encaixe de peças, orientação). Ao revisar os dois blocos, manter os dois links visíveis um para o outro.
 
@@ -28,20 +28,20 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 ***Notas específicas de cada questão de referência***
 
 `2022/F1/Q14` (código `M2-22-F1-Q14`)
-- **Motor aplicado:** variação (a), recorte e contagem de quadradinhos. Uma folha quadrada, numa malha de $1$ cm, é recortada em quadradinhos do mesmo tamanho do quadradinho central; a pergunta pede quantos quadradinhos saem ao todo. Resolve-se multiplicando as dimensões da folha na malha. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
+- **Motor aplicado:** variação (a), recorte e contagem de quadradinhos. Uma folha quadrada, numa malha de $1$ cm, é recortada em quadradinhos do mesmo tamanho do quadradinho central. A pergunta pede quantos quadradinhos saem ao todo. Resolve-se multiplicando as dimensões da folha na malha. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
 - **Não é X específico:** não há ladrilhamento por cor nem decomposição de regiões nesta questão, só a contagem direta de quadradinhos que cabem numa folha, o caso mais simples das variações do bloco.
 
 `2024/F2/Q14` (código `M2-24-F2-Q14`)
-- **Motor aplicado:** variação (b), ladrilhamento e contagem por cor. Um quadriculado é preenchido com peças iguais sem sobreposição; além de $3$ peças já postas, há mais $3$ verdes e $2$ amarelas, e a pergunta pede o total de peças vermelhas. 🖼️ (contar células da malha e o tamanho da peça; conferir gabarito oficial antes de publicar).
+- **Motor aplicado:** variação (b), ladrilhamento e contagem por cor. Um quadriculado é preenchido com peças iguais sem sobreposição. Além de $3$ peças já postas, há mais $3$ verdes e $2$ amarelas, e a pergunta pede o total de peças vermelhas. 🖼️ (contar células da malha e o tamanho da peça. Conferir gabarito oficial antes de publicar).
 - **Não é X específico:** parente de `2022/F1/Q14` pelo raciocínio de contar quadradinhos, mas aqui a contagem serve para achar quantas peças de uma cor faltam, não quantos quadradinhos saem de um recorte.
 
 `2025/F1/Q14` (código `M2-25-F1-Q14`)
-- **Motor aplicado:** variação (b), caso do encaixe por forma e posição fixas. Um quebra-cabeça num quadriculado, **sem girar nem virar as peças**, pede qual das $5$ peças candidatas cobre o "?". 🖼️ (parente de `2022/F1/Q14` e `2024/F2/Q14` pelo cenário de malha; conferir gabarito oficial antes de publicar).
-- **Não é X específico:** não é uma questão de Bloco $6$ (Encaixe e a Peça que Falta), porque a peça certa não completa um contorno silencioso de uma figura única; ela é escolhida comparando formato e orientação contra várias peças soltas, dentro do contexto de ladrilhamento de uma malha.
+- **Motor aplicado:** variação (b), caso do encaixe por forma e posição fixas. Um quebra-cabeça num quadriculado, **sem girar nem virar as peças**, pede qual das $5$ peças candidatas cobre o "?". 🖼️ (parente de `2022/F1/Q14` e `2024/F2/Q14` pelo cenário de malha. Conferir gabarito oficial antes de publicar).
+- **Não é X específico:** não é uma questão de Bloco $6$ (Encaixe e a Peça que Falta), porque a peça certa não completa um contorno silencioso de uma figura única. Ela é escolhida comparando formato e orientação contra várias peças soltas, dentro do contexto de ladrilhamento de uma malha.
 
 `2024/F2/Q15` (código `M2-24-F2-Q15`)
 - **Motor aplicado:** variação (c), área por decomposição. Um quadrado maior é dividido em $5$ regiões: a azul tem $15$ quadradinhos, a amarela tem $8$, a preta tem $1$, e a pergunta pede a área de cada um dos dois retângulos rosa, iguais entre si. Resolve-se subtraindo do total a soma das áreas conhecidas e repartindo o resto em duas partes iguais. 🖼️ (conferir gabarito oficial antes de publicar).
-- **Não é X específico:** não há ladrilhamento por peças repetidas nesta questão, só a divisão de uma figura única em regiões de tamanhos diferentes; o motor é subtrair uma soma conhecida de um total, não dividir por uma peça padrão.
+- **Não é X específico:** não há ladrilhamento por peças repetidas nesta questão, só a divisão de uma figura única em regiões de tamanhos diferentes. O motor é subtrair uma soma conhecida de um total, não dividir por uma peça padrão.
 
 ---
 

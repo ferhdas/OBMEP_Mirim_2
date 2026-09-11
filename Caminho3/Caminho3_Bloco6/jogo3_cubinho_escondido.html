@@ -1,9 +1,4 @@
-<!--
-ENUNCIADO
-Esta montagem tem um cubinho escondido atrás de outro igual, que não aparece
-numa foto de frente. Clique no total certo de cubinhos da montagem, contando
-também o cubinho escondido.
--->
+<!-- ENUNCIADO: Esta montagem tem um cubinho escondido atrás de outro igual, que não aparece numa foto de frente. Clique no total certo de cubinhos da montagem, contando também o cubinho escondido. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,6 +23,7 @@ também o cubinho escondido.
   button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.85;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -38,6 +34,7 @@ também o cubinho escondido.
   <div class="rot">o cubinho laranja fica atrás de um igual, escondido de frente</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -105,6 +102,14 @@ também o cubinho escondido.
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

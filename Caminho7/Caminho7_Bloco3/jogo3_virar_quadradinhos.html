@@ -1,0 +1,99 @@
+<!-- ENUNCIADO: As duas figuras abaixo, com 4 linhas e 4 colunas, são feitas de quadradinhos brancos de um lado e pretos do outro. Clique no número que mostra quantos quadradinhos precisam ser virados para transformar a primeira figura na segunda. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; margin-bottom:8px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg viewBox="0 0 464 242" xmlns="http://www.w3.org/2000/svg">
+<text x="106.0" y="26" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Antes</text><rect x="10" y="40" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="58" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="106" y="40" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="154" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="10" y="88" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="58" y="88" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="106" y="88" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="154" y="88" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="10" y="136" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="58" y="136" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="106" y="136" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="154" y="136" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="10" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="58" y="184" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="106" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="154" y="184" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><text x="358.0" y="26" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="bold" fill="#14365A" text-anchor="middle">Depois</text><rect x="262" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="310" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="358" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="406" y="40" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="262" y="88" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="310" y="88" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="358" y="88" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="406" y="88" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="262" y="136" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="310" y="136" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="358" y="136" width="44" height="44" fill="#FFFFFF" stroke="#14365A" stroke-width="2"/><rect x="406" y="136" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="262" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="310" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="358" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><rect x="406" y="184" width="44" height="44" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="2"/><line x1="210" y1="136.0" x2="246" y2="136.0" stroke="#14365A" stroke-width="2.4"/><polygon points="254,136.0 244,130.0 244,142.0" fill="#14365A"/>
+    </svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = 8;
+  var OPCOES = [6,10,8,9,7];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Comparando casa por casa, 8 quadradinhos mudam de cor entre as duas figuras.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Compare as duas figuras casa por casa e conte só onde a cor muda.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 8: são as casas onde a cor muda entre as duas figuras.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 8.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

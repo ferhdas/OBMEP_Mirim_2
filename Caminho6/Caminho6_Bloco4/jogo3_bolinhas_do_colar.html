@@ -1,0 +1,125 @@
+<!-- ENUNCIADO: Um colar tem bolinhas e 2 estrelas presas no cordão. Da ponta esquerda até a primeira estrela há 3 bolinhas. Entre a primeira e a segunda estrela há 2 bolinhas. Da segunda estrela até a ponta direita há 5 bolinhas. Clique no número que mostra o menor número de bolinhas que precisam ser retiradas para tirar as duas estrelas. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; --azul:#2F80C4; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; margin-bottom:8px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:52px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="colar" viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY="#14365A", AZUL="#2F80C4", FILL="#E6F0FA", ESTRELA="#F6C445", ESTRELA_B="#E0701B";
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("colar");
+  // sequência: 3 bolinhas, estrela, 2 bolinhas, estrela, 5 bolinhas
+  var seq = ["b","b","b","*","b","b","*","b","b","b","b","b"];
+  var x = 30, y = 50, step = 44;
+  var line = document.createElementNS(svgNS,"line");
+  line.setAttribute("x1", 15); line.setAttribute("y1", y);
+  line.setAttribute("x2", 15 + (seq.length-1)*step + 30); line.setAttribute("y2", y);
+  line.setAttribute("stroke", "#CBD5DF"); line.setAttribute("stroke-width","3");
+  svg.appendChild(line);
+
+  seq.forEach(function(item, i){
+    var cx = x + i*step;
+    if(item === "b"){
+      var c = document.createElementNS(svgNS,"circle");
+      c.setAttribute("cx",cx); c.setAttribute("cy",y); c.setAttribute("r",14);
+      c.setAttribute("fill",FILL); c.setAttribute("stroke",AZUL); c.setAttribute("stroke-width","2.4");
+      svg.appendChild(c);
+    } else {
+      var star = document.createElementNS(svgNS,"text");
+      star.setAttribute("x",cx); star.setAttribute("y",y+9);
+      star.setAttribute("text-anchor","middle"); star.setAttribute("font-size","30");
+      star.setAttribute("fill",ESTRELA); star.textContent = "★";
+      svg.appendChild(star);
+    }
+  });
+
+  var CORRETA = 5; // total 10 bolinhas; trechos 3,2,5; maior=5 (ponta direita)
+  var OPCOES = [7,8,5,6,3];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Os trechos são 3, 2 e 5 bolinhas. O maior é o de 5, na ponta direita, e é o único que pode ficar sem ser retirado. 10-5=5.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Compare os três trechos de bolinhas, incluindo os das duas pontas do colar, não só o do meio.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 5: o maior trecho é o de 5 bolinhas na ponta direita, e o total de bolinhas é 10, então 10-5=5.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 5.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!-- ENUNCIADO: Um cubo tem só os números 1, 3 e 5 pintados em suas faces, cada um aparecendo em pelo menos uma face. Olhando o cubo de um jeito, aparecem as faces 5, 5 e 1. Clique no número que mostra o menor total possível para a soma dos números das seis faces desse cubo. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:420px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; }
+  .legenda{ text-align:center; font-size:13px; color:#8A97A6; font-weight:600; margin-top:-4px; margin-bottom:6px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:17px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="160,10 300,10 230,70 90,70" fill="#FFFFFF" stroke="#14365A" stroke-width="2.6"/>
+      <polygon points="230,70 300,10 300,150 230,210" fill="#FFFFFF" stroke="#14365A" stroke-width="2.6"/>
+      <rect x="90" y="70" width="140" height="140" fill="#FFFFFF" stroke="#14365A" stroke-width="2.6"/>
+      <text x="160" y="150" font-family="monospace" font-size="32" font-weight="bold" fill="#14365A" text-anchor="middle">5</text>
+      <text x="195" y="50" font-family="monospace" font-size="32" font-weight="bold" fill="#14365A" text-anchor="middle">5</text>
+      <text x="265" y="120" font-family="monospace" font-size="32" font-weight="bold" fill="#14365A" text-anchor="middle">1</text>
+    </svg>
+    <div class="legenda">só os números 1, 3 e 5 aparecem no cubo, cada um pelo menos uma vez</div>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = 16; // visiveis 5+5+1=11, faltantes: 3,1,1 -> +5 = 16
+  var OPCOES = [11,14,16,20,27];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! O 3 ainda não apareceu, então uma face escondida tem que ser 3. As outras duas escondidas, para o menor total, são 1 e 1. 5+5+1+3+1+1=16.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Qual número ainda não apareceu em nenhuma face vista? Ele tem que estar nas escondidas.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 16: as faces escondidas são 3, 1 e 1, o menor jeito de completar o cubo.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 16.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

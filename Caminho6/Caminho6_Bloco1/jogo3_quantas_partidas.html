@@ -1,0 +1,137 @@
+<!-- ENUNCIADO: Cinco amigos jogaram entre si, cada dupla no máximo uma vez. Ana jogou 3 vezes, Carla jogou 1 vez, Duda jogou 4 vezes e Elis jogou 2 vezes. Clique no número que mostra quantas vezes Beto jogou. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; --azul:#2F80C4; --laranja:#E0701B; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:560px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  #grafo{ width:100%; height:auto; margin-bottom:8px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:10px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg id="grafo" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY="#14365A", AZUL="#2F80C4", FILL_AZUL="#E6F0FA", LARANJA="#E0701B", FILL_LAR="#FCEBD9";
+  var nomes = ["Ana","Beto","Carla","Duda","Elis"];
+  var graus = {Ana:3, Beto:"?", Carla:1, Duda:4, Elis:2};
+  var cx0 = 240, cy0 = 190, R = 130;
+  var pos = {};
+  nomes.forEach(function(nome, i){
+    var a = -Math.PI/2 + i * 2 * Math.PI / 5;
+    pos[nome] = { x: cx0 + R*Math.cos(a), y: cy0 + R*Math.sin(a) };
+  });
+
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("grafo");
+  nomes.forEach(function(nome){
+    var p = pos[nome];
+    var isAlvo = nome === "Beto";
+    var circ = document.createElementNS(svgNS,"circle");
+    circ.setAttribute("cx", p.x); circ.setAttribute("cy", p.y); circ.setAttribute("r", 28);
+    circ.setAttribute("fill", isAlvo ? FILL_LAR : FILL_AZUL);
+    circ.setAttribute("stroke", isAlvo ? LARANJA : AZUL);
+    circ.setAttribute("stroke-width", "3");
+    svg.appendChild(circ);
+
+    var lblY = p.y < cy0 ? p.y - 42 : p.y + 52;
+    var degY = p.y < cy0 ? p.y - 58 : p.y + 68;
+    var lbl = document.createElementNS(svgNS,"text");
+    lbl.setAttribute("x", p.x); lbl.setAttribute("y", lblY);
+    lbl.setAttribute("text-anchor","middle"); lbl.setAttribute("font-weight","700");
+    lbl.setAttribute("font-size","17"); lbl.setAttribute("fill", NAVY);
+    lbl.textContent = nome;
+    svg.appendChild(lbl);
+
+    var deg = document.createElementNS(svgNS,"text");
+    deg.setAttribute("x", p.x); deg.setAttribute("y", degY);
+    deg.setAttribute("text-anchor","middle"); deg.setAttribute("font-weight","700");
+    deg.setAttribute("font-size","14"); deg.setAttribute("font-family","monospace");
+    deg.setAttribute("fill", isAlvo ? LARANJA : NAVY);
+    deg.textContent = "jogou " + graus[nome] + "x";
+    svg.appendChild(deg);
+  });
+
+  var CORRETA = 2;
+  var OPCOES = [1,4,3,2,0];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Duda jogou com todo mundo. Ana já fecha suas 3 partidas com Duda, Beto e Elis, então Beto jogou com Ana e com Duda, 2 partidas.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Comece por quem jogou o máximo de partidas, essa pessoa jogou com todo mundo.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 2: Beto jogou com Duda (que jogou com todos) e com Ana.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 2.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

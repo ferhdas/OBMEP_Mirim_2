@@ -1,9 +1,4 @@
-<!--
-ENUNCIADO
-Três peças foram montadas com 6 cubinhos colados cada uma, em formatos
-diferentes. Clique na peça que tem mais pontos de cola (mais faces internas
-em contato entre os cubinhos que a formam).
--->
+<!-- ENUNCIADO: Três peças foram montadas com 6 cubinhos colados cada uma, em formatos diferentes. Clique na peça que tem mais pontos de cola (mais faces internas em contato entre os cubinhos que a formam). -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -26,6 +21,7 @@ em contato entre os cubinhos que a formam).
   button.opcao.errada{background:#fee2e2;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.9;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -33,6 +29,7 @@ em contato entre os cubinhos que a formam).
   <div class="aviso">as três peças têm 6 cubinhos cada uma, colados em formatos diferentes</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -106,6 +103,14 @@ em contato entre os cubinhos que a formam).
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

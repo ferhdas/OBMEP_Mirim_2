@@ -111,7 +111,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 |---|---|---|---|---|
 | 2018/Q1 | NA18-Q01 | CM1 | Adição de naturais | C ✅ |
 | 2018/Q2 | NA18-Q02 | CM1 | Problema aditivo (entra/sai) | D ✅ |
-| 2018/Q3 | NA18-Q03 | CM6 | Leitura de diagrama (Venn) | 🖼️ |
+| 2018/Q3 | NA18-Q03 | CM6 | Leitura de diagrama (Venn) | E ✅🖼️ |
 | 2018/Q4 | NA18-Q04 | CM1 | Problema de idade | D ✅ |
 | 2018/Q5 | NA18-Q05 | CM5 | Caminho mais curto em malha | 🖼️ |
 | 2018/Q6 | NA18-Q06 | CM3 | Régua sem partir do zero | B 🖼️ |
@@ -176,7 +176,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2022/F1/Q15 | M2-22-F1-Q15 | CM3 | Dinheiro (troco em 3 moedas) | B ✅ |
 | 2022/F2/Q1 | M2-22-F2-Q01 | CM8 | Padrão (estrelas → pontas) | C ✅ |
 | 2022/F2/Q2 | M2-22-F2-Q02 | CM1 | Ábaco / valor posicional | C ✅ |
-| 2022/F2/Q3 | M2-22-F2-Q03 | CM7 | Contagem (mãos carimbadas) | 🖼️ |
+| 2022/F2/Q3 | M2-22-F2-Q03 | CM7 | Contagem (mãos carimbadas) | C ✅🖼️ |
 | 2022/F2/Q4 | M2-22-F2-Q04 | CM3 | Equilíbrio (transferir bola) | C ✅ |
 | 2022/F2/Q5 | M2-22-F2-Q05 | CM5 | Vista de cima (torres) | 🖼️ |
 | 2022/F2/Q6 | M2-22-F2-Q06 | CM4 | Calendário (1→31 jan) | A ✅ |
@@ -191,7 +191,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2022/F2/Q15 | M2-22-F2-Q15 | CM6 | Jogo de senha (tipo Mastermind) | B ✅ |
 | 2023/F1/Q1 | M2-23-F1-Q01 | CM1 | Maior resultado (comparar somas) | E ✅ |
 | 2023/F1/Q2 | M2-23-F1-Q02 | CM8 | Padrão periódico (período 4) | A ✅ |
-| 2023/F1/Q3 | M2-23-F1-Q03 | CM7 | Contagem (mãos: esquerda) | 🖼️ |
+| 2023/F1/Q3 | M2-23-F1-Q03 | CM7 | Contagem (mãos: esquerda) | C ✅🖼️ |
 | 2023/F1/Q4 | M2-23-F1-Q04 | CM1 | Ábaco (retirar 2 peças) | E ✅ |
 | 2023/F1/Q5 | M2-23-F1-Q05 | CM1 | Tabela (igualar nº de alunos) | D ✅ |
 | 2023/F1/Q6 | M2-23-F1-Q06 | CM4 | Dia do mês (próxima quarta) | C ✅ |
@@ -200,7 +200,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2023/F1/Q9 | M2-23-F1-Q09 | CM7 | Produtos distintos (algarismos) | D ✅ |
 | 2023/F1/Q10 | M2-23-F1-Q10 | CM5 | Vistas (frente/lado/cima) | 🖼️ |
 | 2023/F1/Q11 | M2-23-F1-Q11 | CM3 | Altura de pilhas (2 caixas) | C ✅🖼️ |
-| 2023/F1/Q12 | M2-23-F1-Q12 | CM6 | Leitura de gráfico de barras | 🖼️ |
+| 2023/F1/Q12 | M2-23-F1-Q12 | CM6 | Leitura de gráfico de barras | E ✅🖼️ |
 | 2023/F1/Q13 | M2-23-F1-Q13 | CM1 | Gomos 2/3 sementes (total 20) | B ✅ |
 | 2023/F1/Q14 | M2-23-F1-Q14 | CM6 | Roda gigante (cabines opostas) | C ✅ |
 | 2023/F1/Q15 | M2-23-F1-Q15 | CM7 | Combinações com restrição (chás) | E ✅ |
@@ -220,7 +220,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2023/F2/Q14 | M2-23-F2-Q14 | CM5 | Decompor cubo em 4 peças | 🖼️ |
 | 2023/F2/Q15 | M2-23-F2-Q15 | CM6 | Mínimo de livros (posições) | C ✅ |
 | 2024/F1/Q1 | M2-24-F1-Q01 | CM3 | Balança (1 tijolo = ½ + 1 kg) | D ✅🖼️ |
-| 2024/F1/Q2 | M2-24-F1-Q02 | CM7 | Conjuntos (lápis+borracha+apontador) | 🖼️ |
+| 2024/F1/Q2 | M2-24-F1-Q02 | CM7 | Conjuntos (lápis+borracha+apontador) | D ✅🖼️ |
 | 2024/F1/Q3 | M2-24-F1-Q03 | CM3 | Comprimento na régua (lápis × pincel) | D ✅🖼️ |
 | 2024/F1/Q4 | M2-24-F1-Q04 | CM6 | Dado 3× soma 17 (qual face) | E ✅ |
 | 2024/F1/Q5 | M2-24-F1-Q05 | CM1 | Locomotiva + vagões (2 pistas) | C ✅ |
@@ -237,16 +237,16 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2024/F2/Q1 | M2-24-F2-Q01 | CM7 | Contar triângulos brancos (mosaico) | 🖼️ |
 | 2024/F2/Q2 | M2-24-F2-Q02 | CM7 | Pintar até pretas = 2× brancas | D ✅🖼️ |
 | 2024/F2/Q3 | M2-24-F2-Q03 | CM5 | Vista de cima (21 cubinhos) | 🖼️ |
-| 2024/F2/Q4 | M2-24-F2-Q04 | CM7 | Chinelos esq/dir (mínimo de alunos) | 🖼️ |
+| 2024/F2/Q4 | M2-24-F2-Q04 | CM7 | Chinelos esq/dir (mínimo de alunos) | C ✅🖼️ |
 | 2024/F2/Q5 | M2-24-F2-Q05 | CM5 | Maior contorno (perímetro em malha) | 🖼️ |
-| 2024/F2/Q6 | M2-24-F2-Q06 | CM6 | Escolher o gráfico (M=2P=2C=3I) | 🖼️ |
+| 2024/F2/Q6 | M2-24-F2-Q06 | CM6 | Escolher o gráfico (M=2P=2C=3I) | C ✅🖼️ |
 | 2024/F2/Q7 | M2-24-F2-Q07 | CM6 | Colar (mínimo de bolinhas; otimização) | 🖼️ |
 | 2024/F2/Q8 | M2-24-F2-Q08 | CM7 | Camiseta × bermuda (cores diferentes) | C ✅ |
 | 2024/F2/Q9 | M2-24-F2-Q09 | CM6 | Conjuntos/Venn (só Matemática) | B ✅ |
 | 2024/F2/Q10 | M2-24-F2-Q10 | CM4 | Relógio no espelho (reflexão) | A ✅🖼️ |
 | 2024/F2/Q11 | M2-24-F2-Q11 | CM1 | Soma de distâncias = 110 (casa) | D ✅ |
 | 2024/F2/Q12 | M2-24-F2-Q12 | CM6 | Palhaços (dedução chapéu/gravata/sapato) | E ✅🖼️ |
-| 2024/F2/Q13 | M2-24-F2-Q13 | CM6 | Agenda olímpica (intervalos; máximo) | C ✅🖼️ |
+| 2024/F2/Q13 | M2-24-F2-Q13 | CM6 | Agenda olímpica (intervalos; máximo) | B ✅🖼️ |
 | 2024/F2/Q14 | M2-24-F2-Q14 | CM5 | Ladrilhamento (nº de peças vermelhas) | 🖼️ |
 | 2024/F2/Q15 | M2-24-F2-Q15 | CM5 | Quadrado em 5 regiões (área das rosas) | 🖼️ |
 | 2025/F1/Q1 | M2-25-F1-Q01 | CM8 | Tabela 1–50 (10 colunas, +10/linha); qual peça recortar | C ✅ |
@@ -407,7 +407,7 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 
 ### CM6 — Raciocínio Lógico e Dedução (43)
 
-- **2018/Q3** · `NA18-Q03` · Soma dos números dentro do círculo **e** do retângulo, mas **fora** do triângulo. Leitura de diagrama (Venn). → 🖼️
+- **2018/Q3** · `NA18-Q03` · Soma dos números dentro do círculo **e** do retângulo, mas **fora** do triângulo. Os dois únicos números nessa interseção tripla são 2 e 10. Leitura de diagrama (Venn). → **E (12)** ✅🖼️ *(conferido contra a solução oficial, `sf1na-2018.pdf`, questão 3)*
 - **2018/Q17** · `NA18-Q17` · Fila: Maria tem 17 atrás (um é Tiago); Tiago tem 14 à frente (uma é Maria); 5 alunos entre eles. Posições. → **D (26)** ✅
 - **2018/Q20** · `NA18-Q20` · Casas coloridas com pistas de vizinhança; cor da casa nº 4. Cadeia dedutiva. → **D (verde)** ✅
 - **2019/Q9** · `NA19-Q09` · 6 pesos (1–6 g) em 3 gavetas; gaveta 1 soma 9, gaveta 2 soma 8; achar a 3ª. Total 21 − 17 = 4 = {1,3}. → **A (1 g e 3 g)** ✅
@@ -424,7 +424,7 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 - **2022/F2/Q14** · `M2-22-F2-Q14` · Cubo com apenas 1, 2 e 4 (cada um ao menos 1 face); faces visíveis 1,1,4; afirmação certa. Soma mín. = 10. → **B (soma ≥ 10)** ✅
 - **2022/F2/Q15** · `M2-22-F2-Q15` · Jogo de senha (3 algarismos) com pistas verm/amarela/verde (estilo Mastermind). → **B (130)** ✅
 - **2023/F1/Q8** · `M2-23-F1-Q08` · Quatro balanças de 2 pratos comparando 5 bolinhas; achar a **mais pesada**. Ordenação por transitividade (não é cálculo de massa). → 🖼️ *(balança classificada em CM6 quando o foco é ordenar/deduzir, não medir — vide regra de classificação)*
-- **2023/F1/Q12** · `M2-23-F1-Q12` · Tabela de marcas (sexta 4, sábado 5, domingo 3); qual **gráfico de barras** representa. Leitura/correspondência de dados. → 🖼️ *(barras: sábado > sexta > domingo)*
+- **2023/F1/Q12** · `M2-23-F1-Q12` · Tabela de marcas (sexta 4, sábado 5, domingo 3); qual **gráfico de barras** representa. Leitura/correspondência de dados. → **E** ✅🖼️ *(barras: sábado > sexta > domingo; conferido contra a solução oficial, `sf1m2-2023.pdf`, questão 12)*
 - **2023/F1/Q14** · `M2-23-F1-Q14` · Roda gigante; cabine 6 no ponto mais baixo, cabine 21 no mais alto (opostas). Opostas distam meia-volta → nº de cabines = 2·(21−6). → **C (30)** ✅
 - **2023/F2/Q5** · `M2-23-F2-Q05` · Corredor de hotel: um lado ímpares crescentes (1,3,…,19), outro pares decrescentes (20,18,…,2); qual está em frente ao 17. Quarto 17 = posição 9; em frente = 22 − 2·9. → **D (4)** ✅
 - **2023/F2/Q8** · `M2-23-F2-Q08` · Dado com faces opostas somando 7; face de cima coberta e **ímpar**; quantos pontos. Dedução faces de dado. → 🖼️ *(resposta ímpar: 1, 3 ou 5; depende das faces visíveis — conferir gabarito)*
@@ -437,11 +437,11 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 - **2024/F1/Q10** · `M2-24-F1-Q10` · Corrida: Abel 2º; nem Carlos nem Dudu em 3º; Beto logo atrás de Emanuel; sem empates. Único arranjo válido põe Emanuel em 3º (Beto 4º). Dedução/ordenação com pistas. → **C (3º)** ✅
 - **2024/F1/Q12** · `M2-24-F1-Q12` · Campeonato entre 5 jogadores (cada par no máx. uma vez); jogador 1 jogou 1, o 3º jogou 2, o 4º jogou 3, o 5º jogou 4; quantas o 2º jogou. Dedução de "graus" num grafo de partidas → 2º jogou 2. → **B (duas)** ✅
 - **2024/F1/Q15** · `M2-24-F1-Q15` · 3+3+3 moedas (3 tipos); tira 4 sem olhar; o que é certo. Com 3 tipos e 4 retiradas, **casa dos pombos** garante 2 do mesmo tipo. → **C (ao menos duas de um mesmo tipo)** ✅
-- **2024/F2/Q6** · `M2-24-F2-Q06` · M = 2P = 2C = 3I; qual **gráfico de barras** representa. Alturas na razão 6:3:3:2 (P = C; I pouco menor). Leitura/escolha de gráfico (parente de `2023/F1/Q12`). → 🖼️ *(tentativa E; conferir alturas no gabarito)*
+- **2024/F2/Q6** · `M2-24-F2-Q06` · M = 2P = 2C = 3I; qual **gráfico de barras** representa. A barra azul (M) precisa ser o dobro da verde (C), o que só ocorre na alternativa C. Leitura/escolha de gráfico (parente de `2023/F1/Q12`). → **C** ✅🖼️ *(conferido contra a solução oficial, `sf2m2-2024.pdf`, questão 6; corrige a tentativa "E" de versões anteriores desta ficha)*
 - **2024/F2/Q7** · `M2-24-F2-Q07` · Tirar todas as estrelas do colar pelo cordão sem cortar; **mínimo de bolinhas** a remover. Otimização sobre a sequência de contas/estrelas no fio (parente de `2020/Q7`, `2023/F2/Q15`). → 🖼️
 - **2024/F2/Q9** · `M2-24-F2-Q09` · 36 alunos; 28 gostam de Português, 32 de Matemática, 1 de nenhum; quantos gostam de Mat. **mas não** de Port. União = 35 → interseção = 25 → só Matemática = 7. Conjuntos/Venn (inclusão–exclusão). → **B (7)** ✅
 - **2024/F2/Q12** · `M2-24-F2-Q12` · Três palhaços; pistas de igualdade/desigualdade sobre chapéus, gravatas e sapatos; achar o conjunto de Zé Grilo. Gravata única (azul) força os outros dois ao par; dedução fecha verde/azul/cinza. Lógica de associação (grade). → **E (chapéu verde, gravata azul, sapato cinza)** ✅🖼️ *(confirmar as figuras das opções)*
-- **2024/F2/Q13** · `M2-24-F2-Q13` · Gráfico de horários de modalidades olímpicas; **máximo** de modalidades assistidas inteiras sem sobreposição. Seleção gulosa de intervalos por término → 5. Leitura de gráfico + otimização de intervalos. → **C (5)** ✅🖼️ *(confirmar os horários de início/fim no gráfico)*
+- **2024/F2/Q13** · `M2-24-F2-Q13` · Gráfico de horários de modalidades olímpicas; **máximo** de modalidades assistidas inteiras sem sobreposição. Dá para assistir a 4 sem conflito (por exemplo canoagem, judô, surfe e futebol), e 5 sempre esbarra numa sobreposição. Leitura de gráfico + otimização de intervalos. → **B (4)** ✅🖼️ *(conferido contra a solução oficial, `sf2m2-2024.pdf`, questão 13; corrige a tentativa "C (5)" de versões anteriores desta ficha)*
 
 - **2025/F1/Q9** · `M2-25-F1-Q09` · *(lote 2025)* Tabuleiro 3×3 com 1–9; somas das duas primeiras linhas (6 e 22) e colunas (20 e 14); achar a **casa cinza** (linha 3, coluna 3). Dedução por mín/máx e unicidade: {3,2,1 / 9,7,6 / 8,5,4} → 4. Puzzle lógico-aritmético (estilo KenKen). → **A (4)** ✅
 - **2025/F1/Q13** · `M2-25-F1-Q13` · Roberto anda reto e **vira à direita** ao bater na parede; por qual ponto sai do labirinto. Aplicar regra de movimento determinística (procedimento lógico; ponte com CM5 pela navegação). → 🖼️
@@ -460,19 +460,19 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 - **2019/Q13** · `NA19-Q13` · Preencher quadriculado 3×3 com 1,2,3 sem repetir em linha/coluna (1 já dado); de quantas maneiras. Quadro latino. → 🖼️
 - **2020/Q9** · `NA20-Q09` · Sapatos misturados; quantos pares (pé direito + esquerdo, mesmo número). Pareamento por atributos. → 🖼️
 - **2022/F1/Q7** · `M2-22-F1-Q07` · Par ou ímpar: Paula (par) já mostrou a mão; de quantas maneiras Isabel ganha. Contagem por paridade (soma ímpar). → **C (3)** 🖼️ *(depende de quantos dedos Paula mostra)*
-- **2022/F2/Q3** · `M2-22-F2-Q03` · Crianças carimbaram as mãos; todas a esquerda; quantas esqueceram a direita. Contagem/pareamento esq–dir. → 🖼️
+- **2022/F2/Q3** · `M2-22-F2-Q03` · Crianças carimbaram as mãos; todas a esquerda; quantas esqueceram a direita. Das $9$ figuras carimbadas, $3$ são de mão direita (dedão à esquerda do carimbo) e $6$ são de mão esquerda. Como $3$ dessas $6$ crianças também carimbaram a direita, $6-3=3$ esqueceram. Contagem/pareamento esq–dir. → **C ($3$)** ✅🖼️ *(conferido contra a solução oficial, `sf2m2-2022.pdf`, questão $3$)*
 - **2022/F2/Q7** · `M2-22-F2-Q07` · 6 meninos em fila, 3 meninas entre cada par. Intervalos (5 espaços) → 6 + 15. → **D (21)** ✅
-- **2023/F1/Q3** · `M2-23-F1-Q03` · Mãos carimbadas dispostas em círculo; quantas vezes carimbou a mão **esquerda**. Contagem por orientação (esq × dir). → 🖼️ *(parente de `2022/F2/Q3`)*
+- **2023/F1/Q3** · `M2-23-F1-Q03` · Nove mãos carimbadas dispostas em círculo; quantas vezes Marília carimbou a mão **esquerda**. O dedão de um carimbo de mão esquerda fica do lado direito do carimbo (e vice-versa); só $3$ das $9$ figuras carimbadas têm essa orientação. Contagem por orientação (esq × dir). → **C ($3$)** ✅🖼️ *(conferido contra a solução oficial, `sf1m2-2023.pdf`, questão $3$; parente de `2022/F2/Q3`)*
 - **2023/F1/Q9** · `M2-23-F1-Q09` · Escolher 2 algarismos de 1023 ({1,0,2,3}) e multiplicar; quantos resultados **diferentes**. Produtos: {0, 2, 3, 6} → 4. Combinações + contagem de valores distintos. → **D (4)** ✅
 - **2023/F1/Q15** · `M2-23-F1-Q15` · 4 ervas; chás com 1 ou mais; **anis e hortelã nunca juntos**; quantos chás. 2⁴−1 = 15 menos os 4 que têm anis+hortelã = 11. Subconjuntos com restrição. → **E (11)** ✅
 - **2023/F2/Q9** · `M2-23-F2-Q09` · Escrever todos os números de 2000 a 2023; quantas vezes aparece o algarismo **zero**. Contagem por casa (centena fixa 0 = 24; dezena/unidade = 13) → 37. Contagem sistemática de ocorrências. → **E (37)** ✅ *(parente de `2019/Q1`; ótima para ensinar contagem por posição)*
 
-- **2024/F1/Q2** · `M2-24-F1-Q02` · *(lote 2024)* Quantos conjuntos com 1 lápis + 1 borracha + 1 apontador dá para formar com os objetos da figura. Resposta = **menor contagem** entre os três tipos (pareamento limitado pelo mais escasso). → 🖼️ *(contar lápis × borrachas × apontadores; resposta = o menor; tentativa D 5)*
+- **2024/F1/Q2** · `M2-24-F1-Q02` · *(lote 2024)* Quantos conjuntos com 1 lápis + 1 borracha + 1 apontador dá para formar com os objetos da figura. Há $7$ lápis, $6$ apontadores e $5$ borrachas, e a resposta é a **menor contagem** entre os três tipos (pareamento limitado pelo mais escasso), $5$. → **D ($5$)** ✅🖼️ *(conferido contra a solução oficial, `sf1m2-2024.pdf`, questão $2$)*
 - **2024/F1/Q8** · `M2-24-F1-Q08` · Bolas em 3 tamanhos × 3 cores; deixa de fabricar verde-pequena e amarelas (todos os tamanhos); quantos tipos restam. 9 − 1 − 3 = 5. Contagem com restrição/subtração de casos. → **B (5)** ✅
 - **2024/F1/Q14** · `M2-24-F1-Q14` · 2 vasos diferentes, 4 rosas iguais, 3 margaridas iguais; ao menos uma flor de cada tipo em cada vaso; de quantas maneiras. Rosas: 3 modos (1,2,3 num vaso); margaridas: 2 modos; total 3×2. Contagem com restrição (≥1 de cada). → **B (6)** ✅
 - **2024/F2/Q1** · `M2-24-F2-Q01` · Quantos **triângulos brancos** há no mosaico (malha 4×4 com diagonais). Contagem direta de figuras na malha. → 🖼️ *(tentativa C 12; conferir contagem)*
 - **2024/F2/Q2** · `M2-24-F2-Q02` · Quantas bolinhas brancas pintar de preto para que pretas = **dobro** das brancas. 9 bolinhas (2 pretas, 7 brancas): 2+x = 2(7−x) → x = 4. Contagem + relação de dobro (parente de `2018/Q9` "pintar para igualar"). → **D (4)** ✅🖼️ *(contagem confirmada: 9 no total, 2 pretas)*
-- **2024/F2/Q4** · `M2-24-F2-Q04` · Chinelos (esquerdo/direito) retirados; **menor número de alunos** que podem ter participado. Mínimo = maior entre (nº de pés esquerdos) e (nº de pés direitos) mostrados. Pareamento esq/dir (parente de `2022/F2/Q3`, `2023/F1/Q3`). → 🖼️ *(contar pés esq × dir; tentativa B 4)*
+- **2024/F2/Q4** · `M2-24-F2-Q04` · Chinelos (esquerdo/direito) retirados; **menor número de alunos** que podem ter participado. Formando pares (1 pé esquerdo + 1 pé direito), sobram $4$ pés direitos sem par, cada um exigindo um aluno a mais. Pareamento esq/dir (parente de `2022/F2/Q3`, `2023/F1/Q3`). → **C ($5$)** ✅🖼️ *(conferido contra a solução oficial, `sf2m2-2024.pdf`, questão $4$; corrige a tentativa "B (4)" registrada em versões anteriores da ficha-mestra)*
 - **2024/F2/Q8** · `M2-24-F2-Q08` · 4 camisetas × 3 bermudas; quantas combinações com **cores diferentes**. 12 totais − 2 de cor igual (branca-branca, azul-azul) = 10. Contagem com restrição (excluir coincidências). → **C (10)** ✅
 
 - **2025/F1/Q5** · `M2-25-F1-Q05` · *(lote 2025)* Garagem de 2 fileiras de **7 vagas** (14 no total), 3 ocupadas → 11 livres; cada vaga aceita "de frente ou de ré" (×2). 11 × 2 = 22. Contagem com fator de orientação. → **E (22)** ✅🖼️ *(contagem de vagas conferida na figura)*
@@ -494,7 +494,7 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 - **2023/F2/Q4** · `M2-23-F2-Q04` · Tabuleiros com **as duas diagonais** pintadas (3×3, 5×5, 7×7, 9×9); contar os pretos do maior (coberto). Padrão 2n−1 (5, 9, 13, **17**). → **C (17)** ✅🖼️ *(confirmar os tamanhos dos tabuleiros visíveis na figura)*
 
 - **2025/F1/Q1** · `M2-25-F1-Q01` · *(lote 2025)* Tabela preenchida 1→50 em **10 colunas** (cada linha +10); qual "peça" (tetrominó) pode ser recortada. Usar a **regularidade posicional** (abaixo = +10, ao lado = +1): só 22-32-33-43 é coerente. Padrão de grade numérica (com recorte espacial). → **C** ✅
-- **2025/F1/Q8** · `M2-25-F1-Q08` · Faixa de "casinhas" com palitos de 3 cm num total de 30 cm (10 casas, paredes compartilhadas); quantos palitos. Base 10 + paredes 11 + topos 10 + telhados 20 = 51 (regra 5n+1). Padrão de crescimento com **palitos** (matchstick → CM8). → **D (51)** ✅🖼️
+- **2025/F1/Q8** · `M2-25-F1-Q08` · Faixa de "casinhas" com palitos de 3 cm num total de 30 cm; cada casinha mede 6 cm de largura, logo são 5 casinhas (30÷6). A primeira usa 11 palitos, e cada casinha extra soma mais 10 (compartilha 1 palito com a vizinha), regra 10n+1. → **D (51)** ✅🖼️ *(conferido contra a solução oficial, sf1m2-2025.pdf, questão 8: são 5 casinhas, não 10 — corrige a contagem tentativa registrada em versões anteriores da ficha-mestra; a resposta 51 já estava certa)*
 
 > **CM8 voltou em 2025.** Depois do branco da 3ª Edição, a 4ª trouxe **2 questões** (tabela numérica `2025/F1/Q1` e palitos `2025/F1/Q8`), levando o bloco a 11. Em 2024 o eixo de regularidades ficara totalmente ausente; 2025 o repõe — note que o tipo mudou: não veio padrão figural "clássico", e sim **regularidade de grade numérica** e **palitos** (crescimento linear). Para o curso: manter CM8 como bloco médio (11), agora com um exemplar recente de cada subtipo (numérico-posicional e matchstick).
 

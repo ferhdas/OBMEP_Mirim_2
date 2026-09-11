@@ -26,20 +26,20 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 ***Notas específicas de cada questão de referência***
 
 `2019/Q4` (código `NA19-Q04`)
-- **Motor aplicado:** variação (a), comparação de traçados por contagem. Duas ou mais linhas traçadas numa malha quadriculada precisam ser comparadas para saber qual é mais comprida, sem que o formato geral engane a resposta. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
+- **Motor aplicado:** variação (a), comparação de traçados por contagem. Duas ou mais linhas traçadas numa malha quadriculada precisam ser comparadas para saber qual é mais comprida, sem que o formato geral engane a resposta. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
 - **Não é X específico:** não há figura fechada nem perímetro de região nesta questão, só a comparação direta entre traçados abertos, o caso mais simples das variações do bloco.
 
 `2024/F2/Q5` (código `M2-24-F2-Q05`)
-- **Motor aplicado:** variação (b), perímetro de figura composta. Cinco figuras desenhadas numa malha de quadradinhos precisam ser comparadas para achar qual tem o maior contorno. 🖼️ (parente de `2019/Q4` pelo cenário de malha; conferir gabarito oficial antes de publicar).
+- **Motor aplicado:** variação (b), perímetro de figura composta. Cinco figuras desenhadas numa malha de quadradinhos precisam ser comparadas para achar qual tem o maior contorno. 🖼️ (parente de `2019/Q4` pelo cenário de malha. Conferir gabarito oficial antes de publicar).
 - **Não é X específico:** diferente de `2019/Q4`, aqui as figuras são fechadas (têm área, não só um traçado aberto), então o perímetro se conta como a soma dos lados de fora de cada figura, descontando os lados escondidos nos encontros entre quadradinhos.
 
 `2024/F1/Q9` (código `M2-24-F1-Q09`)
-- **Motor aplicado:** variação (c), contorno de uma parte por tamanho de lado. Uma figura com $2$ quadrados iguais e $2$ triângulos iguais, todos com lados congruentes, tem um contorno destacado de $24$ cm; a pergunta pede o contorno de toda a região cinza. 🖼️ (depende da leitura exata da figura; conferir gabarito oficial antes de publicar).
-- **Não é X específico:** não é uma questão de área nem de composição de figuras (Bloco $1$); o que se pede é sempre uma medida de contorno, usando o tamanho de lado descoberto pelo contorno destacado para achar o contorno de outra parte da mesma figura.
+- **Motor aplicado:** variação (c), contorno de uma parte por tamanho de lado. Uma figura com $2$ quadrados iguais e $2$ triângulos iguais, todos com lados congruentes, tem um contorno destacado de $24$ cm. A pergunta pede o contorno de toda a região cinza. 🖼️ (depende da leitura exata da figura. Conferir gabarito oficial antes de publicar).
+- **Não é X específico:** não é uma questão de área nem de composição de figuras (Bloco $1$). O que se pede é sempre uma medida de contorno, usando o tamanho de lado descoberto pelo contorno destacado para achar o contorno de outra parte da mesma figura.
 
 `2025/F1/Q10` (código `M2-25-F1-Q10`)
-- **Motor aplicado:** variação (d), atalho da escada monótona. Uma figura de $3$ quadrados em escada, com base $4$ cm e degrau $3$ cm, pede a medida do contorno; como a escada é monótona, vale o atalho perímetro $= 2 \times (\text{largura}+\text{altura}) = 2 \times (7+4)$. Gabarito B ($22$ cm).
-- **Não é X específico:** não é uma questão de contar lado por lado ou degrau por degrau; o atalho da escada monótona é justamente o que evita essa contagem, e reconhecer quando ele se aplica (a figura só anda num sentido, sem voltar) é o cerne do motor.
+- **Motor aplicado:** variação (d), atalho da escada monótona. Uma figura de $3$ quadrados em escada, com base $4$ cm e degrau $3$ cm, pede a medida do contorno. Como a escada é monótona, vale o atalho perímetro $= 2 \times (\text{largura}+\text{altura}) = 2 \times (7+4)$. Gabarito B ($22$ cm).
+- **Não é X específico:** não é uma questão de contar lado por lado ou degrau por degrau. O atalho da escada monótona é justamente o que evita essa contagem, e reconhecer quando ele se aplica (a figura só anda num sentido, sem voltar) é o cerne do motor.
 
 ---
 

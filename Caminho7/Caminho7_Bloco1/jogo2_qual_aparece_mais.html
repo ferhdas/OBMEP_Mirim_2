@@ -1,0 +1,99 @@
+<!-- ENUNCIADO: No quadro abaixo há estrelas, quadrados e luas espalhados. Clique na figura que aparece mais vezes. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:520px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; margin-bottom:10px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:16px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg">
+<polygon points="198.7,319.6 187.1,312.1 175.1,319.0 178.7,305.6 168.5,296.4 182.2,295.7 187.8,283.1 192.8,295.9 206.5,297.4 195.8,306.1" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><polygon points="148.3,128.1 135.7,133.6 134.8,147.4 125.7,137.0 112.3,140.4 119.3,128.5 112.0,116.9 125.4,119.9 134.2,109.3 135.5,123.0" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><polygon points="491.6,56.7 485.3,69.0 493.3,80.2 479.7,77.9 471.5,89.0 469.4,75.4 456.3,71.1 468.6,64.9 468.7,51.1 478.4,60.9" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><polygon points="243.3,280.1 249.8,292.3 263.6,292.1 254.0,302.0 258.5,315.0 246.1,309.0 235.1,317.3 237.0,303.6 225.7,295.7 239.3,293.3" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><polygon points="164.2,129.1 176.8,123.4 177.5,109.7 186.8,119.9 200.1,116.4 193.2,128.3 200.7,139.9 187.2,137.0 178.5,147.7 177.1,134.0" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><polygon points="207.0,70.5 194.1,75.3 192.5,89.0 183.9,78.2 170.4,80.9 178.0,69.4 171.3,57.4 184.6,61.1 193.9,51.0 194.5,64.7" fill="#FCEFC2" stroke="#B8860B" stroke-width="2"/><rect x="282.016057965312" y="224.2512781527124" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="282.6026075026845" y="283.29038583314286" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="338.5896391361426" y="282.12470105564074" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="397.94208433971585" y="165.41179793845603" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="49.66191299484919" y="222.0028436202466" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="48.58574020149197" y="109.31474023330131" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="282.80399891758583" y="164.95962351823349" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="397.86505952815577" y="283.45622633070525" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="106.41244703184837" y="283.420855466593" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="106.83973004734302" y="51.35048422473547" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><rect x="396.59662902429983" y="222.20208343739074" width="40" height="40" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/><circle cx="186.68167380993103" cy="245.07847563562288" r="20" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2"/><circle cx="197.68167380993103" cy="241.07847563562288" r="17.0" fill="#FFFFFF"/><circle cx="360.30623020863686" cy="244.92892615798436" r="20" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2"/><circle cx="371.30623020863686" cy="240.92892615798436" r="17.0" fill="#FFFFFF"/><circle cx="70.02556154930012" cy="186.39305802700548" r="20" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2"/><circle cx="81.02556154930012" cy="182.39305802700548" r="17.0" fill="#FFFFFF"/><circle cx="359.8858339971836" cy="185.66006121918687" r="20" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2"/><circle cx="370.8858339971836" cy="181.66006121918687" r="17.0" fill="#FFFFFF"/><circle cx="359.15053619306497" cy="129.495583003435" r="20" fill="#EEE8FA" stroke="#7A5CC0" stroke-width="2"/><circle cx="370.15053619306497" cy="125.495583003435" r="17.0" fill="#FFFFFF"/>
+    </svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = "quadrado";
+  var OPCOES = ["estrela","quadrado","lua"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(b.textContent === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Contando cada figura separadamente: estrela 6 vezes, quadrado 11 vezes, lua 5 vezes. O quadrado é o que mais aparece.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Conte um tipo de figura de cada vez, percorrendo o quadro inteiro para cada uma.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é quadrado: 11 quadrados, contra 6 estrelas e 5 luas.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é quadrado.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

@@ -123,7 +123,7 @@ E) $4$
 
 **Notas rápidas para quem for corrigir**
 
-- Nos exercícios de reflexão ($1$, $6$), o distrator mais comum é achar que o espelho troca cima por baixo, ou que ele não muda nada; o espelho vertical troca só a esquerda pela direita.
+- Nos exercícios de reflexão ($1$, $6$), o distrator mais comum é achar que o espelho troca cima por baixo, ou que ele não muda nada. O espelho vertical troca só a esquerda pela direita.
 - Nos exercícios de peça frente/verso ($2$, $7$), a resposta é sempre $2$ (frente e verso), porque virar uma peça oferece só essas duas aparências possíveis, não importa quantas posições candidatas existam no total.
 - Nos exercícios de roda-gigante ($3$, $8$), dois critérios diferentes entram em jogo. No exercício $3$, o padrão de cores se repete a cada $2$ cabines, e o giro de $4$ espaçamentos é múltiplo desse período, por isso o desenho fica igual (conferido por código, contando a cor de cada cabine antes e depois do giro). No exercício $8$, o giro de $1$ espaçamento e meio nem sequer é um número inteiro de cabines, então nenhuma cabine cai exatamente no lugar de outra, e o desenho nunca fica igual, não importa o padrão de cores.
 - Nos exercícios de pista circular ($4$, $9$), o distrator mais comum é responder a posição inicial (achando que "meia volta" significa "voltar ao mesmo lugar") ou uma posição a $90°$, em vez da posição diametralmente oposta.

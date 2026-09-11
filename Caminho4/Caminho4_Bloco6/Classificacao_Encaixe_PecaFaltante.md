@@ -14,9 +14,9 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 - Contagem por pareamento: dividir o total de peças por quantas cada figura usa (variação d) é parente do descritor "contagem dupla" já validado na trilha.
 
 **Não é X (e por quê).**
-- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste Caminho), porque ali as peças formam uma figura nova inteira, do zero; aqui elas sempre completam algo que já existe parcialmente (um buraco, uma fechadura, um quebra-cabeça já começado).
+- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste Caminho), porque ali as peças formam uma figura nova inteira, do zero. Aqui elas sempre completam algo que já existe parcialmente (um buraco, uma fechadura, um quebra-cabeça já começado).
 - Não é Recortar, Remontar e Ladrilhar (Bloco $2$), porque a variação (c) desse bloco (peça em L sem girar) trata de cobrir uma malha inteira, sem sobra, enquanto aqui a pergunta é sobre uma peça única completando um espaço específico, com atenção a mais fatores (orientação, ordem, cor) do que só a forma.
-- Não é Sobreposição, Transparência e Silhueta (Bloco $4$), porque as peças e buracos deste bloco não estão empilhados nem sobrepostos; eles estão lado a lado, esperando para serem encaixados.
+- Não é Sobreposição, Transparência e Silhueta (Bloco $4$), porque as peças e buracos deste bloco não estão empilhados nem sobrepostos. Eles estão lado a lado, esperando para serem encaixados.
 
 **Campo de trilha.** Trilha Mirim 2 › **Caminho 4** › **Bloco 6 · Achar a peça que encaixa** › capítulo de teoria "Achar a peça que encaixa" (`Cap_Encaixe_PecaFaltante.md`).
 
@@ -25,20 +25,20 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 ***Notas específicas de cada questão de referência***
 
 `2019/Q5` (código `NA19-Q05`)
-- **Motor aplicado:** variação (a), pedaço complementar a um buraco. Um espelho está partido, e a pergunta pede qual pedaço solto é exatamente o que falta para completá-lo. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
+- **Motor aplicado:** variação (a), pedaço complementar a um buraco. Um espelho está partido, e a pergunta pede qual pedaço solto é exatamente o que falta para completá-lo. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
 - **Não é X específico:** apesar do nome "espelho" sugerir reflexão (Bloco $5$), o motor real da questão é de encaixe e complemento: achar o pedaço que fecha o buraco, não refletir uma imagem.
 
 `2022/F1/Q4` (código `M2-22-F1-Q04`)
-- **Motor aplicado:** variação (b), silhueta complementar de chave e fechadura. Uma chave desenhada precisa ser comparada com várias fechaduras para achar qual ela consegue abrir. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
-- **Não é X específico:** não é um buraco numa figura única (variação a); é uma comparação entre dois objetos diferentes (chave e fechadura), cada um com seu próprio contorno, que precisam ser encaixados um dentro do outro.
+- **Motor aplicado:** variação (b), silhueta complementar de chave e fechadura. Uma chave desenhada precisa ser comparada com várias fechaduras para achar qual ela consegue abrir. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
+- **Não é X específico:** não é um buraco numa figura única (variação a). É uma comparação entre dois objetos diferentes (chave e fechadura), cada um com seu próprio contorno, que precisam ser encaixados um dentro do outro.
 
 `2022/F1/Q1` (código `M2-22-F1-Q01`)
-- **Motor aplicado:** variação (c), orientação em quebra-cabeça. Peças de quebra-cabeça com os algarismos $6$, $4$ e $8$ precisam ser encaixadas para formar um número; a pergunta pede qual número aparece. 🖼️ (estimativa $648$/$684$; depende da leitura exata da figura, conferir gabarito oficial antes de publicar).
+- **Motor aplicado:** variação (c), orientação em quebra-cabeça. Peças de quebra-cabeça com os algarismos $6$, $4$ e $8$ precisam ser encaixadas para formar um número. A pergunta pede qual número aparece. 🖼️ (estimativa $648$/$684$. Depende da leitura exata da figura, conferir gabarito oficial antes de publicar).
 - **Não é X específico:** o núcleo da questão não é reconhecer os algarismos em si, e sim a orientação de cada peça encaixada: uma peça virada pode transformar um algarismo em outro (como $6$ e $9$), e é essa atenção à orientação que o motor testa.
 
 `2025/F1/Q11` (código `M2-25-F1-Q11`)
-- **Motor aplicado:** variação (d), encaixe por forma e cor. Quatro peças de quebra-cabeça precisam ser encaixadas respeitando forma e cor ao mesmo tempo, e a pergunta pede quantos quadrados cinza se formam no resultado. 🖼️ (depende da leitura exata da figura; conferir gabarito oficial antes de publicar).
-- **Não é X específico:** não é uma questão de contagem pura (Aritmética); a contagem final depende de primeiro descobrir quais peças se encaixam de fato, respeitando as duas restrições (forma e cor) ao mesmo tempo, antes de contar o resultado.
+- **Motor aplicado:** variação (d), encaixe por forma e cor. Quatro peças de quebra-cabeça precisam ser encaixadas respeitando forma e cor ao mesmo tempo, e a pergunta pede quantos quadrados cinza se formam no resultado. 🖼️ (depende da leitura exata da figura. Conferir gabarito oficial antes de publicar).
+- **Não é X específico:** não é uma questão de contagem pura (Aritmética). A contagem final depende de primeiro descobrir quais peças se encaixam de fato, respeitando as duas restrições (forma e cor) ao mesmo tempo, antes de contar o resultado.
 
 ---
 

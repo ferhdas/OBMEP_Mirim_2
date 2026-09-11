@@ -1,7 +1,4 @@
-<!--
-ENUNCIADO
-O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dobra.
--->
+<!-- ENUNCIADO: O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dobra. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -24,6 +21,7 @@ O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dob
   button.opcao.errada{border-color:var(--vermelho);background:#fef2f2;}
   button.opcao:disabled{cursor:default;opacity:.9;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -32,6 +30,7 @@ O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dob
   <div class="rot">molde dado (planificação)</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -142,6 +141,14 @@ O molde abaixo vai virar um cubo. Clique no cubo que é o resultado certo da dob
     msg.style.color = '#dc2626';
     enviar(false, chave);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

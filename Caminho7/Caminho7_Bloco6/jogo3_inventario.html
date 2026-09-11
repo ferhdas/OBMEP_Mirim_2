@@ -1,0 +1,106 @@
+<!-- ENUNCIADO: Dez bottons, dois de cada desenho (gato, cachorro, peixe, pássaro, coelho), foram distribuídos entre Ana, Beto, Carla, Diego e Elis. Ana recebeu gato e peixe. Beto recebeu cachorro e pássaro. Carla recebeu peixe e coelho. Diego recebeu gato e cachorro. Clique na opção que mostra quais bottons Elis recebeu. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:460px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  table{ width:100%; border-collapse:collapse; margin-bottom:16px; font-size:14px; }
+  td, th{ padding:6px 8px; border-bottom:1px solid #EEF3F8; text-align:left; }
+  th{ color:var(--navy); font-weight:700; }
+  .opcoes{ display:flex; flex-direction:column; gap:8px; }
+  button.opcao{ padding:10px 12px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:14px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; text-align:left; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:52px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <table>
+      <tr><th>Pessoa</th><th>Bottons recebidos</th></tr>
+      <tr><td>Ana</td><td>gato, peixe</td></tr>
+      <tr><td>Beto</td><td>cachorro, pássaro</td></tr>
+      <tr><td>Carla</td><td>peixe, coelho</td></tr>
+      <tr><td>Diego</td><td>gato, cachorro</td></tr>
+      <tr><td><b>Elis</b></td><td>?</td></tr>
+    </table>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = "pássaro e coelho";
+  var OPCOES = ["gato e peixe","cachorro e pássaro","peixe e coelho","gato e cachorro","pássaro e coelho"];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(b.textContent === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Gato, peixe e cachorro já foram usados 2 vezes cada. Pássaro e coelho só uma vez cada, então sobram para Elis.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Confira, tipo por tipo, quantas vezes cada desenho já apareceu.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é pássaro e coelho: os dois únicos tipos que só apareceram uma vez até agora.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é pássaro e coelho.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

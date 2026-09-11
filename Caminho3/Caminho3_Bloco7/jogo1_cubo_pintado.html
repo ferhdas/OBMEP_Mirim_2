@@ -1,10 +1,4 @@
-<!--
-ENUNCIADO
-Um cubo de madeira foi pintado de vermelho por fora e depois cortado em 27
-cubinhos iguais (3 cubinhos por aresta), como mostra o desenho. Clique no
-número certo de cubinhos que ficaram com EXATAMENTE 1 face pintada de
-vermelho.
--->
+<!-- ENUNCIADO: Um cubo de madeira foi pintado de vermelho por fora e depois cortado em 27 cubinhos iguais (3 cubinhos por aresta), como mostra o desenho. Clique no número certo de cubinhos que ficaram com EXATAMENTE 1 face pintada de vermelho. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,6 +24,7 @@ vermelho.
   button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.85;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -40,6 +35,7 @@ vermelho.
   <div class="legenda">cubo de 3 cubinhos por aresta, pintado de vermelho por fora</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -107,6 +103,14 @@ vermelho.
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

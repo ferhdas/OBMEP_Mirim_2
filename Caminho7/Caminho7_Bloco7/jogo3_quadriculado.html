@@ -1,0 +1,99 @@
+<!-- ENUNCIADO: Um quadriculado 3x3 deve ser preenchido com os números 1, 2 e 3, sem repetir em nenhuma linha nem coluna. A casa da primeira linha, segunda coluna, já foi preenchida com o número 3. Clique no número que mostra de quantas maneiras diferentes dá para terminar de preencher o quadriculado. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:340px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; margin-bottom:8px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:52px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg viewBox="0 0 250 280" xmlns="http://www.w3.org/2000/svg">
+<text x="125.0" y="34" font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Casa já preenchida</text><rect x="20" y="50" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="90" y="50" width="64" height="64" rx="6" fill="#E6F0FA" stroke="#2F80C4" stroke-width="2.2"/><text x="122.0" y="92.0" font-family="monospace" font-size="26" font-weight="bold" fill="#2F80C4" text-anchor="middle">3</text><rect x="160" y="50" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="20" y="120" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="90" y="120" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="160" y="120" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="20" y="190" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="90" y="190" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/><rect x="160" y="190" width="64" height="64" rx="6" fill="#FFFFFF" stroke="#CBD5DF" stroke-width="2.2"/>
+    </svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = 4;
+  var OPCOES = [3,5,4,2,6];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Não importa qual casa já vem preenchida nem qual número está nela, um quadriculado 3x3 com números 1, 2 e 3 sempre tem 4 maneiras de ser terminado.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Teste as possibilidades linha por linha, eliminando o que já entra em conflito com a casa dada.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 4: para um quadriculado 3x3 com uma casa dada, sempre há 4 maneiras de terminar.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 4.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

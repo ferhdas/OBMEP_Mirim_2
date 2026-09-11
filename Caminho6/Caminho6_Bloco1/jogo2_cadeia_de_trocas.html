@@ -1,0 +1,102 @@
+<!-- ENUNCIADO: Na quitanda, 1 pente de bananas vale o mesmo que 4 maçãs. 1 saco de laranjas vale o mesmo que 1 pente de bananas e 2 maçãs. Clique no número que mostra quantas maçãs valem 2 sacos de laranjas. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; --azul:#2F80C4; --laranja:#E0701B; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:18px; }
+  .painel{ max-width:560px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .passo{ display:flex; align-items:center; justify-content:center; gap:10px; background:#E6F0FA; border:2px solid #2F80C4; border-radius:10px; padding:10px 14px; margin-bottom:10px; font-weight:700; color:var(--navy); flex-wrap:wrap; }
+  .passo.alvo{ background:#FCEBD9; border-color:var(--laranja); color:var(--laranja); }
+  .chip{ background:#fff; border:1.5px solid #CBD5DF; border-radius:8px; padding:4px 10px; font-family:"Courier New",monospace; }
+  .seta{ font-size:18px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:14px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:17px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:36px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="passo"><span class="chip">1 pente de bananas</span><span class="seta">=</span><span class="chip">4 maçãs</span></div>
+    <div class="passo"><span class="chip">1 saco de laranjas</span><span class="seta">=</span><span class="chip">1 pente</span><span>+</span><span class="chip">2 maçãs</span></div>
+    <div class="passo alvo"><span class="chip">2 sacos de laranjas</span><span class="seta">=</span><span class="chip">? maçãs</span></div>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = 12; // pente=4, saco=6, 2 sacos=12
+  var OPCOES = [6,8,10,12,14];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! 1 pente vale 4 maçãs, então 1 saco vale 4+2=6 maçãs, e 2 sacos valem 12 maçãs.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Primeiro troque o pente por maçãs, depois monte o valor de 1 saco inteiro.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 12: 1 saco vale 6 maçãs (4 do pente mais 2 avulsas), e 2 sacos valem o dobro.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 12.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

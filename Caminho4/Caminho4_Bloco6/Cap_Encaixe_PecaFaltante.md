@@ -24,7 +24,7 @@ Só a meia-lua do tamanho exato do buraco preenche tudo, sem sobrar buraco nem s
 
 O ***contorno*** de uma chave, com seus dentes de alturas diferentes, precisa bater exatamente com o contorno de dentro de uma fechadura para a chave girar. Se algum dente da chave for mais alto ou mais baixo do que o espaço correspondente na fechadura, a chave range ou não entra, e não abre.
 
-**Exemplo 2:** Uma chave tem quatro dentes, com alturas $3$, $1$, $4$ e $2$, nessa ordem da esquerda para a direita. Três fechaduras têm ranhuras de profundidades diferentes: a fechadura A tem profundidades $3$, $1$, $4$, $2$; a fechadura B tem profundidades $2$, $1$, $4$, $3$; e a fechadura C tem profundidades $3$, $1$, $4$, $3$. **Qual fechadura essa chave consegue abrir?**
+**Exemplo 2:** Uma chave tem quatro dentes, com alturas $3$, $1$, $4$ e $2$, nessa ordem da esquerda para a direita. Três fechaduras têm ranhuras de profundidades diferentes: a fechadura A tem profundidades $3$, $1$, $4$, $2$. A fechadura B tem profundidades $2$, $1$, $4$, $3$. E a fechadura C tem profundidades $3$, $1$, $4$, $3$. **Qual fechadura essa chave consegue abrir?**
 
 [Inserir aqui a figura `enc_chave_estrutura.svg`.]
 
@@ -40,7 +40,7 @@ A chave abre só a fechadura A, porque é a única com as quatro profundidades b
 
 Duas peças de quebra-cabeça, cada uma com metade de um desenho, revelam o desenho inteiro quando encaixadas na posição certa, pela borda que combina com as duas. Se uma das peças for encaixada virada, mesmo que a borda pareça combinar, o desenho final muda.
 
-**Exemplo 3:** Duas peças de quebra-cabeça, encaixadas pela borda certa, formam uma seta apontando para cima. A peça de baixo tem a haste da seta; a peça de cima tem a ponta. **Se a peça de cima for encaixada de ponta-cabeça (virada $180°$) antes de juntar com a peça de baixo, para onde a ponta da seta acaba apontando?**
+**Exemplo 3:** Duas peças de quebra-cabeça, encaixadas pela borda certa, formam uma seta apontando para cima. A peça de baixo tem a haste da seta. A peça de cima tem a ponta. **Se a peça de cima for encaixada de ponta-cabeça (virada $180°$) antes de juntar com a peça de baixo, para onde a ponta da seta acaba apontando?**
 
 [Inserir aqui a figura `enc_seta_estrutura.svg`.]
 

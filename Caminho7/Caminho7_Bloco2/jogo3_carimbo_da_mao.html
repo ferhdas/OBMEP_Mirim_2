@@ -1,0 +1,99 @@
+<!-- ENUNCIADO: Dez crianças carimbaram as mãos numa folha, formando 10 carimbos dispostos em círculo. Um carimbo de mão esquerda tem o dedão do lado direito da figura. Clique no número que mostra quantas vezes a mão esquerda foi carimbada. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:420px; margin:0 auto; background:#fff; border-radius:12px; padding:14px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  svg{ width:100%; height:auto; display:block; margin-bottom:8px; }
+  .opcoes{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  button.opcao{ padding:12px 4px; border-radius:10px; border:2px solid #ddd; background:#fff; font-size:18px; font-weight:700; color:#333; cursor:pointer; transition:all .2s; }
+  button.opcao:hover:not(:disabled){ border-color:var(--roxo); }
+  button.opcao:disabled{ cursor:default; }
+  button.opcao.certa{ background:#e9f9ef; border-color:var(--verde); color:var(--verde); }
+  button.opcao.errada{ background:#fdecea; border-color:var(--vermelho); color:var(--vermelho); }
+  #fb{ margin-top:12px; min-height:44px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+<g transform="rotate(0.0 220.0 90.0)"><rect x="204.6" y="87.2" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="204.6" y="73.2" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="212.916" y="69.0" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="220.92399999999998" y="69.0" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="229.23999999999998" y="73.2" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="241.0" cy="97.0" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(36.0 302.28993532094626 116.73762078750735)"><rect x="286.8899353209463" y="113.93762078750736" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="286.8899353209463" y="99.93762078750736" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="295.20593532094625" y="95.73762078750735" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="303.2139353209463" y="95.73762078750735" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="311.52993532094627" y="99.93762078750736" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="281.28993532094626" cy="123.73762078750735" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(72.0 353.1479122813215 186.73762078750735)"><rect x="337.74791228132153" y="183.93762078750734" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="337.74791228132153" y="169.93762078750734" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="346.0639122813215" y="165.73762078750735" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="354.07191228132154" y="165.73762078750735" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="362.3879122813215" y="169.93762078750734" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="332.1479122813215" cy="193.73762078750735" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(108.0 353.1479122813215 273.26237921249265)"><rect x="337.74791228132153" y="270.46237921249264" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="337.74791228132153" y="256.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="346.0639122813215" y="252.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="354.07191228132154" y="252.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="362.3879122813215" y="256.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="374.1479122813215" cy="280.26237921249265" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(144.0 302.28993532094626 343.26237921249265)"><rect x="286.8899353209463" y="340.46237921249264" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="286.8899353209463" y="326.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="295.20593532094625" y="322.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="303.2139353209463" y="322.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="311.52993532094627" y="326.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="323.28993532094626" cy="350.26237921249265" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(180.0 220.0 370.0)"><rect x="204.6" y="367.2" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="204.6" y="353.2" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="212.916" y="349.0" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="220.92399999999998" y="349.0" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="229.23999999999998" y="353.2" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="241.0" cy="377.0" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(216.0 137.71006467905377 343.26237921249265)"><rect x="122.31006467905377" y="340.46237921249264" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="122.31006467905377" y="326.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="130.62606467905377" y="322.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="138.63406467905375" y="322.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="146.95006467905375" y="326.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="158.71006467905377" cy="350.26237921249265" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(252.0 86.85208771867852 273.26237921249265)"><rect x="71.45208771867851" y="270.46237921249264" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="71.45208771867851" y="256.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="79.76808771867852" y="252.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="87.77608771867853" y="252.26237921249265" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="96.09208771867853" y="256.46237921249264" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="107.85208771867852" cy="280.26237921249265" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(288.0 86.85208771867849 186.73762078750738)"><rect x="71.45208771867848" y="183.93762078750737" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="71.45208771867848" y="169.93762078750737" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="79.76808771867849" y="165.73762078750738" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="87.7760877186785" y="165.73762078750738" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="96.0920877186785" y="169.93762078750737" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="65.85208771867849" cy="193.73762078750738" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g><g transform="rotate(324.0 137.71006467905374 116.73762078750737)"><rect x="122.31006467905374" y="113.93762078750737" width="30.800000000000004" height="30.800000000000004" rx="7.0" fill="#EEF3F8" stroke="#14365A" stroke-width="2.2"/><rect x="122.31006467905374" y="99.93762078750737" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="130.62606467905374" y="95.73762078750737" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="138.63406467905372" y="95.73762078750737" width="6.16" height="20.2" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><rect x="146.95006467905372" y="99.93762078750737" width="6.16" height="16.0" rx="2.8000000000000003" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/><ellipse cx="116.71006467905374" cy="123.73762078750737" rx="8.96" ry="6.16" fill="#EEF3F8" stroke="#14365A" stroke-width="1.8"/></g>
+    </svg>
+    <div class="opcoes" id="opcoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var CORRETA = 6; // 6 carimbos com dedao a direita (mao esquerda)
+  var OPCOES = [4,10,6,8,2];
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var opcoesEl = document.getElementById("opcoes");
+  var fb = document.getElementById("fb");
+  var botoes = [];
+
+  OPCOES.forEach(function(valor){
+    var b = document.createElement("button");
+    b.className = "opcao";
+    b.textContent = valor;
+    b.onclick = function(){ escolher(b, valor); };
+    opcoesEl.appendChild(b);
+    botoes.push(b);
+  });
+
+  function travarBotoes(){ botoes.forEach(function(b){ b.disabled = true; }); }
+  function revelarCorreta(){
+    botoes.forEach(function(b){ if(parseInt(b.textContent,10) === CORRETA) b.classList.add("certa"); });
+  }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(botao, valor){
+    if(respondido) return;
+    tentativas++;
+    if(valor === CORRETA){
+      botao.classList.add("certa");
+      travarBotoes();
+      fb.textContent = "Isso! Conte os carimbos com o dedão do lado direito da figura, eles são de mão esquerda. São 6.";
+      fb.className = "ok";
+      enviar(true, valor);
+    } else {
+      botao.classList.add("errada");
+      botao.disabled = true;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. Lembre-se: dedão do lado direito da figura = carimbo de mão esquerda.";
+        fb.className = "no";
+      } else {
+        travarBotoes();
+        revelarCorreta();
+        fb.textContent = "A resposta certa é 6: são 6 carimbos com o dedão do lado direito.";
+        fb.className = "no";
+        enviar(false, valor);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A resposta certa é 6.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

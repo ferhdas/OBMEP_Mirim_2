@@ -1,9 +1,4 @@
-<!--
-ENUNCIADO
-Uma fita colorida está esticada sobre uma régua que não começa a leitura
-no zero. A fita vai da marca 3 cm até a marca 15 cm. Qual é o
-comprimento da fita? Clique na resposta certa.
--->
+<!-- ENUNCIADO: Uma fita colorida está esticada sobre uma régua que não começa a leitura no zero. A fita vai da marca 3 cm até a marca 15 cm. Qual é o comprimento da fita? Clique na resposta certa. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -26,6 +21,7 @@ comprimento da fita? Clique na resposta certa.
   button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.85;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -56,6 +52,7 @@ comprimento da fita? Clique na resposta certa.
   </div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -123,6 +120,14 @@ comprimento da fita? Clique na resposta certa.
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

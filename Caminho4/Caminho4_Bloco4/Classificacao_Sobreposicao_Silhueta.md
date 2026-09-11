@@ -14,9 +14,9 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 - União de contornos (silhueta): a silhueta de duas figuras coladas segue, em cada direção, a figura que se estica mais longe, um raciocínio de comparação direção a direção, não de comparação de tamanho total.
 
 **Não é X (e por quê).**
-- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste Caminho), porque nenhuma pergunta pede para montar uma figura nova a partir de peças soltas; as figuras já estão prontas e sobrepostas, e a pergunta é sobre o que aparece visível ou sobre o contorno de fora.
-- Não é Encaixe e a Peça que Falta (Bloco $6$), porque não há um buraco silencioso a completar numa única figura; há sempre duas ou mais figuras completas, sobrepostas ou coladas, e a pergunta é sobre a relação entre elas (ordem, combinação ou silhueta), não sobre uma peça faltando.
-- Não é Espelhar e Girar (Bloco $5$), porque nenhuma das três variações envolve reflexão nem rotação; as figuras deste bloco ficam sempre na mesma orientação, só mudando de posição relativa (por cima, por baixo, ou coladas no centro).
+- Não é Reconhecimento e Composição de Figuras Planas (Bloco $1$ deste Caminho), porque nenhuma pergunta pede para montar uma figura nova a partir de peças soltas. As figuras já estão prontas e sobrepostas, e a pergunta é sobre o que aparece visível ou sobre o contorno de fora.
+- Não é Encaixe e a Peça que Falta (Bloco $6$), porque não há um buraco silencioso a completar numa única figura. Há sempre duas ou mais figuras completas, sobrepostas ou coladas, e a pergunta é sobre a relação entre elas (ordem, combinação ou silhueta), não sobre uma peça faltando.
+- Não é Espelhar e Girar (Bloco $5$), porque nenhuma das três variações envolve reflexão nem rotação. As figuras deste bloco ficam sempre na mesma orientação, só mudando de posição relativa (por cima, por baixo, ou coladas no centro).
 
 **Campo de trilha.** Trilha Mirim 2 › **Caminho 4** › **Bloco 4 · O que fica por cima** › capítulo de teoria "O que fica por cima" (`Cap_Sobreposicao_Silhueta.md`).
 
@@ -25,16 +25,16 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 ***Notas específicas de cada questão de referência***
 
 `2018/Q7` (código `NA18-Q07`)
-- **Motor aplicado:** variação (a), ordem de uma pilha por contagem de bordas cortadas. Cinco quadrados sobrepostos, um a um, precisam ser ordenados de cima para baixo, olhando quais bordas de cada quadrado aparecem cortadas pelos outros. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
+- **Motor aplicado:** variação (a), ordem de uma pilha por contagem de bordas cortadas. Cinco quadrados sobrepostos, um a um, precisam ser ordenados de cima para baixo, olhando quais bordas de cada quadrado aparecem cortadas pelos outros. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
 - **Não é X específico:** não há transparência nem colagem centralizada nesta questão, só a sobreposição opaca de figuras cobrindo umas às outras, o caso mais direto das três variações do bloco.
 
 `2018/Q11` (código `NA18-Q11`)
-- **Motor aplicado:** variação (b), combinação de folhas transparentes com buraco. Um retângulo com casas brancas (transparentes) é sobreposto a outro retângulo parecido, e a pergunta pede qual combinação de dois retângulos assim resulta numa superfície totalmente preta. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
-- **Não é X específico:** não é uma questão de ordem de pilha (as duas folhas têm papel simétrico, nenhuma delas está "por cima" de forma relevante para a resposta) nem de silhueta; o que importa é só a posição dos buracos brancos de cada folha, comparada ponto a ponto.
+- **Motor aplicado:** variação (b), combinação de folhas transparentes com buraco. Um retângulo com casas brancas (transparentes) é sobreposto a outro retângulo parecido, e a pergunta pede qual combinação de dois retângulos assim resulta numa superfície totalmente preta. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
+- **Não é X específico:** não é uma questão de ordem de pilha (as duas folhas têm papel simétrico, nenhuma delas está "por cima" de forma relevante para a resposta) nem de silhueta. O que importa é só a posição dos buracos brancos de cada folha, comparada ponto a ponto.
 
 `2025/F1/Q6` (código `M2-25-F1-Q06`)
-- **Motor aplicado:** variação (c), silhueta de figuras coladas no centro. Quatro adesivos (losango, quadrado, elipse em pé, elipse deitada), colados centralizados e sem girar, formam uma silhueta resultante que a pergunta pede para identificar. 🖼️ (parente de `2018/Q7` e `2018/Q11` pelo tema de sobreposição/oclusão; conferir gabarito oficial antes de publicar).
-- **Não é X específico:** diferente de `2018/Q7`, aqui as figuras não tapam umas às outras para revelar uma ordem; elas se somam numa silhueta única, e a pergunta é sobre o contorno de fora dessa soma, não sobre qual figura está por cima.
+- **Motor aplicado:** variação (c), silhueta de figuras coladas no centro. Quatro adesivos (losango, quadrado, elipse em pé, elipse deitada), colados centralizados e sem girar, formam uma silhueta resultante que a pergunta pede para identificar. 🖼️ (parente de `2018/Q7` e `2018/Q11` pelo tema de sobreposição/oclusão. Conferir gabarito oficial antes de publicar).
+- **Não é X específico:** diferente de `2018/Q7`, aqui as figuras não tapam umas às outras para revelar uma ordem. Elas se somam numa silhueta única, e a pergunta é sobre o contorno de fora dessa soma, não sobre qual figura está por cima.
 
 ---
 

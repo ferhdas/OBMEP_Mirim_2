@@ -1,0 +1,126 @@
+<!-- ENUNCIADO: Um colar tem 6 contas nesta ordem: círculo, quadrado, triângulo, círculo, triângulo, quadrado. Duda retira 2 contas, algumas pela ponta esquerda e outras pela direita, nunca pelo meio. Clique na sequência que pode ser o que sobrou no colar. -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{ --roxo:#7e22ce; --verde:#16a34a; --vermelho:#dc2626; --fundo:#faf9f5; --navy:#14365A; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--fundo); margin:0; padding:14px; }
+  .painel{ max-width:480px; margin:0 auto; background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 6px rgba(0,0,0,.08); }
+  .original{ text-align:center; margin-bottom:14px; }
+  .original svg{ width:100%; max-width:360px; height:60px; }
+  .cartoes{ display:flex; flex-direction:column; gap:10px; }
+  .cartao{ border:2.5px solid #ddd; border-radius:10px; padding:10px; cursor:pointer; transition:all .2s; }
+  .cartao:hover:not(.travado){ border-color:var(--roxo); }
+  .cartao svg{ width:100%; height:50px; display:block; }
+  .cartao.certa{ border-color:var(--verde); background:#e9f9ef; }
+  .cartao.errada{ border-color:var(--vermelho); background:#fdecea; }
+  #fb{ margin-top:12px; min-height:52px; font-weight:600; font-size:14px; text-align:center; }
+  #fb.ok{ color:var(--verde); } #fb.no{ color:var(--vermelho); }
+  #desistir{ display:block; margin:14px auto 0; background:none; border:none; color:#999; font-size:12px; cursor:pointer; text-decoration:underline; }
+</style>
+</head>
+<body>
+  <div class="painel">
+    <div class="original" id="original"></div>
+    <div class="cartoes" id="cartoes"></div>
+    <div id="fb"></div>
+    <button id="desistir">Desistir</button>
+  </div>
+
+<script>
+  var NAVY="#14365A", AZUL="#2F80C4", FILL_A="#E6F0FA", VERM="#C0392B", FILL_V="#FCEBD9";
+  function shapeSVG(kind, cx, cy, r){
+    if(kind==="circulo") return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+FILL_A+'" stroke="'+AZUL+'" stroke-width="2.4"/>';
+    if(kind==="quadrado") return '<rect x="'+(cx-r)+'" y="'+(cy-r)+'" width="'+(2*r)+'" height="'+(2*r)+'" fill="'+FILL_V+'" stroke="'+VERM+'" stroke-width="2.4"/>';
+    if(kind==="triangulo") return '<polygon points="'+cx+','+(cy-r)+' '+(cx-r)+','+(cy+r)+' '+(cx+r)+','+(cy+r)+'" fill="#FCEFC2" stroke="#B8860B" stroke-width="2.4"/>';
+    return '';
+  }
+  function sequenceSVG(seq, W, H, faded){
+    var step = W/(seq.length+1), r = 16, y = H/2;
+    var s = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+    if(!faded){
+      s += '<line x1="'+(step*0.5)+'" y1="'+y+'" x2="'+(step*(seq.length-0.5)+step)+'" y2="'+y+'" stroke="#CBD5DF" stroke-width="2.5"/>';
+    }
+    seq.forEach(function(kind,i){
+      var cx = step*(i+1);
+      s += shapeSVG(kind, cx, y, r);
+    });
+    s += '</svg>';
+    return s;
+  }
+
+  var original = ["circulo","quadrado","triangulo","circulo","triangulo","quadrado"];
+  document.getElementById("original").innerHTML = sequenceSVG(original, 360, 60);
+
+  var CANDIDATOS = [
+    { id:"a", seq:["circulo","triangulo","quadrado","circulo"] },
+    { id:"b", seq:["quadrado","triangulo","circulo","triangulo"] },
+    { id:"c", seq:["quadrado","circulo","triangulo","triangulo"] }
+  ];
+  var CORRETA_ID = "b"; // itens 2-5 do colar original (removendo 1 pela esquerda e 1 pela direita)
+
+  var respondido = false, tentativas = 0, inicio = Date.now();
+  var cartoesEl = document.getElementById("cartoes");
+  var fb = document.getElementById("fb");
+  var cartoes = {};
+
+  CANDIDATOS.forEach(function(c){
+    var div = document.createElement("div");
+    div.className = "cartao";
+    div.innerHTML = sequenceSVG(c.seq, 400, 50);
+    div.onclick = function(){ escolher(div, c.id); };
+    cartoesEl.appendChild(div);
+    cartoes[c.id] = div;
+  });
+
+  function travarCartoes(){
+    Object.keys(cartoes).forEach(function(k){ cartoes[k].classList.add("travado"); cartoes[k].onclick = null; });
+  }
+  function revelarCorreta(){ cartoes[CORRETA_ID].classList.add("certa"); }
+
+  function enviar(acertou, resposta){
+    if(respondido) return;
+    respondido = true;
+    window.parent.postMessage({
+      tipo:"resposta", acertou: acertou,
+      meta:{ tentativas: tentativas, tempo: Math.round((Date.now()-inicio)/1000), resposta: resposta }
+    }, "*");
+  }
+
+  function escolher(div, id){
+    if(respondido) return;
+    tentativas++;
+    if(id === CORRETA_ID){
+      div.classList.add("certa");
+      travarCartoes();
+      fb.textContent = "Isso! Retirando 1 conta de cada ponta, sobra exatamente o pedaço do meio, quadrado, triângulo, círculo, triângulo.";
+      fb.className = "ok";
+      enviar(true, id);
+    } else {
+      div.classList.add("errada");
+      div.onclick = null;
+      if(tentativas < 2){
+        fb.textContent = "Ainda não. O que sobra tem que ser um pedaço contínuo do colar original, na mesma ordem.";
+        fb.className = "no";
+      } else {
+        travarCartoes();
+        revelarCorreta();
+        fb.textContent = "A sequência certa é quadrado, triângulo, círculo, triângulo, o pedaço do meio depois de tirar 1 de cada ponta.";
+        fb.className = "no";
+        enviar(false, id);
+      }
+    }
+  }
+
+  document.getElementById("desistir").onclick = function(){
+    if(respondido) return;
+    travarCartoes();
+    revelarCorreta();
+    fb.textContent = "Sem problema. A sequência certa é quadrado, triângulo, círculo, triângulo.";
+    fb.className = "no";
+    enviar(false, null);
+  };
+</script>
+</body>
+</html>

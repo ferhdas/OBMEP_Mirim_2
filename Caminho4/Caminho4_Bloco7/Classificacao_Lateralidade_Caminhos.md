@@ -14,9 +14,9 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 - Invariância sob cruzamento visual (variação c): reconhecer que um cruzamento desenhado não é uma conexão real é parente do cuidado de "não julgar pela aparência" que atravessa todo o Caminho $4$.
 
 **Não é X (e por quê).**
-- Não é Raciocínio Lógico › Aplicar um Procedimento (CM6), porque nenhuma das três variações pede para seguir uma regra determinística passo a passo (como "vire à direita ao bater na parede"); elas pedem para comparar, somar ou rastrear trajetos já dados por inteiro, sem uma regra de decisão a aplicar a cada passo. Essa distinção separa este bloco do labirinto com regra de movimento, que fica em CM6, com ponte para CM5 pela navegação espacial.
+- Não é Raciocínio Lógico › Aplicar um Procedimento (CM6), porque nenhuma das três variações pede para seguir uma regra determinística passo a passo (como "vire à direita ao bater na parede"). Elas pedem para comparar, somar ou rastrear trajetos já dados por inteiro, sem uma regra de decisão a aplicar a cada passo. Essa distinção separa este bloco do labirinto com regra de movimento, que fica em CM6, com ponte para CM5 pela navegação espacial.
 - Não é Grandezas e Medidas › Comprimento (Caminho $3$, Bloco $1$ e Bloco $2$), porque, embora a variação (a) some trechos como naqueles blocos, aqui a soma serve para comparar rotas alternativas dentro de um cenário de percepção espacial (labirinto, malha), não para uma única medida de percurso real.
-- Não é Reflexão, Giro e Invariância (Bloco $5$ deste Caminho), porque a variação (b) não trata de espelhar nem girar uma figura; trata de rastrear a direção final de uma pessoa ou objeto que se move e vira ao longo de um trajeto, mesmo usando o mesmo fato de que uma meia volta aponta para o lado oposto.
+- Não é Reflexão, Giro e Invariância (Bloco $5$ deste Caminho), porque a variação (b) não trata de espelhar nem girar uma figura. Trata de rastrear a direção final de uma pessoa ou objeto que se move e vira ao longo de um trajeto, mesmo usando o mesmo fato de que uma meia volta aponta para o lado oposto.
 
 **Campo de trilha.** Trilha Mirim 2 › **Caminho 4** › **Bloco 7 · Achar o caminho** › capítulo de teoria "Achar o caminho" (`Cap_Lateralidade_Caminhos.md`).
 
@@ -25,16 +25,16 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 ***Notas específicas de cada questão de referência***
 
 `2018/Q5` (código `NA18-Q05`)
-- **Motor aplicado:** variação (a), comparação de rotas por soma de trechos. Duas rotas diferentes ligam a escola ao circo, num labirinto ou malha, e a pergunta pede o caminho mais curto entre elas. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
+- **Motor aplicado:** variação (a), comparação de rotas por soma de trechos. Duas rotas diferentes ligam a escola ao circo, num labirinto ou malha, e a pergunta pede o caminho mais curto entre elas. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
 - **Não é X específico:** não há viradas contadas nem cruzamentos de trajetos nesta questão, só a soma e a comparação direta de trechos de duas rotas, o caso mais simples das três variações do bloco.
 
 `2022/F1/Q13` (código `M2-22-F1-Q13`)
-- **Motor aplicado:** variação (b), direção final por contagem de viradas. Um percurso de casa à escola tem $4$ viradas à esquerda e $2$ à direita, e a pergunta pede a direção final ou a relação entre o ponto de partida e o de chegada. 🖼️ (depende da leitura exata da figura; conferir a solução oficial antes de publicar).
-- **Não é X específico:** não é uma questão de comprimento de percurso; o que importa aqui é só a contagem de viradas para cada lado, e a direção final se acha cancelando pares de viradas opostas, sem nenhuma soma de distância envolvida.
+- **Motor aplicado:** variação (b), direção final por contagem de viradas. Um percurso de casa à escola tem $4$ viradas à esquerda e $2$ à direita, e a pergunta pede a direção final ou a relação entre o ponto de partida e o de chegada. 🖼️ (depende da leitura exata da figura. Conferir a solução oficial antes de publicar).
+- **Não é X específico:** não é uma questão de comprimento de percurso. O que importa aqui é só a contagem de viradas para cada lado, e a direção final se acha cancelando pares de viradas opostas, sem nenhuma soma de distância envolvida.
 
 `2025/F1/Q3` (código `M2-25-F1-Q03`)
-- **Motor aplicado:** variação (c), rastreamento de trajeto cruzado. Três bolas são soltas ao mesmo tempo em tubos que se cruzam, e a pergunta pede a ordem em que elas saem. 🖼️ (depende da leitura exata da figura; conferir gabarito oficial antes de publicar).
-- **Não é X específico:** não é uma questão de labirinto com bifurcações a escolher; os três trajetos já estão todos definidos e fixos, e o desafio é seguir cada um sem se confundir nos pontos onde os tubos se cruzam visualmente no papel.
+- **Motor aplicado:** variação (c), rastreamento de trajeto cruzado. Três bolas são soltas ao mesmo tempo em tubos que se cruzam, e a pergunta pede a ordem em que elas saem. 🖼️ (depende da leitura exata da figura. Conferir gabarito oficial antes de publicar).
+- **Não é X específico:** não é uma questão de labirinto com bifurcações a escolher. Os três trajetos já estão todos definidos e fixos, e o desafio é seguir cada um sem se confundir nos pontos onde os tubos se cruzam visualmente no papel.
 
 ---
 

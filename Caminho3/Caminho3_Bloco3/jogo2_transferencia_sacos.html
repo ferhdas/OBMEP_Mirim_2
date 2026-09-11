@@ -1,10 +1,4 @@
-<!--
-ENUNCIADO
-Numa balança, o prato esquerdo tem sacos de 2 kg, 6 kg e 9 kg. O prato
-direito tem sacos de 1 kg e 4 kg. Os pratos não ficam nivelados. Se
-movermos exatamente um saco de um prato para o outro, os pratos ficam
-iguais. Clique no saco que deve mudar de prato.
--->
+<!-- ENUNCIADO: Numa balança, o prato esquerdo tem sacos de 2 kg, 6 kg e 9 kg. O prato direito tem sacos de 1 kg e 4 kg. Os pratos não ficam nivelados. Se movermos exatamente um saco de um prato para o outro, os pratos ficam iguais. Clique no saco que deve mudar de prato. -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,6 +22,7 @@ iguais. Clique no saco que deve mudar de prato.
   button.opcao.errada{background:var(--vermelho);color:#fff;border-color:var(--vermelho);}
   button.opcao:disabled{cursor:default;opacity:.85;}
   #msg{margin-top:14px;text-align:center;font-weight:700;min-height:22px;font-size:14px;}
+  #desistir{display:block;margin:14px auto 0;background:none;border:none;color:#999;font-size:12px;cursor:pointer;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -54,6 +49,7 @@ iguais. Clique no saco que deve mudar de prato.
   <div class="pergunta">Qual saco deve mudar de prato?</div>
   <div class="opcoes" id="opcoes"></div>
   <div id="msg"></div>
+  <button id="desistir">Desistir</button>
 </div>
 <script>
 (function(){
@@ -121,6 +117,14 @@ iguais. Clique no saco que deve mudar de prato.
     msg.style.color = '#dc2626';
     enviar(false, valor);
   }
+  document.getElementById('desistir').onclick = function(){
+    if (respondido) return;
+    travarBotoes();
+    revelarCorreta();
+    msg.textContent = 'Sem problema. Veja a resposta certa.';
+    msg.style.color = '#dc2626';
+    enviar(false, null);
+  };
 })();
 </script>
 </body>

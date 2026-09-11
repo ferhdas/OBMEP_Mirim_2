@@ -18,7 +18,7 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 - Não é Grandezas e Medidas › Comprimento, porque nenhuma das três variações pede para medir ou somar um comprimento numérico. O que se compara é a forma e a contagem de lados, cantos e fragmentos, não uma grandeza medida em unidades.
 - Não é Raciocínio Lógico › Dedução por Eliminação como nó principal, porque a resposta não depende de cruzar pistas textuais até sobrar uma única possibilidade. Ela depende de examinar diretamente a figura (contar, comparar, encaixar), o que mantém o nó dentro de Geometria.
 - Não é Sobreposição/Transparência (Bloco $4$ deste mesmo Caminho), porque nenhuma figura fica desenhada por cima de outra nem existe camada transparente. O que muda de uma figura para outra é a forma e o número de lados, não a ordem de empilhamento.
-- Não é Encaixe/Peça que Falta (Bloco $6$), porque as peças aqui não precisam completar um buraco específico numa figura maior; elas formam a figura inteira do zero, encostando lado com lado.
+- Não é Encaixe/Peça que Falta (Bloco $6$), porque as peças aqui não precisam completar um buraco específico numa figura maior. Elas formam a figura inteira do zero, encostando lado com lado.
 
 **Campo de trilha.** Trilha Mirim 2 › **Caminho 4** › **Bloco 1 · Conhecer as figuras e montá-las** › capítulo de teoria "Conhecer as figuras e montá-las" (`Cap_Figuras_ReconhecerCompor.md`).
 
@@ -31,12 +31,12 @@ Ficha de produção (uso interno), no modelo do §$3$ do Protocolo_OBMEP_v$5.5$.
 - **Não é X específico:** não há fragmento de contorno nem composição de peças nesta questão, só contagem e classificação direta por número de lados, o caso mais simples das três variações do bloco.
 
 `2022/F1/Q2` (código `M2-22-F1-Q02`)
-- **Motor aplicado:** variação (b), reconhecimento de fragmento de contorno. O traçado de um castelo é desenhado com um único risco contínuo, e quatro alternativas mostram pedaços curtos do desenho; a pergunta pede qual alternativa não é, de fato, um trecho desse traçado. Resolve-se comparando cada alternativa, segmento a segmento e virada a virada, com o desenho original — a resposta depende da leitura exata da figura (🖼️, gabarito não fixado nesta ficha; conferir a solução oficial antes de publicar).
-- **Não é X específico:** não é uma questão de contar lados nem de compor peças; o traçado do castelo é uma linha só, não um conjunto de figuras separadas, e a pergunta é sobre pertencimento de um trecho a essa linha, não sobre quantidade.
+- **Motor aplicado:** variação (b), reconhecimento de fragmento de contorno. O traçado de um castelo é desenhado com um único risco contínuo, e quatro alternativas mostram pedaços curtos do desenho. A pergunta pede qual alternativa não é, de fato, um trecho desse traçado. Resolve-se comparando cada alternativa, segmento a segmento e virada a virada, com o desenho original — a resposta depende da leitura exata da figura (🖼️, gabarito não fixado nesta ficha. Conferir a solução oficial antes de publicar).
+- **Não é X específico:** não é uma questão de contar lados nem de compor peças. O traçado do castelo é uma linha só, não um conjunto de figuras separadas, e a pergunta é sobre pertencimento de um trecho a essa linha, não sobre quantidade.
 
 `2022/F1/Q9` (código `M2-22-F1-Q09`)
 - **Motor aplicado:** variação (c), composição com peças congruentes. Dois triângulos iguais podem ser encostados de jeitos diferentes, e a pergunta pede qual entre quatro figuras não pode ser montada com essas duas peças. Estimativa de gabarito C (estrela), pelo mesmo raciocínio do capítulo de teoria: duas peças triangulares oferecem só $6$ lados retos ao todo, insuficientes para as pontas entrando e saindo de uma estrela — **mas a estimativa depende da leitura exata das alternativas da prova original, marcada para confirmação contra o gabarito oficial antes de publicar.**
-- **Não é X específico:** não é uma questão sobre encaixar uma peça que falta numa figura maior (isso ficaria no Bloco $6$); aqui as duas peças formam a figura inteira, do zero, e a pergunta é sobre quais figuras completas são alcançáveis, não sobre completar um buraco.
+- **Não é X específico:** não é uma questão sobre encaixar uma peça que falta numa figura maior (isso ficaria no Bloco $6$). Aqui as duas peças formam a figura inteira, do zero, e a pergunta é sobre quais figuras completas são alcançáveis, não sobre completar um buraco.
 
 ---
 
