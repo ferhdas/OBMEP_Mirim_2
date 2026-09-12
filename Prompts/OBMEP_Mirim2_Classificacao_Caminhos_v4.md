@@ -149,7 +149,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2020/Q3 | NA20-Q03 | CM2 | Preço do conjunto (proporção) | C ✅ |
 | 2020/Q4 | NA20-Q04 | CM1 | Pés de animais (total 10) | C ✅ |
 | 2020/Q5 | NA20-Q05 | CM6 | Otimização (elevador) | B ✅ |
-| 2020/Q6 | NA20-Q06 | CM2 | Frações (torta) | 🖼️ |
+| 2020/Q6 | NA20-Q06 | CM2 | Frações (torta) | B ✅🖼️ |
 | 2020/Q7 | NA20-Q07 | CM6 | Mínimo de cadeados | E ✅ |
 | 2020/Q8 | NA20-Q08 | CM1 | Ponto médio (postes) | D ✅ |
 | 2020/Q9 | NA20-Q09 | CM7 | Pareamento (sapatos) | 🖼️ |
@@ -195,7 +195,7 @@ Para evitar colisão com a sua trilha do **Nível 1** (que usa C1–C8), aqui os
 | 2023/F1/Q4 | M2-23-F1-Q04 | CM1 | Ábaco (retirar 2 peças) | E ✅ |
 | 2023/F1/Q5 | M2-23-F1-Q05 | CM1 | Tabela (igualar nº de alunos) | D ✅ |
 | 2023/F1/Q6 | M2-23-F1-Q06 | CM4 | Dia do mês (próxima quarta) | C ✅ |
-| 2023/F1/Q7 | M2-23-F1-Q07 | CM2 | Fração de quantidade (⅓ pretas) | 🖼️ |
+| 2023/F1/Q7 | M2-23-F1-Q07 | CM2 | Fração de quantidade (⅓ pretas) | D ✅🖼️ |
 | 2023/F1/Q8 | M2-23-F1-Q08 | CM6 | Balanças (ordenar a mais pesada) | 🖼️ |
 | 2023/F1/Q9 | M2-23-F1-Q09 | CM7 | Produtos distintos (algarismos) | D ✅ |
 | 2023/F1/Q10 | M2-23-F1-Q10 | CM5 | Vistas (frente/lado/cima) | 🖼️ |
@@ -323,9 +323,9 @@ Cada ficha traz: **nome fácil** · `código técnico` · resumo do enunciado, c
 - **2018/Q18** · `NA18-Q18` · José come ½ das laranjas e ¼ das maçãs; o que sobrou. Fração de quantidades (sobra ¾ + ½ > metade). → **D (mais da metade)** ✅
 - **2019/Q6** · `NA19-Q06` · Sanduíche usa 2 fatias; pacote tem 24; 2,5 pacotes (60 fatias). Proporção com "meio pacote". → **C (30)** ✅
 - **2020/Q3** · `NA20-Q03` · Conjunto de 4 colheres R$20 e 4 garfos R$28; preço de 2+2. Valor unitário e proporção. → **C (24)** ✅
-- **2020/Q6** · `NA20-Q06` · Torta dividida em partes iguais; cada neto come 1 pedaço; figura mostra a sobra. Fração/divisão da figura. → 🖼️ *(conferir: depende de quantos pedaços a figura exibe)*
+- **2020/Q6** · `NA20-Q06` · Torta da vovó Angélica dividida em 10 pedaços (contados prolongando as linhas do desenho); 4 pedaços faltando, cada neto comeu 1. → **B (4 netinhos)** ✅🖼️, conferido contra a solução oficial (`sf1na-2020.pdf`, questão 6).
 - **2022/F2/Q13** · `M2-22-F2-Q13` · Jarra = 10 copos = 2 garrafas; 3 garrafas em copos. Proporção (1 garrafa = 5 copos). → **C (15)** ✅
-- **2023/F1/Q7** · `M2-23-F1-Q07` · Em qual colar **um terço** das miçangas é preta. Comparar nº de pretas com o total em cada colar (preta = total/3). Fração de quantidade. → 🖼️ *(contar pretas e total em cada opção)*
+- **2023/F1/Q7** · `M2-23-F1-Q07` · Em qual colar **um terço** das miçangas é preta. Comparar nº de pretas com o total em cada colar (preta = total/3). Fração de quantidade. → **D (3 pretas, 6 brancas)** ✅🖼️, conferido contra a solução oficial (`sf1m2-2023.pdf`, questão 7).
 
 > **Sem entradas em 2024 — nem em 2025.** Tanto a 3ª quanto a **4ª Edição** passaram em branco em Frações/Proporção: são **dois anos consecutivos sem CM2**. Segue como o Caminho **mais enxuto e mais ameaçado** da base (6 questões, todas de 2018–2023). Decisão para o curso: tratar como **bloco curto/de manutenção**, sustentado pelas questões existentes + gêmeas autorais; **não contar com reforço do banco oficial recente**.
 
