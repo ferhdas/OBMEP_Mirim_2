@@ -1,23 +1,266 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:export-filename="assoc_cruzada_resultado.png" inkscape:export-xdpi="166.9565217" inkscape:export-ydpi="166.9565217">
-<rect width="460" height="260" fill="white"/>
-<text x="230" y="20" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Elis tem peixe e gosta de amarelo</text>
-<text x="115" y="42" font-family="DejaVu Sans" font-size="11" fill="#8A97A6" text-anchor="middle">Bicho</text>
-<text x="345" y="42" font-family="DejaVu Sans" font-size="11" fill="#8A97A6" text-anchor="middle">Cor</text>
-<line x1="160" y1="109" x2="390" y2="67" stroke="#3E9B6B" stroke-width="2" stroke-dasharray="5,4"/>
-<g font-family="DejaVu Sans" font-size="13" font-weight="bold" text-anchor="middle">
-<rect x="30" y="50" width="80" height="34" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="70" y="72" fill="#14365A">Duda</text>
-<rect x="120" y="50" width="80" height="34" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="160" y="72" fill="#14365A">cachorro</text>
-<rect x="30" y="92" width="80" height="34" rx="7" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="70" y="114" fill="#14365A">Elis</text>
-<rect x="120" y="92" width="80" height="34" rx="7" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="160" y="114" fill="#14365A">peixe</text>
-<rect x="30" y="134" width="80" height="34" rx="7" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/><text x="70" y="156" fill="#14365A">Fábio</text>
-<rect x="120" y="134" width="80" height="34" rx="7" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/><text x="160" y="156" fill="#14365A">gato</text>
-<rect x="260" y="50" width="80" height="34" rx="7" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/><text x="300" y="72" fill="#14365A">Duda</text>
-<rect x="350" y="50" width="80" height="34" rx="7" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2.2"/><text x="390" y="72" fill="#14365A">azul</text>
-<rect x="260" y="92" width="80" height="34" rx="7" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="300" y="114" fill="#14365A">Elis</text>
-<rect x="350" y="92" width="80" height="34" rx="7" fill="#FCEBD9" stroke="#E0701B" stroke-width="2.2"/><text x="390" y="114" fill="#14365A">amarelo</text>
-<rect x="260" y="134" width="80" height="34" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="300" y="156" fill="#14365A">Fábio</text>
-<rect x="350" y="134" width="80" height="34" rx="7" fill="#E6F0FA" stroke="#2F80C4" stroke-width="1.8"/><text x="390" y="156" fill="#14365A">verde</text>
-</g>
-<text x="230" y="200" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">A linha pontilhada mostra o cruzamento: peixe está ligado a amarelo</text>
+<svg
+   viewBox="0 0 460 200"
+   inkscape:export-filename="assoc_cruzada_resultado.png"
+   inkscape:export-xdpi="166.95653"
+   inkscape:export-ydpi="166.95653"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="assoc_cruzada_resultado.svg"
+   width="460"
+   height="200"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.2837265"
+     inkscape:cx="227.85228"
+     inkscape:cy="149.56457"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <text
+     x="230"
+     y="20"
+     font-family="'DejaVu Sans'"
+     font-size="13px"
+     font-weight="bold"
+     fill="#14365a"
+     text-anchor="middle"
+     id="text1">Elis tem peixe e gosta de amarelo</text>
+  <text
+     x="115"
+     y="42"
+     font-family="'DejaVu Sans'"
+     font-size="11px"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text2">Bicho</text>
+  <text
+     x="345"
+     y="42"
+     font-family="'DejaVu Sans'"
+     font-size="11px"
+     fill="#8a97a6"
+     text-anchor="middle"
+     id="text3">Cor</text>
+  <rect
+     x="30"
+     y="50"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="1.8"
+     id="rect3"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;stroke-width:1.8;stroke-dasharray:none" />
+  <text
+     x="70"
+     y="72"
+     fill="#14365a"
+     id="text4"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Duda</text>
+  <rect
+     x="120"
+     y="50"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="1.8"
+     id="rect4"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;stroke-width:1.8;stroke-dasharray:none" />
+  <text
+     x="160"
+     y="72"
+     fill="#14365a"
+     id="text5"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">cachorro</text>
+  <rect
+     x="30"
+     y="92"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect5"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#fcfacb;fill-opacity:1;stroke:#e0e01b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="70"
+     y="114"
+     fill="#14365a"
+     id="text6"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Elis</text>
+  <rect
+     x="120"
+     y="92"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect6"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#fcfacb;fill-opacity:1;stroke:#e0e01b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="160"
+     y="114"
+     fill="#14365a"
+     id="text7"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">peixe</text>
+  <rect
+     x="30"
+     y="134"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e2f2ea"
+     stroke="#3e9b6b"
+     stroke-width="2.2"
+     id="rect7"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;stroke-width:1.8;stroke-dasharray:none" />
+  <text
+     x="70"
+     y="156"
+     fill="#14365a"
+     id="text8"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Fábio</text>
+  <rect
+     x="120"
+     y="134"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e2f2ea"
+     stroke="#3e9b6b"
+     stroke-width="2.2"
+     id="rect8"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;stroke-width:1.8;stroke-dasharray:none" />
+  <text
+     x="160"
+     y="156"
+     fill="#14365a"
+     id="text9"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">gato</text>
+  <rect
+     x="260"
+     y="50"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e2f2ea"
+     stroke="#3e9b6b"
+     stroke-width="2.2"
+     id="rect9"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#e6f0fa;fill-opacity:1;stroke:#2f80c4;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="300"
+     y="72"
+     fill="#14365a"
+     id="text10"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Duda</text>
+  <rect
+     x="350"
+     y="50"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e2f2ea"
+     stroke="#3e9b6b"
+     stroke-width="2.2"
+     id="rect10"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#e6f0fa;fill-opacity:1;stroke:#2f80c4;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="390"
+     y="72"
+     fill="#14365a"
+     id="text11"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">azul</text>
+  <rect
+     x="260"
+     y="92"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect11"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#fcfacb;fill-opacity:1;stroke:#e0e01b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="300"
+     y="114"
+     fill="#14365a"
+     id="text12"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Elis</text>
+  <rect
+     x="350"
+     y="92"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#fcebd9"
+     stroke="#e0701b"
+     stroke-width="2.2"
+     id="rect12"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#fcfacb;fill-opacity:1;stroke:#e0e01b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="390"
+     y="114"
+     fill="#14365a"
+     id="text13"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">amarelo</text>
+  <rect
+     x="260"
+     y="134"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="1.8"
+     id="rect13"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#e2f2ea;fill-opacity:1;stroke:#3e9b6b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="300"
+     y="156"
+     fill="#14365a"
+     id="text14"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">Fábio</text>
+  <rect
+     x="350"
+     y="134"
+     width="80"
+     height="34"
+     rx="7"
+     fill="#e6f0fa"
+     stroke="#2f80c4"
+     stroke-width="1.8"
+     id="rect14"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle;fill:#e2f2ea;fill-opacity:1;stroke:#3e9b6b;stroke-width:1.8;stroke-dasharray:none;stroke-opacity:1" />
+  <text
+     x="390"
+     y="156"
+     fill="#14365a"
+     id="text15"
+     style="font-weight:bold;font-size:13px;font-family:'DejaVu Sans';text-anchor:middle">verde</text>
 </svg>
