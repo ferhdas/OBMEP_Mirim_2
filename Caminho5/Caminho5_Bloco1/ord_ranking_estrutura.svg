@@ -1,12 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg">
-<rect width="480" height="240" fill="white"/>
-<text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Três comparações soltas entre corredores</text>
-<rect x="30" y="45" width="420" height="46" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.6"/>
-<text x="240" y="73" font-family="DejaVu Sans" font-size="14" fill="#14365A" text-anchor="middle">Marcos corre mais rápido que Júlia</text>
-<rect x="30" y="100" width="420" height="46" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.6"/>
-<text x="240" y="128" font-family="DejaVu Sans" font-size="14" fill="#14365A" text-anchor="middle">Júlia corre mais rápido que Pedro</text>
-<rect x="30" y="155" width="420" height="46" rx="8" fill="#EEF3F8" stroke="#CBD5DF" stroke-width="1.6"/>
-<text x="240" y="183" font-family="DejaVu Sans" font-size="14" fill="#14365A" text-anchor="middle">Rita corre mais rápido que Marcos</text>
-<text x="240" y="222" font-family="DejaVu Sans" font-size="12" fill="#E0701B" text-anchor="middle">Júlia e Marcos aparecem em duas pistas cada um</text>
+<svg
+   viewBox="0 0 480 240"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="ord_ranking_estrutura.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg" inkscape:export-filename="ord_ranking_estrutura.png" inkscape:export-xdpi="160" inkscape:export-ydpi="160">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3258252"
+     inkscape:cx="240.22774"
+     inkscape:cy="119.92531"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <rect
+     width="480"
+     height="240"
+     fill="white"
+     id="rect1" />
+  <text
+     x="240"
+     y="22"
+     font-family="DejaVu Sans"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Três comparações soltas entre corredores</text>
+  <rect
+     x="30"
+     y="45"
+     width="420"
+     height="46"
+     rx="8"
+     fill="#EEF3F8"
+     stroke="#CBD5DF"
+     stroke-width="1.6"
+     id="rect2" />
+  <text
+     x="240"
+     y="73"
+     font-family="DejaVu Sans"
+     font-size="14"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text2">Marcos corre mais rápido que Júlia</text>
+  <rect
+     x="30"
+     y="100"
+     width="420"
+     height="46"
+     rx="8"
+     fill="#EEF3F8"
+     stroke="#CBD5DF"
+     stroke-width="1.6"
+     id="rect3" />
+  <text
+     x="240"
+     y="128"
+     font-family="DejaVu Sans"
+     font-size="14"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text3">Júlia corre mais rápido que Pedro</text>
+  <rect
+     x="30"
+     y="155"
+     width="420"
+     height="46"
+     rx="8"
+     fill="#EEF3F8"
+     stroke="#CBD5DF"
+     stroke-width="1.6"
+     id="rect4" />
+  <text
+     x="240"
+     y="183"
+     font-family="DejaVu Sans"
+     font-size="14"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text4">Rita corre mais rápido que Marcos</text>
+  <text
+     x="240"
+     y="222"
+     font-family="DejaVu Sans"
+     font-size="12"
+     fill="#E0701B"
+     text-anchor="middle"
+     id="text5">Júlia e Marcos aparecem em duas pistas cada um</text>
 </svg>

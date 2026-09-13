@@ -1,21 +1,175 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
-<rect width="480" height="220" fill="white"/>
-<text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Cadeia completa, do mais rápido para o mais lento</text>
-<rect x="20" y="70" width="90" height="60" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
-<text x="65" y="105" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Rita</text>
-<rect x="140" y="70" width="90" height="60" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
-<text x="185" y="105" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Marcos</text>
-<rect x="260" y="70" width="90" height="60" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
-<text x="305" y="105" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Júlia</text>
-<rect x="380" y="70" width="90" height="60" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
-<text x="425" y="105" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#14365A" text-anchor="middle">Pedro</text>
-<line x1="112" y1="100" x2="138" y2="100" stroke="#E0701B" stroke-width="2.6"/>
-<polygon points="138,100 130,95 130,105" fill="#E0701B"/>
-<line x1="232" y1="100" x2="258" y2="100" stroke="#E0701B" stroke-width="2.6"/>
-<polygon points="258,100 250,95 250,105" fill="#E0701B"/>
-<line x1="352" y1="100" x2="378" y2="100" stroke="#E0701B" stroke-width="2.6"/>
-<polygon points="378,100 370,95 370,105" fill="#E0701B"/>
-<text x="240" y="160" font-family="DejaVu Sans" font-size="12" fill="#14365A" text-anchor="middle">Cada seta liga quem é mais rápido a quem é mais lento</text>
-<text x="240" y="185" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#3E9B6B" text-anchor="middle">Rita, Marcos, Júlia, Pedro</text>
+<svg
+   viewBox="0 0 480 220"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="ord_ranking_resultado.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg" inkscape:export-filename="ord_ranking_resultado.png" inkscape:export-xdpi="160" inkscape:export-ydpi="160">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.3258252"
+     inkscape:cx="239.85062"
+     inkscape:cy="110.1201"
+     inkscape:window-width="1366"
+     inkscape:window-height="761"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <rect
+     width="480"
+     height="220"
+     fill="white"
+     id="rect1" />
+  <text
+     x="240"
+     y="22"
+     font-family="DejaVu Sans"
+     font-size="13"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text1">Cadeia completa, do mais rápido para o mais lento</text>
+  <rect
+     x="20"
+     y="70"
+     width="90"
+     height="60"
+     rx="10"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2"
+     id="rect2" />
+  <text
+     x="65"
+     y="105"
+     font-family="DejaVu Sans"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text2">Rita</text>
+  <rect
+     x="140"
+     y="70"
+     width="90"
+     height="60"
+     rx="10"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2"
+     id="rect3" />
+  <text
+     x="185"
+     y="105"
+     font-family="DejaVu Sans"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text3">Marcos</text>
+  <rect
+     x="260"
+     y="70"
+     width="90"
+     height="60"
+     rx="10"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2"
+     id="rect4" />
+  <text
+     x="305"
+     y="105"
+     font-family="DejaVu Sans"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text4">Júlia</text>
+  <rect
+     x="380"
+     y="70"
+     width="90"
+     height="60"
+     rx="10"
+     fill="#E2F2EA"
+     stroke="#3E9B6B"
+     stroke-width="2"
+     id="rect5" />
+  <text
+     x="425"
+     y="105"
+     font-family="DejaVu Sans"
+     font-size="14"
+     font-weight="bold"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text5">Pedro</text>
+  <line
+     x1="112"
+     y1="100"
+     x2="138"
+     y2="100"
+     stroke="#E0701B"
+     stroke-width="2.6"
+     id="line5" />
+  <polygon
+     points="138,100 130,95 130,105"
+     fill="#E0701B"
+     id="polygon5" />
+  <line
+     x1="232"
+     y1="100"
+     x2="258"
+     y2="100"
+     stroke="#E0701B"
+     stroke-width="2.6"
+     id="line6" />
+  <polygon
+     points="258,100 250,95 250,105"
+     fill="#E0701B"
+     id="polygon6" />
+  <line
+     x1="352"
+     y1="100"
+     x2="378"
+     y2="100"
+     stroke="#E0701B"
+     stroke-width="2.6"
+     id="line7" />
+  <polygon
+     points="378,100 370,95 370,105"
+     fill="#E0701B"
+     id="polygon7" />
+  <text
+     x="240"
+     y="160"
+     font-family="DejaVu Sans"
+     font-size="12"
+     fill="#14365A"
+     text-anchor="middle"
+     id="text7">Cada seta liga quem é mais rápido a quem é mais lento</text>
+  <text
+     x="240"
+     y="185"
+     font-family="DejaVu Sans"
+     font-size="13"
+     font-weight="bold"
+     fill="#3E9B6B"
+     text-anchor="middle"
+     id="text8">Rita, Marcos, Júlia, Pedro</text>
 </svg>

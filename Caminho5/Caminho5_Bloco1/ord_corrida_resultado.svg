@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:export-filename="ord_corrida_resultado.png" inkscape:export-xdpi="160" inkscape:export-ydpi="160">
 <rect width="480" height="220" fill="white"/>
 <text x="240" y="22" font-family="DejaVu Sans" font-size="13" font-weight="bold" fill="#14365A" text-anchor="middle">Pódio completo da corrida</text>
 <rect x="40" y="70" width="90" height="70" rx="10" fill="#E2F2EA" stroke="#3E9B6B" stroke-width="2"/>
